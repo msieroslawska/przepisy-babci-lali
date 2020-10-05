@@ -18,5 +18,9 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["react", "prettier"],
-  rules: {},
+  rules: {
+    "import/prefer-default-export": "off",
+    "react/prop-types": "off",
+    "react/no-unescaped-entities": "off",
+  },
 };
