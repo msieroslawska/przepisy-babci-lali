@@ -1,4 +1,6 @@
 {
   "arrowParens": "avoid",
-  "semi": false
+  "semi": true,
+  "useTabs": false,
+  "bracketSpacing": true
 }
