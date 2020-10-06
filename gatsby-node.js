@@ -12,6 +12,8 @@ const parseIntoPath = name => {
   return `recipes/${[processedFirstWord, ...processedRest].join('')}`;
 };
 
+const parseIntoImageSlug = name => `${name.split(" ").join("-")}`;
+
 exports.createPages = ({ actions: { createPage } }) => {
   const template = path.resolve('./src/components/recipeLayout.jsx');
 
@@ -22,6 +24,7 @@ exports.createPages = ({ actions: { createPage } }) => {
       context: {
         ingredientsList,
         instructions,
+        imageSlug: parseIntoImageSlug(name),
         name,
       },
     });

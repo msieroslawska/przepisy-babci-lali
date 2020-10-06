@@ -1,8 +1,15 @@
 import React from "react";
+import { graphql } from "gatsby";
+import styled from "styled-components";
+// import Img from "gatsby-image";
 
 import { PageLayout } from "./pageLayout";
 
-const getImageLink = pageName => `${pageName.split(" ").join("-")}.jpg`;
+const ImageWrapper = styled.div`
+  img {
+    width: 60vw;
+  }
+`;
 
 const renderIngredients = ingredients => (
   <ul>
@@ -13,16 +20,31 @@ const renderIngredients = ingredients => (
 const renderInstructions = instructions =>
   instructions.map(instruction => <p key={instruction}>{instruction}</p>);
 
-export default ({ pageContext: { ingredientsList, instructions, name } }) => {
-  const image = getImageLink(name);
-
+export default ({ data, pageContext: { ingredientsList, instructions, name } }) => {
   return (
     <PageLayout header={name}>
-      <p>{image}</p>
       {renderIngredients(ingredientsList)}
       {renderInstructions(instructions)}
-      <img src={image} alt={name} />
+      <ImageWrapper>
+        <img src={data.allFile.edges[0].node.publicURL} alt={name} />
+      </ImageWrapper>
     </PageLayout>
   );
 };
 
+export const query = graphql`
+  query($imageSlug: String!) {
+    allFile(
+      filter: {
+        sourceInstanceName: { eq: "assets" }
+        name: { eq: $imageSlug }
+      }
+    ) {
+      edges {
+        node {
+          publicURL
+        }
+      }
+    }
+  }
+`;
