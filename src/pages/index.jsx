@@ -3,9 +3,6 @@ import styled from "styled-components";
 
 import { PageLayout } from "../components/pageLayout";
 
-import babcia1 from '../../assets/babcia1.png';
-import babcia2 from '../../assets/babcia2.png';
-
 const PictureWrapper = styled.section`
   display: flex;
   justify-content: space-around;
@@ -24,11 +21,11 @@ const Home = () => (
   <PageLayout header="Przepisy babci Lali">
     <PictureWrapper>
       <Picture>
-        <img src={babcia1} alt="Babcia1" />
+        <img src="babcia-1.png" alt="Babcia1" />
       </Picture>
 
       <Picture>
-        <img src={babcia2} alt="Babcia2" />
+        <img src="babcia-2.png" alt="Babcia2" />
       </Picture>
     </PictureWrapper>
   </PageLayout>

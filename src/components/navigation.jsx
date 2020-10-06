@@ -16,12 +16,12 @@ const NavigationElement = styled.li`
 
 const links = [
   { to: "/", name: "Strona główna" },
-  { to: "/all", name: "Lista przepisów" }
+  { to: "/recipeList", name: "Lista przepisów" }
 ];
 
 const renderLinks = allLinks =>
   allLinks.map(l => (
-    <NavigationElement>
+    <NavigationElement key={l.name}>
       <Link to={l.to}>{l.name}</Link>
     </NavigationElement>
   ));
