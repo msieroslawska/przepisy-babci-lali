@@ -20,14 +20,22 @@ const renderIngredients = ingredients => (
 const renderInstructions = instructions =>
   instructions.map(instruction => <p key={instruction}>{instruction}</p>);
 
+const renderImage = (data, name) => data.allFile.edges && data.allFile.edges.length > 0
+  ? (
+    <ImageWrapper>
+      <img src={data.allFile.edges[0].node.publicURL} alt={name} />
+    </ImageWrapper>
+  )
+  : (
+    <div>Sad panda, there is no image :(</div>
+  );
+
 export default ({ data, pageContext: { ingredientsList, instructions, name } }) => {
   return (
     <PageLayout header={name}>
-      {renderIngredients(ingredientsList)}
-      {renderInstructions(instructions)}
-      <ImageWrapper>
-        <img src={data.allFile.edges[0].node.publicURL} alt={name} />
-      </ImageWrapper>
+      {ingredientsList.length > 0 && renderIngredients(ingredientsList)}
+      {instructions.length > 0 && renderInstructions(instructions)}
+      {renderImage(data, name)}
     </PageLayout>
   );
 };
