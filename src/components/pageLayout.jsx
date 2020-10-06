@@ -2,6 +2,7 @@ import React from "react";
 import styled, { createGlobalStyle } from "styled-components";
 
 import { Navigation } from "./navigation";
+import { Footer } from "./footer";
 
 const GlobalStyles = createGlobalStyle`
 * {
@@ -33,6 +34,7 @@ export const PageLayout = ({ children, header }) => (
       <Header>{header}</Header>
       {children}
       <Navigation />
+      <Footer />
     </PageWrapper>
   </>
 );
