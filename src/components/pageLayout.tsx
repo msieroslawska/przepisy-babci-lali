@@ -1,7 +1,6 @@
 import React from "react";
 import styled, { createGlobalStyle } from "styled-components";
 
-import { Navigation } from "./navigation";
 import { Footer } from "./footer";
 
 const GlobalStyles = createGlobalStyle`
@@ -16,7 +15,7 @@ const PageWrapper = styled.div`
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   background-color: lavenderblush;
   height: 100vh;
 `;
@@ -37,7 +36,6 @@ export const PageLayout: React.FC<Props> = ({ children, header }) => (
     <PageWrapper>
       <Header>{header}</Header>
       {children}
-      <Navigation />
       <Footer />
     </PageWrapper>
   </>

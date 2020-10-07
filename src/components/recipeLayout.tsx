@@ -11,10 +11,32 @@ import {
 import { IngredientsList } from "./ingredientsList";
 import { PageLayout } from "./pageLayout";
 
+const RecipeWrapper = styled.section`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+`;
+
+const TextWrapper = styled.section`
+  padding: 15px;
+  flex: 1 1 500px;
+  display: flex;
+  flex-direction: column;
+`;
+
 const ImageWrapper = styled.div`
+  flex: 0 1 700px;
+  align-self: center;
+
   img {
-    width: 60vw;
+    width: 100%;
   }
+`;
+
+const Instruction = styled.p``;
+
+const NoImage = styled.p`
+  align-self: center;
 `;
 
 const renderIngredientsChunk = (ingredients: IngredientChunk) => (
@@ -25,7 +47,9 @@ const renderIngredients = (allIngredients: IngredientChunk[]) =>
   allIngredients.map(renderIngredientsChunk);
 
 const renderInstructions = (instructions: string[]) =>
-  instructions.map(instruction => <p key={instruction}>{instruction}</p>);
+  instructions.map(instruction => (
+    <Instruction key={instruction}>{instruction}</Instruction>
+  ));
 
 const renderImage = (data: PublicURLQuery, name: string) =>
   data.allFile.edges && data.allFile.edges.length > 0 ? (
@@ -33,7 +57,7 @@ const renderImage = (data: PublicURLQuery, name: string) =>
       <img src={data.allFile.edges[0].node.publicURL} alt={name} />
     </ImageWrapper>
   ) : (
-    <div>Sad panda, there is no image :(</div>
+    <NoImage>Sad panda, there is no image :(</NoImage>
   );
 
 interface Props {
@@ -47,9 +71,13 @@ const RecipeLayout: React.FC<Props> = ({
 }) => {
   return (
     <PageLayout header={name}>
-      {ingredientsList.length > 0 && renderIngredients(ingredientsList)}
-      {instructions.length > 0 && renderInstructions(instructions)}
-      {renderImage(data, name)}
+      <RecipeWrapper>
+        <TextWrapper>
+          {ingredientsList.length > 0 && renderIngredients(ingredientsList)}
+          {instructions.length > 0 && renderInstructions(instructions)}
+        </TextWrapper>
+        {renderImage(data, name)}
+      </RecipeWrapper>
     </PageLayout>
   );
 };

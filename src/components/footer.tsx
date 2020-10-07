@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+
+import { Navigation } from "./navigation";
 import { FooterLink } from "../../types/links";
 
 const FooterWrapper = styled.ul`
@@ -30,5 +32,8 @@ const renderLinks = (allLinks: FooterLink[]) =>
   ));
 
 export const Footer: React.FC = () => (
-  <FooterWrapper>{renderLinks(links)}</FooterWrapper>
+  <div>
+    <Navigation />
+    <FooterWrapper>{renderLinks(links)}</FooterWrapper>
+  </div>
 );

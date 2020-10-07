@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
+
 import { GatsbyLink } from "../../types/links";
 
 const NavigationWrapper = styled.ul`
