@@ -3,6 +3,8 @@
 ## 🚀 TODO
 
 - [ ] Finish adding all recipes
+- [ ] Normalize recipe names for the file mapper to pick up all the pics
+- [ ] Make the recipe layout more versatile to be able to display more blocks
 - [ ] Somewhat... 🤷‍♀️ improve the styling
   - [ ] Mobile layout
 - [ ] Better image scaling (now they're too big!)

@@ -29,7 +29,6 @@ export const pageQuery = graphql`
         node {
           path
           context {
-            ingredientsList,
             name
           }
         }
