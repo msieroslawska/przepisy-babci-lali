@@ -11,6 +11,10 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Raleway', sans-serif;
   }
 
+  body {
+      background-color: lavenderblush;
+  }
+
   h1, h2, h3 {
     font-family: 'Bitter', serif;
   }
@@ -21,14 +25,21 @@ const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: lavenderblush;
   height: 100vh;
+  width: 70vw;
+  margin: 0 auto;
+`;
+
+const ContentWrapper = styled.section`
+  display: flex;
+  flex-direction: column;
 `;
 
 const Header = styled.h1`
   font-size: 2em;
   flex: 0 0 auto;
   text-align: center;
+  margin-top: 60px;
 `;
 
 interface Props {
@@ -39,8 +50,10 @@ export const PageLayout: React.FC<Props> = ({ children, header }) => (
   <>
     <GlobalStyles />
     <PageWrapper>
-      <Header>{header}</Header>
-      {children}
+      <ContentWrapper>
+        <Header>{header}</Header>
+        {children}
+      </ContentWrapper>
       <Footer />
     </PageWrapper>
   </>

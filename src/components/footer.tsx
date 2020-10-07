@@ -4,6 +4,14 @@ import styled from "styled-components";
 import { Navigation } from "./navigation";
 import { FooterLink } from "../../types/links";
 
+const BottomElement = styled.section`
+  flex: 0 0 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-top: 2px solid grey;
+`;
+
 const FooterWrapper = styled.ul`
   padding: 10px 0;
   display: flex;
@@ -32,8 +40,8 @@ const renderLinks = (allLinks: FooterLink[]) =>
   ));
 
 export const Footer: React.FC = () => (
-  <div>
+  <BottomElement>
     <Navigation />
     <FooterWrapper>{renderLinks(links)}</FooterWrapper>
-  </div>
+  </BottomElement>
 );
