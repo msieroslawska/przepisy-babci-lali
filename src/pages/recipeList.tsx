@@ -1,17 +1,23 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
+import { PathNode, PathQuery } from "../../types/graphQlQueries";
 
 import { PageLayout } from "../components/pageLayout";
 
-const filterNullNodes = edges => edges.filter(edge => edge.node.path.includes('recipes'));
+const filterNullNodes = (edges: PathNode[]) =>
+  edges.filter(edge => edge.node.path.includes("recipes"));
 
-const renderLink = ({ node: { context, path } }) => (
-  <li key={context.name}>
-    <Link to={path}>{context.name}</Link>
+const renderLink = ({ node: { context: { name }, path } }: PathNode) => (
+  <li key={name}>
+    <Link to={path}>{name}</Link>
   </li>
 );
 
-const RecipeList = ({ data }) => {
+interface Props {
+  data: PathQuery;
+}
+
+const RecipeList: React.FC<Props> = ({ data }) => {
   const validNodes = filterNullNodes(data.allSitePage.edges);
 
   return (

@@ -27,7 +27,11 @@ const Header = styled.h1`
   text-align: center;
 `;
 
-export const PageLayout = ({ children, header }) => (
+interface Props {
+  header: string;
+}
+
+export const PageLayout: React.FC<Props> = ({ children, header }) => (
   <>
     <GlobalStyles />
     <PageWrapper>

@@ -15,7 +15,7 @@ const parseIntoPath = name => {
 const parseIntoImageSlug = name => `${name.split(" ").join("-")}`;
 
 exports.createPages = ({ actions: { createPage } }) => {
-  const template = path.resolve('./src/components/recipeLayout.jsx');
+  const template = path.resolve('./src/components/recipeLayout.tsx');
 
   recipes.forEach(({ ingredientsList, instructions, name }) => {
     createPage({

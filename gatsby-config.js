@@ -1,12 +1,13 @@
 module.exports = {
   plugins: [
-    `gatsby-plugin-styled-components`,
+    "gatsby-plugin-typescript",
+    "gatsby-plugin-styled-components",
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: `assets`,
+        name: "assets",
         path: `${__dirname}/assets/`,
       },
-    }
+    },
   ],
 };

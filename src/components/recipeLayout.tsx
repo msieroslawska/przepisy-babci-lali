@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import styled from "styled-components";
 // import Img from "gatsby-image";
+import { Ingredient, PublicURLQuery, Recipe } from "../../types/graphQlQueries";
 
 import { PageLayout } from "./pageLayout";
 
@@ -11,32 +12,36 @@ const ImageWrapper = styled.div`
   }
 `;
 
-const renderIngredients = ingredients => (
-  <ul>
-    {ingredients.map(ingredient => <li key={ingredient}>{ingredient}</li>)}
-  </ul>
-);
+// const renderIngredients = (ingredients: Ingredient[]) => (
+//   <ul>
+//     {ingredients.map(ingredient => <li key={ingredient}>{ingredient}</li>)}
+//   </ul>
+// );
 
-const parseIngredientsList = ingredients => {
+const parseIngredientsList = (ingredients: Ingredient[]) => {
   ingredients.map(ingredientsObj => {
     console.log(ingredientsObj);
   });
 };
 
-const renderInstructions = instructions =>
+const renderInstructions = (instructions: string[]) =>
   instructions.map(instruction => <p key={instruction}>{instruction}</p>);
 
-const renderImage = (data, name) => data.allFile.edges && data.allFile.edges.length > 0
-  ? (
+const renderImage = (data: PublicURLQuery, name: string) =>
+  data.allFile.edges && data.allFile.edges.length > 0 ? (
     <ImageWrapper>
       <img src={data.allFile.edges[0].node.publicURL} alt={name} />
     </ImageWrapper>
-  )
-  : (
+  ) : (
     <div>Sad panda, there is no image :(</div>
   );
 
-export default ({ data, pageContext: { ingredientsList, instructions, name } }) => {
+interface Props {
+  data: PublicURLQuery;
+  pageContext: Recipe;
+}
+
+const RecipeLayout: React.FC<Props> = ({ data, pageContext: { ingredientsList, instructions, name } }) => {
   return (
     <PageLayout header={name}>
       {ingredientsList.length > 0 && parseIngredientsList(ingredientsList)}
@@ -45,6 +50,8 @@ export default ({ data, pageContext: { ingredientsList, instructions, name } }) 
     </PageLayout>
   );
 };
+
+export default RecipeLayout;
 
 export const query = graphql`
   query($imageSlug: String!) {

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
+import { GatsbyLink } from '../../types/links';
 
 const NavigationWrapper = styled.ul`
   padding: 10px 0;
@@ -14,19 +15,19 @@ const NavigationElement = styled.li`
   margin: 0 5px;
 `;
 
-const links = [
+const links: GatsbyLink[] = [
   { to: "/", name: "Strona główna" },
-  { to: "/recipeList", name: "Lista przepisów" }
+  { to: "/recipeList", name: "Lista przepisów" },
 ];
 
-const renderLinks = allLinks =>
+const renderLinks = (allLinks: GatsbyLink[]) =>
   allLinks.map(l => (
     <NavigationElement key={l.name}>
       <Link to={l.to}>{l.name}</Link>
     </NavigationElement>
   ));
 
-export const Navigation = () => (
+export const Navigation: React.FC = () => (
   <NavigationWrapper>
     {renderLinks(links)}
   </NavigationWrapper>

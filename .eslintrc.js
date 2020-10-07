@@ -3,10 +3,12 @@ module.exports = {
     browser: true,
     es2021: true,
   },
+  parser: "@typescript-eslint/parser",
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
-    "airbnb",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
     "prettier",
     "prettier/react",
   ],
@@ -17,7 +19,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: "module",
   },
-  plugins: ["react", "prettier"],
+  plugins: ["react", "@typescript-eslint", "prettier"],
   rules: {
     "import/prefer-default-export": "off",
     "react/prop-types": "off",

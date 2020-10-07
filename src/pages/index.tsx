@@ -17,7 +17,7 @@ const Picture = styled.div`
   }
 `;
 
-const Home = () => (
+const Home: React.FC = () => (
   <PageLayout header="Przepisy babci Lali">
     <PictureWrapper>
       <Picture>
