@@ -25,12 +25,12 @@ export interface PathQuery {
   }
 }
 
-export interface Ingredient {
-  [key: string]: string;
+export interface IngredientChunk {
+  [key: string]: string[];
 }
 
 export interface Recipe {
   name: string;
   instructions: string[];
-  ingredientsList: Ingredient[];
+  ingredientsList: IngredientChunk[];
 }

@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import styled from "styled-components";
 // import Img from "gatsby-image";
-import { Ingredient, PublicURLQuery, Recipe } from "../../types/graphQlQueries";
+import { IngredientChunk, PublicURLQuery, Recipe } from "../../types/graphQlQueries";
 
 import { PageLayout } from "./pageLayout";
 
@@ -12,17 +12,17 @@ const ImageWrapper = styled.div`
   }
 `;
 
-// const renderIngredients = (ingredients: Ingredient[]) => (
-//   <ul>
-//     {ingredients.map(ingredient => <li key={ingredient}>{ingredient}</li>)}
-//   </ul>
-// );
+const renderIngredientsChunk = (ingredients: IngredientChunk) =>
+  Object.entries(ingredients).map(([chunkName, ingredients]) => {
+      return (
+        <>
+          <p key={chunkName}>{chunkName}</p>
+      <ul>{ingredients.map(ingredient => (<li key={`${chunkName}_${ingredient}`}>{ingredient}</li>))}</ul>
+        </>
+      );
+    });
 
-const parseIngredientsList = (ingredients: Ingredient[]) => {
-  ingredients.map(ingredientsObj => {
-    console.log(ingredientsObj);
-  });
-};
+const renderIngredients = (allIngredients: IngredientChunk[]) => allIngredients.map(renderIngredientsChunk);
 
 const renderInstructions = (instructions: string[]) =>
   instructions.map(instruction => <p key={instruction}>{instruction}</p>);
@@ -44,7 +44,7 @@ interface Props {
 const RecipeLayout: React.FC<Props> = ({ data, pageContext: { ingredientsList, instructions, name } }) => {
   return (
     <PageLayout header={name}>
-      {ingredientsList.length > 0 && parseIngredientsList(ingredientsList)}
+      {ingredientsList.length > 0 && renderIngredients(ingredientsList)}
       {instructions.length > 0 && renderInstructions(instructions)}
       {renderImage(data, name)}
     </PageLayout>
