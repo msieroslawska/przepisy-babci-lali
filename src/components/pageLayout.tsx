@@ -4,11 +4,16 @@ import styled, { createGlobalStyle } from "styled-components";
 import { Footer } from "./footer";
 
 const GlobalStyles = createGlobalStyle`
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Bitter', serif;
+  }
 `;
 
 const PageWrapper = styled.div`
