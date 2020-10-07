@@ -1,6 +1,6 @@
 export interface FooterLink {
-    href: string;
-    name: string;
+  href: string;
+  name: string;
 }
 
 export interface GatsbyLink {

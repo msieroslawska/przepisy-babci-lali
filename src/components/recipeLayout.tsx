@@ -2,8 +2,13 @@ import React from "react";
 import { graphql } from "gatsby";
 import styled from "styled-components";
 // import Img from "gatsby-image";
-import { IngredientChunk, PublicURLQuery, Recipe } from "../../types/graphQlQueries";
+import {
+  IngredientChunk,
+  PublicURLQuery,
+  Recipe,
+} from "../../types/graphQlQueries";
 
+import { IngredientsList } from "./ingredientsList";
 import { PageLayout } from "./pageLayout";
 
 const ImageWrapper = styled.div`
@@ -12,17 +17,12 @@ const ImageWrapper = styled.div`
   }
 `;
 
-const renderIngredientsChunk = (ingredients: IngredientChunk) =>
-  Object.entries(ingredients).map(([chunkName, ingredients]) => {
-      return (
-        <>
-          <p key={chunkName}>{chunkName}</p>
-      <ul>{ingredients.map(ingredient => (<li key={`${chunkName}_${ingredient}`}>{ingredient}</li>))}</ul>
-        </>
-      );
-    });
+const renderIngredientsChunk = (ingredients: IngredientChunk) => (
+  <IngredientsList ingredientsChunk={ingredients} />
+);
 
-const renderIngredients = (allIngredients: IngredientChunk[]) => allIngredients.map(renderIngredientsChunk);
+const renderIngredients = (allIngredients: IngredientChunk[]) =>
+  allIngredients.map(renderIngredientsChunk);
 
 const renderInstructions = (instructions: string[]) =>
   instructions.map(instruction => <p key={instruction}>{instruction}</p>);
@@ -41,7 +41,10 @@ interface Props {
   pageContext: Recipe;
 }
 
-const RecipeLayout: React.FC<Props> = ({ data, pageContext: { ingredientsList, instructions, name } }) => {
+const RecipeLayout: React.FC<Props> = ({
+  data,
+  pageContext: { ingredientsList, instructions, name },
+}) => {
   return (
     <PageLayout header={name}>
       {ingredientsList.length > 0 && renderIngredients(ingredientsList)}
@@ -56,10 +59,7 @@ export default RecipeLayout;
 export const query = graphql`
   query($imageSlug: String!) {
     allFile(
-      filter: {
-        sourceInstanceName: { eq: "assets" }
-        name: { eq: $imageSlug }
-      }
+      filter: { sourceInstanceName: { eq: "assets" }, name: { eq: $imageSlug } }
     ) {
       edges {
         node {

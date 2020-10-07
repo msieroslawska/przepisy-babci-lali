@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { FooterLink } from '../../types/links';
+import { FooterLink } from "../../types/links";
 
 const FooterWrapper = styled.ul`
   padding: 10px 0;
@@ -29,4 +29,6 @@ const renderLinks = (allLinks: FooterLink[]) =>
     </FooterElement>
   ));
 
-export const Footer: React.FC = () => <FooterWrapper>{renderLinks(links)}</FooterWrapper>;
+export const Footer: React.FC = () => (
+  <FooterWrapper>{renderLinks(links)}</FooterWrapper>
+);

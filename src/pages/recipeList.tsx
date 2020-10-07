@@ -7,7 +7,12 @@ import { PageLayout } from "../components/pageLayout";
 const filterNullNodes = (edges: PathNode[]) =>
   edges.filter(edge => edge.node.path.includes("recipes"));
 
-const renderLink = ({ node: { context: { name }, path } }: PathNode) => (
+const renderLink = ({
+  node: {
+    context: { name },
+    path,
+  },
+}: PathNode) => (
   <li key={name}>
     <Link to={path}>{name}</Link>
   </li>
@@ -24,7 +29,8 @@ const RecipeList: React.FC<Props> = ({ data }) => {
     <PageLayout header="Wszystkie przepisy">
       <ul>{validNodes.map(renderLink)}</ul>
     </PageLayout>
-  );};
+  );
+};
 
 export default RecipeList;
 

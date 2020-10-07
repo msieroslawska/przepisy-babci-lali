@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    node: true,
   },
   parser: "@typescript-eslint/parser",
   extends: [
@@ -24,5 +25,7 @@ module.exports = {
     "import/prefer-default-export": "off",
     "react/prop-types": "off",
     "react/no-unescaped-entities": "off",
+    "@typescript-eslint/no-var-requires": "off",
   },
+  ignorePatterns: ["**/build/*", "**/public/*", "**/node_modules/*"],
 };

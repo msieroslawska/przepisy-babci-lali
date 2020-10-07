@@ -1,13 +1,13 @@
 interface URLNode {
   node: {
     publicURL: string;
-  }
+  };
 }
 
 export interface PublicURLQuery {
   allFile: {
     edges: URLNode[];
-  }
+  };
 }
 
 export interface PathNode {
@@ -16,13 +16,13 @@ export interface PathNode {
       name: string;
     };
     path: string;
-  }
+  };
 }
 
 export interface PathQuery {
   allSitePage: {
     edges: PathNode[];
-  }
+  };
 }
 
 export interface IngredientChunk {

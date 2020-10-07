@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
-import { GatsbyLink } from '../../types/links';
+import { GatsbyLink } from "../../types/links";
 
 const NavigationWrapper = styled.ul`
   padding: 10px 0;
@@ -28,7 +28,5 @@ const renderLinks = (allLinks: GatsbyLink[]) =>
   ));
 
 export const Navigation: React.FC = () => (
-  <NavigationWrapper>
-    {renderLinks(links)}
-  </NavigationWrapper>
+  <NavigationWrapper>{renderLinks(links)}</NavigationWrapper>
 );
