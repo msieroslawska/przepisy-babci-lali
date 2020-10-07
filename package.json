@@ -12,13 +12,16 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "prettier": "prettier -w .",
-    "test": "eslint \"**/*.{js,jsx,ts,tsx}\""
+    "prettier:check": "prettier -c .",
+    "prettier:fix": "prettier -w .",
+    "test:check": "eslint \"**/*.{js,jsx,ts,tsx}\"",
+    "test:fix": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix",
+    "style:check": "npm run prettier:check && npm run test:check",
+    "style:fix": "npm run prettier:fix && npm run test:fix"
   },
     "husky": {
     "hooks": {
-      "pre-commit": "npm run prettier && npm run test",
-      "pre-push": "npm run prettier && npm run test"
+      "pre-commit": "npm run style:check"
     }
   },
   "dependencies": {
