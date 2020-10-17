@@ -33,6 +33,7 @@ const PageWrapper = styled.div`
 const ContentWrapper = styled.section`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 `;
 
 const Header = styled.h1`
