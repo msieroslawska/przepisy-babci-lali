@@ -341,5 +341,580 @@
       "Spód: Masło utrzeć z cukrem, żółtkami i jajkami. Dodać pozostałe składniki. Podpiec.",
       "Masa: Ubić pianę z białek i cukru pudru. Mak odcedzić i zaparzyć. Gotować w mleku przez 20 minut. Przekręcić. [Dodać resztę składników.]"
     ]
+  },
+  {
+    "name": "Mazurek kokosowy",
+    "ingredientsList": [
+      {
+        "Składniki": [
+          "250 g kokosu",
+          "0,33 szklanki cukru",
+          "0,5 kostki masła",
+          "3 białka, ubić",
+          "0,5 szklanki cukru"
+        ]
+      }
+    ],
+    "instructions": ["Kokos, cukier i masło przesmażyć, dodać cukier i białka."]
+  },
+  {
+    "name": "Mazurek orzechowy z miodem",
+    "ingredientsList": [
+      {
+        "Składniki": [
+          "250 g orzechów",
+          "250 g cukru pudru",
+          "3 żółtka",
+          "100 g masła",
+          "100 g mąki",
+          "sok z cytryny",
+          "wanilia",
+          "wafel",
+          "piana z 2 białek",
+          "150 g cukru pudru"
+        ]
+      }
+    ],
+    "instructions": [
+      "Masło utrzeć z cukrem, dodać żółtka, orzechy, mąkę, sok z cytyny i wanilię.",
+      "Nałożyć na wafel, przykryć pianą.",
+      "Zapiec w średnio gorącym piekarniku przez 30 minut."
+    ]
+  },
+  {
+    "name": "Mazurek ze śliwek",
+    "ingredientsList": [
+      {
+        "Składniki": [
+          "400 g suszonych śliwek",
+          "400 g cukru",
+          "125 ml wody",
+          "0,5 łyżki octu 6%",
+          "cytryna (otrzeć skórkę, usunąć białe błony i pokroić w kostkę)",
+          "200 g płatków migdałów",
+          "2 wafle"
+        ]
+      }
+    ],
+    "instructions": [
+      "[Z curku, wody i octu] ugotować syrop do nitki, dodać pokrojone w paski śliwki, migdały, skórkę z cytryny i pokrojoną cytrynę.",
+      "Smażyć, mieszając do zgęstnienia.",
+      "Położyć na wafel, przykryć drugim, przewałkować wałkiem.",
+      "Polukrować lukrem cytrynowym."
+    ]
+  },
+  {
+    "name": "Orzechowiec",
+    "ingredientsList": [
+      {
+        "Składniki": [
+          "0,5 kg mąki",
+          "150 g orzechów",
+          "3 jajka",
+          "200 g roztopionego miodu",
+          "150 g cukru",
+          "łyżeczka sody"
+        ]
+      },
+      {
+        "Masa": [
+          "150 g orzechów",
+          "szklanka wrzącego mleka",
+          "0,5 kostki masła",
+          "100 g cukru"
+        ]
+      }
+    ],
+    "instructions": [
+      "Zarobić ciasto, upiec 3 placki.",
+      "Wszystkie składniki [masy] wymieszać, ostygniętą masą posmarować placki. Polukrować białym lukrem."
+    ]
+  },
+  {
+    "name": "Piernik",
+    "ingredientsList": [
+      {
+        "Składniki": [
+          "400 g mąki",
+          "4 jajka (ubić pianę z białek)",
+          "1 szklanka cukru pudru",
+          "1 szklanka miodu",
+          "100 g masła",
+          "przyprawy korzenne",
+          "łyżeczka proszku"
+        ]
+      }
+    ],
+    "instructions": [
+      "Wszystko bez piany i mąki razem utrzeć, dodać pozostałe składniki.",
+      "Piec w średnio nagrzanym piekarniku, nie otwierać. Po 30 minutach podnieść temperaturę."
+    ]
+  },
+  {
+    "name": "Piernik Haliny",
+    "ingredientsList": [
+      {
+        "Składniki": [
+          "2 łyżki cukru",
+          "1/4 szklanki wody",
+          "300 g miodu",
+          "200 g masła",
+          "5 jaj",
+          "0,5 kg mąki",
+          "proszek do pieczenia",
+          "bakalie"
+        ]
+      }
+    ],
+    "instructions": [
+      "Z cukru zrobić karmel, rozpuścić w wodzie. Dodać miód i masło, zagotować.",
+      "Do schłodzonej masy dodać jaja. Ukręcić, dodać mąkę, proszek i bakalie. Bardzo dobrze wyrobić (aż do pojawienia się pęcherzyków).",
+      "Piec 2,5 h w średnio ciepłym piekarniku."
+    ]
+  },
+  {
+    "name": "Pizza",
+    "ingredientsList": [
+      {
+        "Składniki": [
+          "2 szklanki mąki",
+          "40 g drożdży",
+          "6 łyżek oleju",
+          "0,5 łyżeczki soli",
+          "1 łyżeczka cukru"
+        ]
+      }
+    ],
+    "instructions": [
+      "Drożdże rozprowadzić w 0,5 szklanki wody, zostawić zaczyn do wyrośnięcia.",
+      "Dodać resztę składników. Ciasto rozprowadzić na blachę, nakłuć, posmarować keczupem, dodać inne składniki.",
+      "Piec do 30 minut w 220 st."
+    ]
+  },
+  {
+    "name": "Placek kruchy z marmoladą",
+    "ingredientsList": [
+      {
+        "Składniki": [
+          "5 żółtek",
+          "250 g cukru",
+          "250 g margaryny",
+          "250 g mąki",
+          "2 łyżeczki proszku",
+          "5 białek - ubić pianę"
+        ]
+      }
+    ],
+    "instructions": [
+      "Utrzeć żółtka, cukier i margarynę. Dodać pozostałe składniki (poza białkami), podzielić ciasto na pół. Jedną część rozwałkować, rozłożyć na blasze, posmarować marmoladą. Do drugiej częsci ciasta dodać pianę z białek, rozłożyć na marmoladzie. Po upieczeniu posypać cukrem pudrem."
+    ]
+  },
+  {
+    "name": "Placek z jabłek",
+    "ingredientsList": [
+      {
+        "Składniki": [
+          "1,5 kostki masła",
+          "0,5 kg mąki",
+          "2 żółtka surowe + 2 ugotowane",
+          "180 g cukru pudru",
+          "łyżeczka soku cytrynowego",
+          "ok. 2 kg uduszonych jabłek"
+        ]
+      }
+    ],
+    "instructions": [
+      "Wszystkie składniki oprócz jabłek posiekać razem i zagnieść. Podzielić na dwie części, podpiec jedną część ciasta. Wyłożyć jabłka, na to drugą część ciasta. Piec około 30 minut. Posypać cukrem pudrem."
+    ]
+  },
+  {
+    "name": "Rogaliki orzechowe",
+    "ingredientsList": [
+      {
+        "Składniki": [
+          "200 g masła",
+          "300 g mąki",
+          "100 g cukru pudru",
+          "100 g orzechów włoskich albo migdałów",
+          "2 żółtka",
+          "wanilia"
+        ]
+      }
+    ],
+    "instructions": [
+      "Masło, mąkę i cukier rozdrobnić widelcem i szybko połączyć z resztą składników. Włożyć do lodówki."
+    ]
+  },
+  {
+    "name": "Rogaliki półfrancuskie",
+    "ingredientsList": [
+      {
+        "Składniki": [
+          "0,5 kg mąki",
+          "1 szklanka śmietany",
+          "1 kostka margaryny",
+          "50 g drożdży",
+          "sól"
+        ]
+      }
+    ],
+    "instructions": ["[Drożdże i sól] / [Wszystko] na 15 minut do zimnej wody."]
+  },
+  {
+    "name": "Sernik gotowany",
+    "ingredientsList": [
+      {
+        "Spód": [
+          "0,5 kg mąki",
+          "150 g tłuszczu",
+          "150 g cukru pudru",
+          "1 żółtko",
+          "1 jajko albo 1 łyżka śmietany",
+          "łyżeczka proszku"
+        ]
+      },
+      {
+        "Ser": [
+          "1 kg sera (zmielić)",
+          "200 g tłuszczu",
+          "2 jajka",
+          "2 łyżki mleka (jeżeli ser jest suchy)",
+          "wanilia",
+          "łyżka mąki ziemniaczanej"
+        ]
+      }
+    ],
+    "instructions": [
+      "Masę serową gotować przez 20 minut. Zagnieść ciasto, upiec 2 krążki. Na gorący spód wlać ser, przycisnąć drugim krążkiem. Na drugi dzień polukrować."
+    ]
+  },
+  {
+    "name": "Sernik kakaowy",
+    "ingredientsList": [
+      {
+        "Ciasto": [
+          "150 g mąki",
+          "100 g cukru pudru",
+          "100 g masła",
+          "łyżka kakao"
+        ]
+      },
+      {
+        "Ser": [
+          "500 g sera",
+          "150 g masła",
+          "5 jaj",
+          "200 g cukru",
+          "płaska łyżeczka proszku",
+          "wanilia"
+        ]
+      }
+    ],
+    "instructions": [
+      "Utrzeć jaja z cukrem. Zagnieść wszystko widelcem, ochłodzić w lodówce. Połowę ciasta zetrzeć na tarce na blachę, nałożyć ser i resztę ciasta. Piec w pomad 200 st."
+    ]
+  },
+  {
+    "name": "Sernik z kokosem",
+    "ingredientsList": [
+      {
+        "Ciasto": [
+          "1,5 szklanki mąki",
+          "2 żółtka",
+          "0,5 kostki margaryny",
+          "2 łyżki cukru",
+          "łyżeczka proszku"
+        ]
+      },
+      {
+        "Ser": [
+          "750 g sera (zmielić)",
+          "3 żółtka",
+          "0,75 szklanki cukru",
+          "2 łyżki oleju",
+          "1 budyń śmietankowy lub waniliowy",
+          "wanilia",
+          "0,5 l mleka"
+        ]
+      },
+      {
+        "Piana": ["2 białka", "5 łyżek cukru"]
+      }
+    ],
+    "instructions": [
+      "Ciasto: Zagnieść, rozsmarować na blasze.",
+      "Ser zmiksować z resztą składników i wylać na ciasto. Piec w 200st. ok. 20 minut.",
+      "Ubić pianę, wyłożyć na ciasto. Posypać gęsto kokosem. Piec około 30 minut (do zrumienienia)."
+    ]
+  },
+  {
+    "name": "Szyszki",
+    "ingredientsList": [
+      {
+        "Składniki": [
+          "200 g krówek",
+          "200 g toffi",
+          "200 g masła",
+          "2 łyżki kakao",
+          "woreczek preparowanego ryżu"
+        ]
+      }
+    ],
+    "instructions": [
+      "Krówki, toffi i masło zagotować, aż zrobi się jednolita masa. Dodać kakao i ryż, formować szyszki."
+    ]
+  },
+  {
+    "name": "Słone paluszki",
+    "ingredientsList": [
+      {
+        "Składniki": [
+          "250 g margaryny",
+          "litr mąki [???]",
+          "6 żółtek",
+          "100 g drożdży",
+          "łyżeczka soli",
+          "1 szklanka ciepłego mleka",
+          "jajko",
+          "kminek"
+        ]
+      }
+    ],
+    "instructions": [
+      "Margarynę rozdrobnić, potem zarobić z mąką, żółtkami, drożdżami zasypanymi solą i mlekiem. Formować paluszki, posmarować jajkiem i posypać kminkiem. Zostawić do wyrośnięcia."
+    ]
+  },
+  {
+    "name": "Tort - placki i krem",
+    "ingredientsList": [
+      {
+        "Placki, wersja 1": [
+          "200 g mąki pszennej",
+          "100 g mąki ziemniaczanej",
+          "250 g masła",
+          "6 jajek",
+          "250 g cukru",
+          "czubata łyżeczka proszku"
+        ]
+      },
+      {
+        "Placki, wersja 2": [
+          "200 g masła",
+          "8 łyżek cukru",
+          "szklanka mąki",
+          "3 jaja",
+          "3 łyżki śmietany",
+          "6 łyżek rumu"
+        ]
+      },
+      {
+        "Krem": [
+          "250 g masła",
+          "250 g cukru pudru",
+          "100 g twarożku",
+          "0,5 szkl. kakao instant"
+        ]
+      }
+    ],
+    "instructions": [
+      "Placki: Utrzeć żółtka z cukrem, dodać miękkie masło, utrzeć, dodać pianę z mąką. Piec po 3 łyżki ciasta - 10 minut w 220st.",
+      "Kakao rozpuścić w 3 łyżkach gorącej wody. Zimne dodać do masła utartego z cukrem i twarożkiem."
+    ]
+  },
+  {
+    "name": "Tort Fedora",
+    "ingredientsList": [
+      {
+        "Masa czekoladowa": [
+          "400 g cukru",
+          "szklanka wody",
+          "0,5 łyżki octu 6%",
+          "400 g masła",
+          "50 g kakao",
+          "wanilia",
+          "żółtko"
+        ]
+      },
+      {
+        "Masa orzechowa": [
+          "100 g orzechów włoskich",
+          "50 g kaszki manny",
+          "150 g cukru pudru",
+          "125 ml mleka",
+          "wanilia",
+          "szczypta soli"
+        ]
+      },
+      {
+        "Plus": ["3 okrągłe wafle"]
+      }
+    ],
+    "instructions": [
+      "Masa czekoladowa: [Cukier, wodę i ocet] ugotować do nitki. Dodać kakao, rozmieszać. Dodawać masło, ucierać. Do letniej [masy] dodać żółtko, ucierać. Postawić w zimne miejsce, często mieszać.",
+      "Masa orzechowa: Mannę rozrobić z mlekiem, ostudzić, dodać resztę składników.",
+      "Wafel posmarować połową masy czekoladowej, przykryć drugim, przycisnąć, nałożyć masę orzechową, przykryć waflem. Na wierzch nałożyć resztę [masy] czekoladowej, rozsmarować, przybrać orzeszkami."
+    ]
+  },
+  {
+    "name": "Tort kokosowy niepieczony",
+    "ingredientsList": [
+      {
+        "Składniki": [
+          "5 jajek",
+          "0,5 kg cukru",
+          "5 paczek biszkoptów",
+          "200 g kokosu",
+          "2 łyżki kakao",
+          "0,5 kg masła"
+        ]
+      }
+    ],
+    "instructions": [
+      "Kokos zalać osłodzonym wrzątkiem (do przykrycia), chwilę podgrzewać. Na parze ubić jaja z resztą cukru, połączyć z masłem, wystudzoną masą kokosową i zmielonymi biszkoptami. Podzielić na 3 części, do 2 dodać rozmieszane w gorącym mleku kakao. Na wafel położyć masę czekoladową + białą + czekoladową, posypać tartą czekoladą."
+    ]
+  },
+  {
+    "name": "Tort makowy",
+    "ingredientsList": [
+      {
+        "Składniki": [
+          "12 jajek -piana",
+          "400 g cukru",
+          "0,5 kg mąki",
+          "zapach migdałowy"
+        ]
+      }
+    ],
+    "instructions": [""]
+  },
+  {
+    "name": "Tort Sachera",
+    "ingredientsList": [
+      {
+        "Wersja 1": [
+          "150 g czekolady albo 100 g kakao",
+          "łyżka cukru pudru",
+          "2 łyżki śmietanki",
+          "150 g masła",
+          "150 g cukru",
+          "150 g mąki",
+          "6 jajek -piana"
+        ]
+      },
+      {
+        "Polewa do wersji 1": [
+          "200 g cukru",
+          "łyżka masła",
+          "50 g kakao",
+          "3 łyżki mleka"
+        ]
+      },
+      {
+        "Wersja 2": [
+          "180 g czekolady",
+          "180 g masła",
+          "180 g cukru",
+          "180 g cukru",
+          "8 jaj"
+        ]
+      },
+      {
+        "Pomada czekoladowa": [
+          "100 g czekolady",
+          "100 g cukru pidru",
+          "0,5 szklanki śmietanki"
+        ]
+      }
+    ],
+    "instructions": [
+      "Wersja 1: Utrzeć, piec w średnio nagrzanym piekarniku.",
+      "Wersja 2: Po upieczeniu posmarować marmoladą morelową i polać pomadą czekoladową"
+    ]
+  },
+  {
+    "name": "Tort Wiesi",
+    "ingredientsList": [
+      {
+        "Ciasto": [
+          "300 g migdałów",
+          "100 g orzechów",
+          "14 jaj",
+          "0,75 szklanki bułki tartej",
+          "1,5 szklanki cukru",
+          "olejek migdałowy"
+        ]
+      },
+      {
+        "Masa": [
+          "1,5 szklanki mleka",
+          "1 łyżka mąki",
+          "2 łyżki kokosu",
+          "400 g masła",
+          "1,5 szklanki cukru pudru"
+        ]
+      }
+    ],
+    "instructions": [
+      "Ciasto: Żółtka utrzeć z cukrem, dodać pianę z 10 białek i resztę składników. Piec w średnio wygrzanym piekarniku przez około godzinę. Przez pierwsze 30 minut nie zaglądać.",
+      "Masa: Utrzeć masło z cukrem pudrem, dodawać zimną \"zaprawę\"."
+    ]
+  },
+  {
+    "name": "Masa do wafli",
+    "ingredientsList": [
+      {
+        "Składniki": [
+          "8 łyżek mleka",
+          "1 szklanka cukru",
+          "2 czubate łyżki kakao"
+        ]
+      }
+    ],
+    "instructions": [
+      "[Wszystko] zagotować, zestawić [z ognia], dodać 2 czubate łyżki mąki, zagotować.",
+      "Zestawić [z ognia], dodać kostkę masła, przekładać."
+    ]
+  },
+  {
+    "name": "Masa figowa do wafli",
+    "ingredientsList": [
+      {
+        "Składniki": [
+          "600 g fig",
+          "200 g zmielonych orzeczhów",
+          "300 g cukru",
+          "szklanka wody",
+          "sok z cytryny"
+        ]
+      }
+    ],
+    "instructions": [
+      "Z cukru i wody ugotować syrop do nitki",
+      "Zmieszać z resztą składników."
+    ]
+  },
+  {
+    "name": "Orzechowiec 2",
+    "ingredientsList": [
+      {
+        "Ciasto": [
+          "500 g mąki",
+          "200 g cukru",
+          "200 g masła",
+          "2 jajka",
+          "2 łyżki miodu",
+          "2 łyżki mleka"
+        ]
+      },
+      {
+        "Masa": [
+          "300 g krojonych orzechów",
+          "100 g cukru",
+          "0,5 kostki masła",
+          "2 łyżki miodu"
+        ]
+      }
+    ],
+    "instructions": ["Usmażyć składniki masy.", "Przełożyć masą kawową."]
   }
 ]

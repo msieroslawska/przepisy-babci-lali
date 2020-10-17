@@ -5,14 +5,12 @@ import { PathNode, PathQuery } from "../../types/graphQlQueries";
 import { PageLayout } from "../components/pageLayout";
 import styled from "styled-components";
 
-const RecipeList = styled.ul`
+const RecipeList = styled.ol`
   padding: 15px;
   text-align: center;
 `;
 
-const RecipeLink = styled.li`
-  list-style: none;
-`;
+const RecipeLink = styled.li``;
 
 const filterNullNodes = (edges: PathNode[]) =>
   edges.filter(edge => edge.node.path.includes("recipes"));
