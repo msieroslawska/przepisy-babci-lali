@@ -12,7 +12,20 @@ const parseIntoPath = name => {
   return `recipes/${[processedFirstWord, ...processedRest].join("")}`;
 };
 
-const parseIntoImageSlug = name => `${name.split(" ").join("-")}`;
+const parseIntoImageSlug = name => {
+  const normalised = name
+    .replace(/[ą]/gi, "a")
+    .replace(/[ć]/gi, "c")
+    .replace(/[ę]/gi, "e")
+    .replace(/[ł]/gi, "l")
+    .replace(/[ń]/gi, "n")
+    .replace(/[ó]/gi, "o")
+    .replace(/[ś]/gi, "s")
+    .replace(/[żź]/gi, "z");
+  const capitalised =
+    normalised.charAt(0).toUpperCase() + normalised.slice(1).toLowerCase();
+  return capitalised.split(" ").join("-");
+};
 
 exports.createPages = ({ actions: { createPage } }) => {
   const template = path.resolve("./src/components/recipeLayout.tsx");

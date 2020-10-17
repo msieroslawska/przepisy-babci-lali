@@ -3,7 +3,8 @@
 ## 🚀 TODO
 
 - [ ] Finish adding all recipes
-- [ ] Normalize recipe names for the file mapper to pick up all the pics
+- [x] Normalize recipe names for the file mapper to pick up all the pics
+  - [ ] Think about another data structure to keep the recipes... JSON is too simple.
 - [ ] Make the recipe layout more versatile to be able to display more blocks
 - [ ] Somewhat... 🤷‍♀️ improve the styling
   - [ ] Mobile layout
