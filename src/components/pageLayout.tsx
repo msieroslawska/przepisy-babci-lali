@@ -8,15 +8,26 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    color: #444f5a;
     font-family: 'Raleway', sans-serif;
   }
 
   body {
-      background-color: lavenderblush;
+      background-color: #f6f6f6;
   }
 
   h1, h2, h3 {
+    color: #6c5b7b;
     font-family: 'Bitter', serif;
+    font-weight: 700;
+  }
+
+  a {
+    color: #3d84a8;
+
+    :hover {
+      color: #46cdcf;
+    }
   }
 `;
 
