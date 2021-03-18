@@ -1,5 +1,4 @@
 import React from "react";
-import { graphql } from "gatsby";
 import styled from "styled-components";
 
 import {
@@ -46,7 +45,8 @@ const renderIngredients = (allIngredients: IngredientChunk[]) =>
   allIngredients.length > 0 && allIngredients.map(renderIngredientsChunk);
 
 const renderInstructions = (instructions: string[]) =>
-  instructions.length > 0 && instructions.map(instruction => (
+  instructions.length > 0 &&
+  instructions.map(instruction => (
     <Instruction key={instruction}>{instruction}</Instruction>
   ));
 
@@ -75,17 +75,3 @@ export const Recipe: React.FC<Props> = ({ data, pageContext }) => {
     </RecipeWrapper>
   );
 };
-
-export const query = graphql`
-  query($imageName: String!) {
-    allFile(
-      filter: { sourceInstanceName: { eq: "assets" }, name: { eq: $imageName } }
-    ) {
-      edges {
-        node {
-          publicURL
-        }
-      }
-    }
-  }
-`;

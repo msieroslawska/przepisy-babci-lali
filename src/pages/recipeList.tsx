@@ -1,56 +1,29 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
+import styled from "styled-components";
+
 import { PathNode, PathQuery } from "../../types/graphQlQueries";
 
 import { PageLayout } from "../components/pageLayout";
-import styled from "styled-components";
+import { RecipeLogo } from "../components/recipeLogo";
 
 const RecipeList = styled.div`
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 30px;
+  margin: 50px 0;
 `;
 
 const RecipeLink = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-
-const RecipeLogo = styled.div`
-  background: radial-gradient(
-    ellipse at center,
-    rgba(0, 128, 172, 1) 0%,
-    rgba(0, 128, 172, 1) 70%,
-    rgba(0, 128, 172, 0) 70.3%
-  );
-  height: 150px;
-  width: 150px;
-  font-size: 30px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
 `;
 
 const filterNullNodes = (edges: PathNode[]) =>
   edges.filter(edge => edge.node.path.includes("recipes"));
-
-const getFirstLetter = (recipeName: string) => recipeName[0];
-
-const renderLink = ({
-  node: {
-    context: { name },
-    path,
-  },
-}: PathNode) => (
-  <RecipeLink key={name}>
-    <RecipeLogo>
-      {getFirstLetter(name)}
-    </RecipeLogo>
-    <Link to={path}>{name}</Link>
-  </RecipeLink>
-);
 
 interface Props {
   data: PathQuery;
@@ -61,7 +34,14 @@ const AllRecipes: React.FC<Props> = ({ data }) => {
 
   return (
     <PageLayout header="Wszystkie przepisy">
-      <RecipeList>{validNodes.map(renderLink)}</RecipeList>
+      <RecipeList>
+        {validNodes.map(n => (
+          <RecipeLink key={n.node.context.name}>
+            <RecipeLogo name={n.node.context.name} />
+            <Link to={n.node.path}>{n.node.context.name}</Link>
+          </RecipeLink>
+        ))}
+      </RecipeList>
     </PageLayout>
   );
 };

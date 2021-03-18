@@ -2,31 +2,32 @@ import React from "react";
 import styled, { createGlobalStyle } from "styled-components";
 
 import { Footer } from "./footer";
+import { colors } from "../constants/colors";
 
 const GlobalStyles = createGlobalStyle`
   * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    color: #444f5a;
+    color: ${colors.text.default};
     font-family: 'Raleway', sans-serif;
   }
 
   body {
-      background-color: #f6f6f6;
+      background-color: ${colors.background.body};
   }
 
   h1, h2, h3 {
-    color: #6c5b7b;
+    color: ${colors.text.header};
     font-family: 'Bitter', serif;
     font-weight: 700;
   }
 
   a {
-    color: #3d84a8;
+    color: ${colors.link.default};
 
     :hover {
-      color: #46cdcf;
+      color: ${colors.link.hover};
     }
   }
 `;

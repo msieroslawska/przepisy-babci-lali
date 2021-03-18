@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { Navigation } from "./navigation";
+import { colors } from "../constants/colors";
 import { FooterLink } from "../../types/links";
 
 const BottomElement = styled.section`
@@ -9,7 +10,8 @@ const BottomElement = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  border-top: 2px solid grey;
+  border-top: 2px solid ${colors.spacer};
+  margin-top: 10px;
 `;
 
 const FooterWrapper = styled.ul`
