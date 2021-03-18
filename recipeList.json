@@ -1,6 +1,7 @@
 [
   {
     "name": "Babka leniwa",
+    "imageName": "Babka-leniwa",
     "ingredientsList": [
       {
         "Składniki": [
@@ -21,6 +22,7 @@
   },
   {
     "name": "Babka koniakowa",
+    "imageName": "Babka-koniakowa",
     "ingredientsList": [
       {
         "Składniki": [
@@ -40,6 +42,7 @@
   },
   {
     "name": "Babka ucierana",
+    "imageName": "Babka-ucierana",
     "ingredientsList": [
       {
         "Składniki": [
@@ -56,6 +59,7 @@
   },
   {
     "name": "Babka z majonezem",
+    "imageName": "Babka-z-majonezem",
     "ingredientsList": [
       {
         "Składniki": [
@@ -77,6 +81,7 @@
   },
   {
     "name": "Babka zaparzana",
+    "imageName": "Babka-zaparzana",
     "ingredientsList": [
       {
         "Składniki": [
@@ -101,6 +106,7 @@
   },
   {
     "name": "Bakaliowiec",
+    "imageName": "Bakaliowiec",
     "ingredientsList": [
       {
         "Składniki": [
@@ -119,6 +125,7 @@
   },
   {
     "name": "Ciastka ucierane z konfiturą",
+    "imageName": "Ciastka-ucierane-z-konfitura",
     "ingredientsList": [
       {
         "Składniki": [
@@ -139,6 +146,7 @@
   },
   {
     "name": "Ciasto kruche kruszonkowe",
+    "imageName": "Ciasto-kruche-kruszonkowe",
     "ingredientsList": [
       {
         "Składniki": [
@@ -156,6 +164,7 @@
   },
   {
     "name": "Ciasto kruszonkowe z powidłami",
+    "imageName": "Ciasto-kruszonkowe-z-powidlami",
     "ingredientsList": [
       {
         "Składniki": [
@@ -180,6 +189,7 @@
   },
   {
     "name": "Ciasto pod mazurki",
+    "imageName": "Ciasto-pod-mazurki",
     "ingredientsList": [
       {
         "Składniki": [
@@ -194,6 +204,7 @@
   },
   {
     "name": "Ciasto topione",
+    "imageName": "Ciasto-topione",
     "ingredientsList": [
       {
         "Składniki": [
@@ -212,6 +223,7 @@
   },
   {
     "name": "Cukiereczki z płatków",
+    "imageName": "Cukierieczki-z-platkow",
     "ingredientsList": [
       {
         "Składniki": [
@@ -231,6 +243,7 @@
   },
   {
     "name": "Czarny placek",
+    "imageName": "Czarny-placek",
     "ingredientsList": [
       {
         "Składniki": [
@@ -252,6 +265,7 @@
   },
   {
     "name": "Keks",
+    "imageName": "Keks",
     "ingredientsList": [
       {
         "Składniki": [
@@ -269,6 +283,7 @@
   },
   {
     "name": "Krem żółtkowy",
+    "imageName": "Krem-zoltkowy",
     "ingredientsList": [],
     "instructions": [
       "Zrobić białą zasmażkę z 100 g masła i 2 łyżek mąki (1 łyżka mąki ziemniaczanej).",
@@ -278,6 +293,7 @@
   },
   {
     "name": "Kruche ciasto na proszku",
+    "imageName":" Kruche-ciasto-na-proszku",
     "ingredientsList": [
       {
         "Składniki": [
@@ -294,6 +310,7 @@
   },
   {
     "name": "Kruchy placek",
+    "imageName": "Kruchy-placek",
     "ingredientsList": [
       {
         "Składniki": [
@@ -311,6 +328,7 @@
   },
   {
     "name": "Makowiec na spodzie",
+    "imageName": "Mazurek-na-spodzie",
     "ingredientsList": [
       {
         "Spód": [
@@ -344,6 +362,7 @@
   },
   {
     "name": "Mazurek kokosowy",
+    "imageName": "Mazurek-kokosowy",
     "ingredientsList": [
       {
         "Składniki": [
@@ -359,6 +378,7 @@
   },
   {
     "name": "Mazurek orzechowy z miodem",
+    "imageName": "Mazurek-orzechowy-z-miodem",
     "ingredientsList": [
       {
         "Składniki": [
@@ -383,6 +403,7 @@
   },
   {
     "name": "Mazurek ze śliwek",
+    "imageName": "Mazurek-ze-sliwek",
     "ingredientsList": [
       {
         "Składniki": [
@@ -405,6 +426,7 @@
   },
   {
     "name": "Orzechowiec",
+    "imageName": "Orzechowiec",
     "ingredientsList": [
       {
         "Składniki": [
@@ -432,6 +454,7 @@
   },
   {
     "name": "Piernik",
+    "imageName": "Piernik",
     "ingredientsList": [
       {
         "Składniki": [
@@ -452,6 +475,7 @@
   },
   {
     "name": "Piernik Haliny",
+    "imageName": "Piernik-haliny",
     "ingredientsList": [
       {
         "Składniki": [
@@ -474,6 +498,7 @@
   },
   {
     "name": "Pizza",
+    "imageName": "Pizza",
     "ingredientsList": [
       {
         "Składniki": [
@@ -493,6 +518,7 @@
   },
   {
     "name": "Placek kruchy z marmoladą",
+    "imageName": "Placek-kruchy-z-marmolada",
     "ingredientsList": [
       {
         "Składniki": [
@@ -511,6 +537,7 @@
   },
   {
     "name": "Placek z jabłek",
+    "imageName": "Placek-z-jablek",
     "ingredientsList": [
       {
         "Składniki": [
@@ -529,6 +556,7 @@
   },
   {
     "name": "Rogaliki orzechowe",
+    "imageName": "Rogaliki-orzechowe",
     "ingredientsList": [
       {
         "Składniki": [
@@ -547,6 +575,7 @@
   },
   {
     "name": "Rogaliki półfrancuskie",
+    "imageName": "Rogaliki-polfrancuskie",
     "ingredientsList": [
       {
         "Składniki": [
@@ -562,6 +591,7 @@
   },
   {
     "name": "Sernik gotowany",
+    "imageName": "Sernik-gotowany",
     "ingredientsList": [
       {
         "Spód": [
@@ -590,6 +620,7 @@
   },
   {
     "name": "Sernik kakaowy",
+    "imageName": "Sernik-kakaowy",
     "ingredientsList": [
       {
         "Ciasto": [
@@ -616,6 +647,7 @@
   },
   {
     "name": "Sernik z kokosem",
+    "imageName": "Sernik-z-kokosem",
     "ingredientsList": [
       {
         "Ciasto": [
@@ -649,6 +681,7 @@
   },
   {
     "name": "Szyszki",
+    "imageName": "Szyszki",
     "ingredientsList": [
       {
         "Składniki": [
@@ -666,6 +699,7 @@
   },
   {
     "name": "Słone paluszki",
+    "imageName": "Slone-paluszki",
     "ingredientsList": [
       {
         "Składniki": [
@@ -686,6 +720,7 @@
   },
   {
     "name": "Tort placki i krem",
+    "imageName": "Tort-placki-i-krem",
     "ingredientsList": [
       {
         "Placki, wersja 1": [
@@ -723,6 +758,7 @@
   },
   {
     "name": "Tort Fedora",
+    "imageName": "Tort-fedora",
     "ingredientsList": [
       {
         "Masa czekoladowa": [
@@ -757,6 +793,7 @@
   },
   {
     "name": "Tort kokosowy niepieczony",
+    "imageName": "Tort-kokosowy-niepieczony",
     "ingredientsList": [
       {
         "Składniki": [
@@ -775,6 +812,7 @@
   },
   {
     "name": "Tort makowy",
+    "imageName": "Tort-makowy",
     "ingredientsList": [
       {
         "Składniki": [
@@ -789,6 +827,7 @@
   },
   {
     "name": "Tort Sachera",
+    "imageName": "Tort-sachera",
     "ingredientsList": [
       {
         "Wersja 1": [
@@ -833,6 +872,7 @@
   },
   {
     "name": "Tort Wiesi",
+    "imageName": "Tort-wiesi",
     "ingredientsList": [
       {
         "Ciasto": [
@@ -861,6 +901,7 @@
   },
   {
     "name": "Masa do wafli",
+    "imageName": "Masa-do-wafli",
     "ingredientsList": [
       {
         "Składniki": [
@@ -877,6 +918,7 @@
   },
   {
     "name": "Masa figowa do wafli",
+    "imageName": "Masa-figowa-do-wafli",
     "ingredientsList": [
       {
         "Składniki": [
@@ -895,6 +937,7 @@
   },
   {
     "name": "Orzechowiec 2",
+    "imageName": "Orzechowiec-2",
     "ingredientsList": [
       {
         "Ciasto": [

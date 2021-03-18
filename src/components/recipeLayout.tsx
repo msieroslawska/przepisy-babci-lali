@@ -44,10 +44,10 @@ const renderIngredientsChunk = (ingredients: IngredientChunk) => (
 );
 
 const renderIngredients = (allIngredients: IngredientChunk[]) =>
-  allIngredients.map(renderIngredientsChunk);
+  allIngredients.length > 0 && allIngredients.map(renderIngredientsChunk);
 
 const renderInstructions = (instructions: string[]) =>
-  instructions.map(instruction => (
+  instructions.length > 0 && instructions.map(instruction => (
     <Instruction key={instruction}>{instruction}</Instruction>
   ));
 
@@ -65,19 +65,29 @@ interface Props {
   pageContext: Recipe;
 }
 
-const RecipeLayout: React.FC<Props> = ({
-  data,
-  pageContext: { ingredientsList, instructions, name },
-}) => {
+const renderRecipe = (recipeData: Props) => (
+  <RecipeWrapper>
+    <TextWrapper>
+      {renderIngredients(recipeData.pageContext.ingredientsList)}
+      {renderInstructions(recipeData.pageContext.instructions)}
+    </TextWrapper>
+    {renderImage(recipeData.data, recipeData.pageContext.name)}
+  </RecipeWrapper>
+);
+
+const renderError = () => (
+  <p>OOOOPS SOMETHING IS MISSING!</p>
+)
+
+const validate = (recipeData: Recipe): boolean => !!recipeData.imageName && !!recipeData.ingredientsList && !!recipeData.instructions && !!recipeData.name;
+
+
+
+const RecipeLayout: React.FC<Props> = (props) => {
+  const renderContent = () => validate(props.pageContext) ? renderRecipe(props) : renderError();
   return (
-    <PageLayout header={name}>
-      <RecipeWrapper>
-        <TextWrapper>
-          {ingredientsList.length > 0 && renderIngredients(ingredientsList)}
-          {instructions.length > 0 && renderInstructions(instructions)}
-        </TextWrapper>
-        {renderImage(data, name)}
-      </RecipeWrapper>
+    <PageLayout header={props.pageContext.name}>
+      {renderContent()}
     </PageLayout>
   );
 };
@@ -85,9 +95,9 @@ const RecipeLayout: React.FC<Props> = ({
 export default RecipeLayout;
 
 export const query = graphql`
-  query($imageSlug: String!) {
+  query($imageName: String!) {
     allFile(
-      filter: { sourceInstanceName: { eq: "assets" }, name: { eq: $imageSlug } }
+      filter: { sourceInstanceName: { eq: "assets" }, name: { eq: $imageName } }
     ) {
       edges {
         node {

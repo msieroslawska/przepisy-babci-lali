@@ -30,6 +30,7 @@ export interface IngredientChunk {
 }
 
 export interface Recipe {
+  imageName: string;
   name: string;
   instructions: string[];
   ingredientsList: IngredientChunk[];
