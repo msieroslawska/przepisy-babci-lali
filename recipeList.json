@@ -41,7 +41,7 @@
     "instructions": ["Z białek ubić pianę"]
   },
   {
-    "name": "Babka ucierana",
+    "name": "Babka ucierana Oleńki",
     "imageName": "Babka-ucierana",
     "ingredientsList": [
       {
@@ -105,7 +105,7 @@
     ]
   },
   {
-    "name": "Bakaliowiec",
+    "name": "Bakaliowiec p. Ireny",
     "imageName": "Bakaliowiec",
     "ingredientsList": [
       {
@@ -203,7 +203,7 @@
     "instructions": []
   },
   {
-    "name": "Ciasto topione",
+    "name": "Ciasto \"topione\"",
     "imageName": "Ciasto-topione",
     "ingredientsList": [
       {
@@ -223,7 +223,7 @@
   },
   {
     "name": "Cukiereczki z płatków",
-    "imageName": "Cukierieczki-z-platkow",
+    "imageName": "Cukiereczki-z-platkow",
     "ingredientsList": [
       {
         "Składniki": [
@@ -293,7 +293,7 @@
   },
   {
     "name": "Kruche ciasto na proszku",
-    "imageName":" Kruche-ciasto-na-proszku",
+    "imageName": "Kruche-ciasto-na-proszku",
     "ingredientsList": [
       {
         "Składniki": [
@@ -309,7 +309,7 @@
     "instructions": ["Żółtka utrzeć z cukrem, dodać resztę składników."]
   },
   {
-    "name": "Kruchy placek",
+    "name": "Kruchy placek Oleńki",
     "imageName": "Kruchy-placek",
     "ingredientsList": [
       {
@@ -328,7 +328,7 @@
   },
   {
     "name": "Makowiec na spodzie",
-    "imageName": "Mazurek-na-spodzie",
+    "imageName": "Makowiec-na-spodzie",
     "ingredientsList": [
       {
         "Spód": [
@@ -361,7 +361,7 @@
     ]
   },
   {
-    "name": "Mazurek kokosowy",
+    "name": "Mazurek kokosowy Zosi",
     "imageName": "Mazurek-kokosowy",
     "ingredientsList": [
       {
@@ -402,7 +402,7 @@
     ]
   },
   {
-    "name": "Mazurek ze śliwek",
+    "name": "Mazurek ze śliwek suszonych",
     "imageName": "Mazurek-ze-sliwek",
     "ingredientsList": [
       {
@@ -425,7 +425,7 @@
     ]
   },
   {
-    "name": "Orzechowiec",
+    "name": "Orzechowiec Wandzi",
     "imageName": "Orzechowiec",
     "ingredientsList": [
       {
@@ -475,7 +475,7 @@
   },
   {
     "name": "Piernik Haliny",
-    "imageName": "Piernik-haliny",
+    "imageName": "Piernik-2",
     "ingredientsList": [
       {
         "Składniki": [
@@ -517,7 +517,7 @@
     ]
   },
   {
-    "name": "Placek kruchy z marmoladą",
+    "name": "Placek kruchy z marmoladą p. Kazi",
     "imageName": "Placek-kruchy-z-marmolada",
     "ingredientsList": [
       {
@@ -698,7 +698,7 @@
     ]
   },
   {
-    "name": "Słone paluszki",
+    "name": "Słone paluszki c. Oli",
     "imageName": "Slone-paluszki",
     "ingredientsList": [
       {
@@ -719,7 +719,7 @@
     ]
   },
   {
-    "name": "Tort placki i krem",
+    "name": "Tort (placki i krem)",
     "imageName": "Tort-placki-i-krem",
     "ingredientsList": [
       {
@@ -757,7 +757,7 @@
     ]
   },
   {
-    "name": "Tort Fedora",
+    "name": "Tort Fedora (z Twój Styl)",
     "imageName": "Tort-fedora",
     "ingredientsList": [
       {
@@ -872,7 +872,7 @@
   },
   {
     "name": "Tort Wiesi",
-    "imageName": "Tort-wiesi",
+    "imageName": "Tort",
     "ingredientsList": [
       {
         "Ciasto": [
@@ -900,7 +900,7 @@
     ]
   },
   {
-    "name": "Masa do wafli",
+    "name": "Masa do wafli Eli",
     "imageName": "Masa-do-wafli",
     "ingredientsList": [
       {
