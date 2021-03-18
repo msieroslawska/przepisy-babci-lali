@@ -29,7 +29,7 @@ export interface IngredientChunk {
   [key: string]: string[];
 }
 
-export interface Recipe {
+export interface RecipeData {
   imageName: string;
   name: string;
   instructions: string[];
