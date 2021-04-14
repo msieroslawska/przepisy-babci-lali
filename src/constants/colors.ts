@@ -1,12 +1,11 @@
 enum Colors {
   White = "#fff",
-  Blue = "#06aed5",
-  DarkBlue = "#086788",
-  Yellow = "#f0c808",
-  Peach = "#daad86",
-  Brown = "#bc986a",
-  Beige = "#fff1d0",
-  Red = "#dd1c1a",
+  Black = "#293241",
+  BabyBlue = "#98c1d9",
+  Yellow = "#634806",
+  Blue = "#3d5a80",
+  Grey = "#4F5A65",
+  Orange = "#ee6c4d",
 }
 
 const hexToRGB = (hex: string, alpha?: string) => {
@@ -19,17 +18,17 @@ const hexToRGB = (hex: string, alpha?: string) => {
 
 export const colors = {
   text: {
-    default: hexToRGB(Colors.Yellow, "0.9"),
-    header: hexToRGB(Colors.Yellow, "0.9"),
+    default: Colors.Black,
+    header: hexToRGB(Colors.Black, "0.9"),
   },
   link: {
-    default: Colors.Yellow,
-    hover: Colors.White,
+    default: Colors.Orange,
+    hover: Colors.Blue,
   },
   background: {
-    body: Colors.DarkBlue,
+    body: Colors.White,
   },
-  spacer: Colors.DarkBlue,
+  spacer: Colors.Black,
   recipeLogos: [
     hexToRGB(Colors.Blue, "0.9"),
     hexToRGB(Colors.Blue, "0.7"),
