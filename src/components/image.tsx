@@ -6,18 +6,28 @@ const ImageWrapper = styled.div`
   text-align: center;
 
   img {
-    height: 100%;
+    width: auto;
+    max-width: 400px;
+    height: auto;
+    max-height: 400px;
+    padding: 5px;
   }
 `;
 
 interface Props {
   caption: string;
-  imageSource: string;
+  imageName: string;
 }
 
-export const Image: React.FC<Props> = ({ caption, imageSource }) => (
+export const Image: React.FC<Props> = ({ caption, imageName }) => (
   <ImageWrapper>
-    <img src={imageSource} alt={caption} />
+    <img
+      src={`${imageName}-small.png`}
+      alt={caption}
+      srcSet={`${imageName}-small.png 500w,
+        ${imageName}-medium.png 800w,
+        ${imageName}-large.png 1000w`}
+    />
     <p>{caption}</p>
   </ImageWrapper>
 );

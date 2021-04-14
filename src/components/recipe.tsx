@@ -13,18 +13,23 @@ const RecipeWrapper = styled.section`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+
+  @media screen and (max-width: 1200px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const TextWrapper = styled.section`
   padding: 15px;
-  flex: 1 1 500px;
   display: flex;
   flex-direction: column;
 `;
 
 const ImageWrapper = styled.div`
-  flex: 0 1 700px;
-  align-self: center;
+  padding: 15px;
+  flex: 0 0 500px;
+  align-self: flex-start;
 
   img {
     width: 100%;

@@ -8,6 +8,11 @@ const PictureWrapper = styled.section`
   display: flex;
   justify-content: space-around;
   margin: 50px 0;
+
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const InProgress = styled.h3`
@@ -25,9 +30,9 @@ const Home: React.FC = () => (
   <PageLayout header="Przepisy babci Lali">
     <InProgress>Bardzo, BARDZO w budowie :)!</InProgress>
     <PictureWrapper>
-      <Image caption="Babcia w latach 50'" imageSource="babcia-1.png" />
+      <Image caption="Babcia w latach 50'" imageName="mloda-babcia" />
 
-      <Image caption="To młode to ja!" imageSource="babcia-2.png" />
+      <Image caption="To młode to ja!" imageName="ja-z-babcia" />
     </PictureWrapper>
 
     <Text>
