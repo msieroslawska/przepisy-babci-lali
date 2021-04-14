@@ -10,7 +10,7 @@ import { RecipeLogo } from "../components/recipeLogo";
 const RecipeList = styled.div`
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   grid-gap: 30px;
   margin: 50px 0;
 `;

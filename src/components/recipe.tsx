@@ -13,6 +13,7 @@ const RecipeWrapper = styled.section`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  min-width: 500px;
 
   @media screen and (max-width: 1200px) {
     flex-direction: column;
@@ -27,8 +28,11 @@ const TextWrapper = styled.section`
 `;
 
 const ImageWrapper = styled.div`
+  border: 1px solid black;
+  background: white;
   padding: 15px;
-  flex: 0 0 500px;
+  margin: auto;
+  width: 500px;
   align-self: flex-start;
 
   img {

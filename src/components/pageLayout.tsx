@@ -39,6 +39,7 @@ const PageWrapper = styled.div`
   justify-content: space-between;
   height: 100vh;
   width: 70vw;
+  min-width: 550px;
   margin: 0 auto;
 `;
 
@@ -53,6 +54,7 @@ const Header = styled.h1`
   flex: 0 0 auto;
   text-align: center;
   margin-top: 60px;
+  margin-bottom: 30px;
 `;
 
 interface Props {
