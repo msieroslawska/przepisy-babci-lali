@@ -1,31 +1,51 @@
 import React from "react";
 import styled from "styled-components";
 
-import { colors } from "../constants/colors";
+import { RGB } from "../../types/colors";
+import { colors, rgbObjToRgb } from "../constants/colors";
 
 const getRandom = (max: number) => Math.floor(Math.random() * Math.floor(max));
-
-const StyledRecipeLogo = styled.div<LogoProps>`
+const createCircle = (color: RGB) => `
   background: radial-gradient(
     ellipse at center,
-    ${({ color }) => color} 0%,
-    ${({ color }) => color} 70%,
+    ${rgbObjToRgb(color)} 0%,
+    ${rgbObjToRgb(color)} 70%,
     rgba(0, 0, 0, 0) 70.3%
   );
+`;
+
+const LetterWithOffset = styled.p`
+  position: relative;
+  left: -15px;
+  font-family: "Great Vibes", serif;
+  font-weight: 900;
+  font-size: 50px;
+  font-style: italic;
+`;
+
+const StyledRecipeLogo = styled.div<LogoProps>`
+  ${({ rgbColor }) => createCircle(rgbColor)}
   height: 150px;
   width: 150px;
-  font-size: 30px;
-  font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 10px;
+
+  :hover {
+    ${({ rgbColor: { a = 0, ...rest } }) =>
+      createCircle({ a: a + 0.4, ...rest })}
+
+    ${LetterWithOffset} {
+      font-size: 90px;
+    }
+  }
 `;
 
 const getFirstLetter = (recipeName: string) => recipeName[0];
 
 interface LogoProps {
-  color: string;
+  rgbColor: RGB;
 }
 
 interface Props {
@@ -33,12 +53,12 @@ interface Props {
 }
 
 export const RecipeLogo: React.FC<Props> = ({ name }) => {
-  const randomColor = () =>
+  const randomColor = (): RGB =>
     colors.recipeLogos[getRandom(colors.recipeLogos.length)];
 
   return (
-    <StyledRecipeLogo color={randomColor()}>
-      {getFirstLetter(name)}
+    <StyledRecipeLogo rgbColor={randomColor()}>
+      <LetterWithOffset>{getFirstLetter(name)}</LetterWithOffset>
     </StyledRecipeLogo>
   );
 };

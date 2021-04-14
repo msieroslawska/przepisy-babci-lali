@@ -1,25 +1,28 @@
-enum Colors {
-  White = "#fff",
-  Black = "#293241",
-  BabyBlue = "#98c1d9",
-  Yellow = "#634806",
-  Blue = "#3d5a80",
-  Grey = "#4F5A65",
-  Orange = "#ee6c4d",
-}
+import { Colors, RGB } from "../../types/colors";
 
-const hexToRGB = (hex: string, alpha?: string) => {
+const hexToRGBObj = (hex: string, a?: number): RGB => {
   const r = parseInt(hex.slice(1, 3), 16);
   const g = parseInt(hex.slice(3, 5), 16);
   const b = parseInt(hex.slice(5, 7), 16);
 
-  return alpha ? `rgba(${r}, ${g}, ${b}, ${alpha})` : `rgb(${r}, ${g}, ${b})`;
+  return {
+    r,
+    g,
+    b,
+    a,
+  };
 };
+
+export const rgbObjToRgb = ({ r, g, b, a }: RGB): string =>
+  a ? `rgba(${r}, ${g}, ${b}, ${a})` : `rgb(${r}, ${g}, ${b})`;
+
+const hexToRgb = (hex: string, alpha?: number): string =>
+  rgbObjToRgb(hexToRGBObj(hex, alpha));
 
 export const colors = {
   text: {
     default: Colors.Black,
-    header: hexToRGB(Colors.Black, "0.9"),
+    header: hexToRgb(Colors.Black, 0.9),
   },
   link: {
     default: Colors.Orange,
@@ -30,9 +33,9 @@ export const colors = {
   },
   spacer: Colors.Black,
   recipeLogos: [
-    hexToRGB(Colors.Blue, "0.9"),
-    hexToRGB(Colors.Blue, "0.7"),
-    hexToRGB(Colors.Blue, "0.5"),
-    hexToRGB(Colors.Blue, "0.3"),
+    hexToRGBObj(Colors.Blue, 0.9),
+    hexToRGBObj(Colors.Blue, 0.7),
+    hexToRGBObj(Colors.Blue, 0.5),
+    hexToRGBObj(Colors.Blue, 0.3),
   ],
 };
