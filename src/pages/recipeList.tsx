@@ -36,9 +36,9 @@ const AllRecipes: React.FC<Props> = ({ data }) => {
     <PageLayout header="Wszystkie przepisy">
       <RecipeList>
         {validNodes.map(n => (
-          <RecipeLink key={n.node.context.name}>
-            <RecipeLogo name={n.node.context.name} />
-            <Link to={n.node.path}>{n.node.context.name}</Link>
+          <RecipeLink key={n.node.pageContext.name}>
+            <RecipeLogo name={n.node.pageContext.name} />
+            <Link to={n.node.path}>{n.node.pageContext.name}</Link>
           </RecipeLink>
         ))}
       </RecipeList>
@@ -54,9 +54,7 @@ export const pageQuery = graphql`
       edges {
         node {
           path
-          context {
-            name
-          }
+          pageContext
         }
       }
     }

@@ -12,7 +12,7 @@ export interface PublicURLQuery {
 
 export interface PathNode {
   node: {
-    context: {
+    pageContext: {
       name: string;
     };
     path: string;
