@@ -4,7 +4,7 @@ import "@fontsource/great-vibes";
 import "@fontsource/raleway";
 import React from "react";
 
-import { LanguageProvider } from "./src/hooks/useLanguageContext";
+import { LanguageProvider } from "./src/utils/languageContext";
 
 export const wrapRootElement = ({ element }) => (
   <LanguageProvider>{element}</LanguageProvider>
