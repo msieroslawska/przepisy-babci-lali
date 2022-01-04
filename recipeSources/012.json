@@ -1,0 +1,26 @@
+{
+  "imageName": "Ciasto-topione",
+  "PL": {
+    "name": "Ciasto \"topione\"",
+    "ingredientsList": [
+      {
+        "Składniki": [
+          "100 g cukru",
+          "3 szklanki mąki",
+          "1 szklanka cukru",
+          "250 g margaryny",
+          "4 jaja"
+        ]
+      }
+    ],
+    "instructions": [
+      "Wyrobić bez cukru, po wypłynięciu z wody dodać cukier.",
+      "Wyrobić, formować ciastka."
+    ]
+  },
+  "EN": {
+    "name": "Ciasto \"topione\" in EN",
+    "ingredientsList": [{ "Ingredients": ["Ingredient 1", "Ingredient 2"] }],
+    "instructions": ["testInstructions"]
+  }
+}

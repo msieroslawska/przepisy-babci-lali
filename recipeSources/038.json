@@ -1,0 +1,26 @@
+{
+  "imageName": "Tort-kokosowy-niepieczony",
+  "PL": {
+    "name": "Tort kokosowy niepieczony",
+    "ingredientsList": [
+      {
+        "Składniki": [
+          "5 jajek",
+          "0,5 kg cukru",
+          "5 paczek biszkoptów",
+          "200 g kokosu",
+          "2 łyżki kakao",
+          "0,5 kg masła"
+        ]
+      }
+    ],
+    "instructions": [
+      "Kokos zalać osłodzonym wrzątkiem (do przykrycia), chwilę podgrzewać. Na parze ubić jaja z resztą cukru, połączyć z masłem, wystudzoną masą kokosową i zmielonymi biszkoptami. Podzielić na 3 części, do 2 dodać rozmieszane w gorącym mleku kakao. Na wafel położyć masę czekoladową + białą + czekoladową, posypać tartą czekoladą."
+    ]
+  },
+  "EN": {
+    "name": "Tort kokosowy niepieczony in EN",
+    "ingredientsList": [{ "Ingredients": ["Ingredient 1", "Ingredient 2"] }],
+    "instructions": ["testInstructions"]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "imageName": "Cukiereczki-z-platkow",
+  "PL": {
+    "name": "Cukiereczki z płatków",
+    "ingredientsList": [
+      {
+        "Składniki": [
+          "8 łyżek mleka",
+          "4 łyżki kakao",
+          "2 szklanki cukru",
+          "3 szklanki płatków",
+          "olejek migdałowy",
+          "0,5 kostki masła"
+        ]
+      }
+    ],
+    "instructions": [
+      "Rozpuścić mleko, kakao i cukier w cieple do powstania bąbelków.",
+      "Dodać resztę składników."
+    ]
+  },
+  "EN": {
+    "name": "Cukiereczki z płatków in EN",
+    "ingredientsList": [{ "Ingredients": ["Ingredient 1", "Ingredient 2"] }],
+    "instructions": ["testInstructions"]
+  }
+}

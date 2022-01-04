@@ -1,0 +1,41 @@
+{
+  "imageName": "Makowiec-na-spodzie",
+  "PL": {
+    "name": "Makowiec na spodzie",
+    "ingredientsList": [
+      {
+        "Spód": [
+          "200 g mąki",
+          "200 g masła",
+          "200 g cukru pudru",
+          "4 żółtka",
+          "2 jajka",
+          "otarta skrórka z pomarańczy"
+        ]
+      },
+      {
+        "Masa makowa": [
+          "2 szklanki maku",
+          "2 szklanki mleka",
+          "4 białka",
+          "250 g cukru pudru",
+          "smażona skórka pomarańczowa",
+          "rodzynki, orzechy",
+          "0,5 łyżeczki proszku",
+          "100 g roztopionego masła",
+          "2 krople olejku migdałowego",
+          "kieliszek wódki"
+        ]
+      }
+    ],
+    "instructions": [
+      "Spód: Masło utrzeć z cukrem, żółtkami i jajkami. Dodać pozostałe składniki. Podpiec.",
+      "Masa: Ubić pianę z białek i cukru pudru. Mak odcedzić i zaparzyć. Gotować w mleku przez 20 minut. Przekręcić. [Dodać resztę składników.]"
+    ]
+  },
+  "EN": {
+    "name": "Makowiec na spodzie in EN",
+    "ingredientsList": [{ "Ingredients": ["Ingredient 1", "Ingredient 2"] }],
+    "instructions": ["testInstructions"]
+  }
+}

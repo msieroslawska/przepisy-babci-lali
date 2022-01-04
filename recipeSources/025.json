@@ -1,0 +1,30 @@
+{
+  "imageName": "Piernik-2",
+  "PL": {
+    "name": "Piernik Haliny",
+    "ingredientsList": [
+      {
+        "Składniki": [
+          "2 łyżki cukru",
+          "1/4 szklanki wody",
+          "300 g miodu",
+          "200 g masła",
+          "5 jaj",
+          "0,5 kg mąki",
+          "proszek do pieczenia",
+          "bakalie"
+        ]
+      }
+    ],
+    "instructions": [
+      "Z cukru zrobić karmel, rozpuścić w wodzie. Dodać miód i masło, zagotować.",
+      "Do schłodzonej masy dodać jaja. Ukręcić, dodać mąkę, proszek i bakalie. Bardzo dobrze wyrobić (aż do pojawienia się pęcherzyków).",
+      "Piec 2,5 h w średnio ciepłym piekarniku."
+    ]
+  },
+  "EN": {
+    "name": "Piernik Haliny in EN",
+    "ingredientsList": [{ "Ingredients": ["Ingredient 1", "Ingredient 2"] }],
+    "instructions": ["testInstructions"]
+  }
+}

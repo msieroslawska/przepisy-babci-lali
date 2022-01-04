@@ -1,0 +1,24 @@
+{
+  "imageName": "Kruche-ciasto-na-proszku",
+  "PL": {
+    "name": "Kruche ciasto na proszku",
+    "ingredientsList": [
+      {
+        "Składniki": [
+          "2 szklanki mąki",
+          "1 [szklanka?] tłuszczu",
+          "3 łyżki śmietany",
+          "3 żółtka",
+          "1 szklanka cukru",
+          "1 łyżeczka proszku"
+        ]
+      }
+    ],
+    "instructions": ["Żółtka utrzeć z cukrem, dodać resztę składników."]
+  },
+  "EN": {
+    "name": "Kruche ciasto na proszku in EN",
+    "ingredientsList": [{ "Ingredients": ["Ingredient 1", "Ingredient 2"] }],
+    "instructions": ["testInstructions"]
+  }
+}

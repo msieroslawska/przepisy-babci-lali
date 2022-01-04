@@ -6,7 +6,7 @@ import { PathNode, PathQuery } from "../../types/graphQlQueries";
 
 import { PageLayout } from "../components/pageLayout";
 import { RecipeLogo } from "../components/recipeLogo";
-import { useLanguageContext } from "../hooks/useLanguageContext";
+import { useLanguageContext } from "../utils/languageContext";
 
 const RecipeList = styled.div`
   display: grid;

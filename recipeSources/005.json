@@ -1,0 +1,29 @@
+{
+  "imageName": "Babka-z-majonezem",
+  "PL": {
+    "name": "Babka z majonezem",
+    "ingredientsList": [
+      {
+        "Składniki": [
+          "4 jajka",
+          "cukier waniliowy",
+          "1 szklanka cukru",
+          "mały majonez",
+          "0,5 szklanki mąki",
+          "0,5 szklanki mąki ziemniaczanej",
+          "proszek do pieczenia"
+        ]
+      }
+    ],
+    "instructions": [
+      "Ubić jajka z cukrem.",
+      "Dodać resztę składników.",
+      "Piec w 180st. przez 40 minut. Nie otwierać piekarnika."
+    ]
+  },
+  "EN": {
+    "name": "Babka z majonezem in EN",
+    "ingredientsList": [{ "Ingredients": ["Ingredient 1", "Ingredient 2"] }],
+    "instructions": ["testInstructions"]
+  }
+}

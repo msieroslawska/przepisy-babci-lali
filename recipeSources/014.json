@@ -1,0 +1,29 @@
+{
+  "imageName": "Czarny-placek",
+  "PL": {
+    "name": "Czarny placek",
+    "ingredientsList": [
+      {
+        "Składniki": [
+          "250 g mąki",
+          "1 szklanka mleka",
+          "1 czubata łyżeczka proszku",
+          "50 g masła",
+          "2 jajka",
+          "100 g cukru",
+          "3 łyżki kakao",
+          "cukier waniliowy"
+        ]
+      }
+    ],
+    "instructions": [
+      "Utrzeć pianę z białek, wszystkie pozostałe składniki utrzeć, dodać pianę.",
+      "Piec w 180st. do 30 minut. Polukrować."
+    ]
+  },
+  "EN": {
+    "name": "Czarny placek in EN",
+    "ingredientsList": [{ "Ingredients": ["Ingredient 1", "Ingredient 2"] }],
+    "instructions": ["testInstructions"]
+  }
+}

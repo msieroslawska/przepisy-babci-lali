@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { PageLayout } from "../components/pageLayout";
 import { Image } from "../components/image";
-import { useLanguageContext } from "../hooks/useLanguageContext";
+import { useLanguageContext } from "../utils/languageContext";
 
 const PictureWrapper = styled.section`
   display: flex;

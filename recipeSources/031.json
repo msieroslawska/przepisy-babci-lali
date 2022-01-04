@@ -1,0 +1,36 @@
+{
+  "imageName": "Sernik-gotowany",
+  "PL": {
+    "name": "Sernik gotowany",
+    "ingredientsList": [
+      {
+        "Spód": [
+          "0,5 kg mąki",
+          "150 g tłuszczu",
+          "150 g cukru pudru",
+          "1 żółtko",
+          "1 jajko albo 1 łyżka śmietany",
+          "łyżeczka proszku"
+        ]
+      },
+      {
+        "Ser": [
+          "1 kg sera (zmielić)",
+          "200 g tłuszczu",
+          "2 jajka",
+          "2 łyżki mleka (jeżeli ser jest suchy)",
+          "wanilia",
+          "łyżka mąki ziemniaczanej"
+        ]
+      }
+    ],
+    "instructions": [
+      "Masę serową gotować przez 20 minut. Zagnieść ciasto, upiec 2 krążki. Na gorący spód wlać ser, przycisnąć drugim krążkiem. Na drugi dzień polukrować."
+    ]
+  },
+  "EN": {
+    "name": "Sernik gotowany in EN",
+    "ingredientsList": [{ "Ingredients": ["Ingredient 1", "Ingredient 2"] }],
+    "instructions": ["testInstructions"]
+  }
+}

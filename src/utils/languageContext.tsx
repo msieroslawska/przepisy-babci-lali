@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 
 interface ContextProps {
   currentLanguage: string;
@@ -27,10 +28,29 @@ export const LanguageProvider: React.FC = ({ children }) => {
     }
   };
 
+  const FlagButton = styled.button`
+    height: 60px;
+    width: 60px;
+    border: 0;
+    background-color: blue;
+
+    img {
+      width: auto;
+      max-width: 50px;
+      height: auto;
+      max-height: 50px;
+      padding: 5px;
+    }
+  `;
+
+  const renderFlag = () => {
+    const flagName = currentLanguage === "PL" ? "pl" : "en";
+    return <img src={`/flag-${flagName}.png`} alt="Language flag" />;
+  };
+
   return (
     <LanguageContext.Provider value={{ currentLanguage }}>
-      <button onClick={toggleLanguage}>Change Visibility</button>
-      <p>{currentLanguage}</p>
+      <FlagButton onClick={toggleLanguage}>{renderFlag()}</FlagButton>
       {children}
     </LanguageContext.Provider>
   );

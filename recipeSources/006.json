@@ -1,0 +1,32 @@
+{
+  "imageName": "Babka-zaparzana",
+  "PL": {
+    "name": "Babka zaparzana",
+    "ingredientsList": [
+      {
+        "Składniki": [
+          "0,5 kg mąki krupczatki",
+          "ok. 1,5 szklanki mleka",
+          "150 g drożdży",
+          "10 żółtek",
+          "2 całe jajka",
+          "1 szklanka cukru",
+          "1 laska wanilii",
+          "skórka cytrynowa",
+          "0,75 kostki masła",
+          "sól"
+        ]
+      }
+    ],
+    "instructions": [
+      "2 łyżki mąki zaparzyć ciepłym mlekiem, dodać drożdże rozmieszane z resztą ciepłego mleka. Zostawić do wyrośnięcia.",
+      "Jajka utrzeć z cukrem, dodać zapach, rozczyn i resztę mąki. Wyrabiać aż ciasto będzie odstawać od ręki.",
+      "Dodawać częściami ciepłe masło, wyrabiać."
+    ]
+  },
+  "EN": {
+    "name": "Babka zaparzana in EN",
+    "ingredientsList": [{ "Ingredients": ["Ingredient 1", "Ingredient 2"] }],
+    "instructions": ["testInstructions"]
+  }
+}

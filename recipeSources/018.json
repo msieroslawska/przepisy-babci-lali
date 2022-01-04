@@ -1,0 +1,25 @@
+{
+  "imageName": "Babka-ucierana",
+  "PL": {
+    "name": "Kruchy placek Oleńki",
+    "ingredientsList": [
+      {
+        "Składniki": [
+          "kostka masła",
+          "150 g cukru pudru",
+          "2 szklanki mąki",
+          "5 żółtek"
+        ]
+      }
+    ],
+    "instructions": [
+      "[Wyrobić] dwa placki, na jeden nałożyć marmoladę, przykryć drugim, upiec.",
+      "Nałożyć masę czekoladową z bakaliami i polać polewą."
+    ]
+  },
+  "EN": {
+    "name": "Kruchy placek Oleńki in EN",
+    "ingredientsList": [{ "Ingredients": ["Ingredient 1", "Ingredient 2"] }],
+    "instructions": ["testInstructions"]
+  }
+}

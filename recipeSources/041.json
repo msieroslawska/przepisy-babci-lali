@@ -1,0 +1,36 @@
+{
+  "imageName": "Tort",
+  "PL": {
+    "name": "Tort Wiesi",
+    "ingredientsList": [
+      {
+        "Ciasto": [
+          "300 g migdałów",
+          "100 g orzechów",
+          "14 jaj",
+          "0,75 szklanki bułki tartej",
+          "1,5 szklanki cukru",
+          "olejek migdałowy"
+        ]
+      },
+      {
+        "Masa": [
+          "1,5 szklanki mleka",
+          "1 łyżka mąki",
+          "2 łyżki kokosu",
+          "400 g masła",
+          "1,5 szklanki cukru pudru"
+        ]
+      }
+    ],
+    "instructions": [
+      "Ciasto: Żółtka utrzeć z cukrem, dodać pianę z 10 białek i resztę składników. Piec w średnio wygrzanym piekarniku przez około godzinę. Przez pierwsze 30 minut nie zaglądać.",
+      "Masa: Utrzeć masło z cukrem pudrem, dodawać zimną \"zaprawę\"."
+    ]
+  },
+  "EN": {
+    "name": "Tort Wiesi in EN",
+    "ingredientsList": [{ "Ingredients": ["Ingredient 1", "Ingredient 2"] }],
+    "instructions": ["testInstructions"]
+  }
+}

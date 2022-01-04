@@ -1,0 +1,52 @@
+{
+  "imageName": "Tort-sachera",
+  "PL": {
+    "name": "Tort Sachera",
+    "ingredientsList": [
+      {
+        "Wersja 1": [
+          "150 g czekolady albo 100 g kakao",
+          "łyżka cukru pudru",
+          "2 łyżki śmietanki",
+          "150 g masła",
+          "150 g cukru",
+          "150 g mąki",
+          "6 jajek -piana"
+        ]
+      },
+      {
+        "Polewa do wersji 1": [
+          "200 g cukru",
+          "łyżka masła",
+          "50 g kakao",
+          "3 łyżki mleka"
+        ]
+      },
+      {
+        "Wersja 2": [
+          "180 g czekolady",
+          "180 g masła",
+          "180 g cukru",
+          "180 g cukru",
+          "8 jaj"
+        ]
+      },
+      {
+        "Pomada czekoladowa": [
+          "100 g czekolady",
+          "100 g cukru pidru",
+          "0,5 szklanki śmietanki"
+        ]
+      }
+    ],
+    "instructions": [
+      "Wersja 1: Utrzeć, piec w średnio nagrzanym piekarniku.",
+      "Wersja 2: Po upieczeniu posmarować marmoladą morelową i polać pomadą czekoladową"
+    ]
+  },
+  "EN": {
+    "name": "Tort Sachera in EN",
+    "ingredientsList": [{ "Ingredients": ["Ingredient 1", "Ingredient 2"] }],
+    "instructions": ["testInstructions"]
+  }
+}

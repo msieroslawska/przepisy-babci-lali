@@ -1,0 +1,25 @@
+{
+  "imageName": "Keks",
+  "PL": {
+    "name": "Keks",
+    "ingredientsList": [
+      {
+        "Składniki": [
+          "4 małe jajka lub 3 duże",
+          "200 g masła",
+          "1,5 szklanki cukru",
+          "1 szklanka śmietany",
+          "proszek",
+          "200 g rodzynków",
+          "0,5 kg mąki"
+        ]
+      }
+    ],
+    "instructions": []
+  },
+  "EN": {
+    "name": "Keks in EN",
+    "ingredientsList": [{ "Ingredients": ["Ingredient 1", "Ingredient 2"] }],
+    "instructions": ["testInstructions"]
+  }
+}
