@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import { PageLayout } from "../components/pageLayout";
 import { Image } from "../components/image";
+import { useLanguageContext } from "../hooks/useLanguageContext";
 
 const PictureWrapper = styled.section`
   display: flex;
@@ -26,43 +27,23 @@ const Text = styled.p`
   text-align: center;
 `;
 
-interface ContextProps {
-  currentLanguage: string;
-  setCurrentLanguage: any;
-}
-
-export const LanguageContext = React.createContext<ContextProps | undefined>(
-  undefined
-);
-
 const Home: React.FC = () => {
-  const [currentLanguage, setCurrentLanguage] = React.useState("PL");
+  const { currentLanguage } = useLanguageContext();
 
-  const toggleLanguage = () => {
-    if (currentLanguage === "PL") {
-      setCurrentLanguage("EN");
-    } else {
-      setCurrentLanguage("PL");
-    }
-  };
   return (
-    <LanguageContext.Provider value={{ currentLanguage, setCurrentLanguage }}>
-      <button onClick={toggleLanguage}>Change Visibility</button>
-      <p>{currentLanguage}</p>
-      <PageLayout header="Przepisy babci Lali">
-        <InProgress>Bardzo, BARDZO w budowie :)!</InProgress>
-        <PictureWrapper>
-          <Image caption="Babcia w latach 50'" imageName="mloda-babcia" />
+    <PageLayout header="Przepisy babci Lali">
+      <InProgress>Bardzo, BARDZO w budowie :)!</InProgress>
+      <PictureWrapper>
+        <Image caption="Babcia w latach 50'" imageName="mloda-babcia" />
 
-          <Image caption="To młode to ja!" imageName="ja-z-babcia" />
-        </PictureWrapper>
+        <Image caption="To młode to ja!" imageName="ja-z-babcia" />
+      </PictureWrapper>
 
-        <Text>
-          Babcia Lala odeszła kilka lat temu. Zostały mi po niej wspomnienia,
-          zdjęcia i jej zeszyty z przepisami.
-        </Text>
-      </PageLayout>
-    </LanguageContext.Provider>
+      <Text>
+        Babcia Lala odeszła kilka lat temu. Zostały mi po niej wspomnienia,
+        zdjęcia i jej zeszyty z przepisami.
+      </Text>
+    </PageLayout>
   );
 };
 
