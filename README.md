@@ -2,6 +2,11 @@
 
 ## 🚀 TODO
 
+- [x] Add translations
+  - Now it's only recipe list filtering the correct pages
+  - [ ] Add translations of other page elements
+  - [ ] Add redirect to correct page directly on the recipe page
+  - [ ] Make them look fancy
 - [ ] Finish adding all recipes
 - [x] Normalize recipe names for the file mapper to pick up all the pics
   - [ ] ~Think about another data structure to keep the recipes... JSON is too simple.~ JSON is fine if structured well. Will stay for now.
@@ -13,7 +18,5 @@
 
 ## 💡 Ideas
 
-- [ ] Add translations
-  - [ ] Make them look fancy
 - [ ] Take better pictures
 - [ ] Random recipe preview on the main page
