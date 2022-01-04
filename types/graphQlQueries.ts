@@ -13,6 +13,7 @@ export interface PublicURLQuery {
 export interface PathNode {
   node: {
     pageContext: {
+      language: "EN" | "PL";
       name: string;
     };
     path: string;

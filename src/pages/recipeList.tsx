@@ -25,17 +25,22 @@ const RecipeLink = styled.div`
 const filterNullNodes = (edges: PathNode[]) =>
   edges.filter(edge => edge.node.path.includes("recipes"));
 
+const filterLanguage = (edges: PathNode[], currentLanguage: "EN" | "PL") =>
+  edges.filter(edge => edge.node.pageContext.language === currentLanguage);
+
 interface Props {
   data: PathQuery;
 }
 
 const AllRecipes: React.FC<Props> = ({ data }) => {
+  const currentLanguage = "EN";
   const validNodes = filterNullNodes(data.allSitePage.edges);
+  const currentLanguageNodes = filterLanguage(validNodes, currentLanguage);
 
   return (
     <PageLayout header="Wszystkie przepisy">
       <RecipeList>
-        {validNodes.map(n => (
+        {currentLanguageNodes.map(n => (
           <RecipeLink key={n.node.pageContext.name}>
             <RecipeLogo name={n.node.pageContext.name} />
             <Link to={n.node.path}>{n.node.pageContext.name}</Link>
