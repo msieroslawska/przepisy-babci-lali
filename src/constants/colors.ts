@@ -30,6 +30,7 @@ export const colors = {
   },
   background: {
     body: Colors.White,
+    translate: Colors.White,
   },
   spacer: Colors.Black,
   recipeLogos: [

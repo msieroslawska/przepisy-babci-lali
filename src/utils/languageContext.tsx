@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import { colors } from "../constants/colors";
+
 interface ContextProps {
   currentLanguage: string;
 }
@@ -32,7 +34,9 @@ export const LanguageProvider: React.FC = ({ children }) => {
     height: 60px;
     width: 60px;
     border: 0;
-    background-color: blue;
+    background-color: ${colors.background.translate};
+    position: absolute;
+    cursor: pointer;
 
     img {
       width: auto;
