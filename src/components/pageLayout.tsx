@@ -61,15 +61,17 @@ interface Props {
   header: string;
 }
 
-export const PageLayout: React.FC<Props> = ({ children, header }) => (
-  <>
-    <GlobalStyles />
-    <PageWrapper>
-      <ContentWrapper>
-        <Header>{header}</Header>
-        {children}
-      </ContentWrapper>
-      <Footer />
-    </PageWrapper>
-  </>
-);
+export const PageLayout: React.FC<Props> = ({ children, header }) => {
+  return (
+    <>
+      <GlobalStyles />
+      <PageWrapper>
+        <ContentWrapper>
+          <Header>{header}</Header>
+          {children}
+        </ContentWrapper>
+        <Footer />
+      </PageWrapper>
+    </>
+  );
+};

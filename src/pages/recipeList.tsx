@@ -6,6 +6,7 @@ import { PathNode, PathQuery } from "../../types/graphQlQueries";
 
 import { PageLayout } from "../components/pageLayout";
 import { RecipeLogo } from "../components/recipeLogo";
+import { useLanguageContext } from "../hooks/useLanguageContext";
 
 const RecipeList = styled.div`
   display: grid;
@@ -25,7 +26,7 @@ const RecipeLink = styled.div`
 const filterNullNodes = (edges: PathNode[]) =>
   edges.filter(edge => edge.node.path.includes("recipes"));
 
-const filterLanguage = (edges: PathNode[], currentLanguage: "EN" | "PL") =>
+const filterLanguage = (edges: PathNode[], currentLanguage = "PL") =>
   edges.filter(edge => edge.node.pageContext.language === currentLanguage);
 
 interface Props {
@@ -33,7 +34,7 @@ interface Props {
 }
 
 const AllRecipes: React.FC<Props> = ({ data }) => {
-  const currentLanguage = "EN";
+  const { currentLanguage } = useLanguageContext();
   const validNodes = filterNullNodes(data.allSitePage.edges);
   const currentLanguageNodes = filterLanguage(validNodes, currentLanguage);
 
