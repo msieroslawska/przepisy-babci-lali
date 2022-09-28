@@ -1,0 +1,40 @@
+{
+  "imageName": "Tort-fedora",
+  "PL": {
+    "name": "Tort Fedora (z Twój Styl)",
+    "ingredientsList": [
+      {
+        "Masa czekoladowa": [
+          "400 g cukru",
+          "szklanka wody",
+          "0,5 łyżki octu 6%",
+          "400 g masła",
+          "50 g kakao",
+          "wanilia",
+          "żółtko"
+        ]
+      },
+      {
+        "Masa orzechowa": [
+          "100 g orzechów włoskich",
+          "50 g kaszki manny",
+          "150 g cukru pudru",
+          "125 ml mleka",
+          "wanilia",
+          "szczypta soli"
+        ]
+      },
+      { "Plus": ["3 okrągłe wafle"] }
+    ],
+    "instructions": [
+      "Masa czekoladowa: [Cukier, wodę i ocet] ugotować do nitki. Dodać kakao, rozmieszać. Dodawać masło, ucierać. Do letniej [masy] dodać żółtko, ucierać. Postawić w zimne miejsce, często mieszać.",
+      "Masa orzechowa: Mannę rozrobić z mlekiem, ostudzić, dodać resztę składników.",
+      "Wafel posmarować połową masy czekoladowej, przykryć drugim, przycisnąć, nałożyć masę orzechową, przykryć waflem. Na wierzch nałożyć resztę [masy] czekoladowej, rozsmarować, przybrać orzeszkami."
+    ]
+  },
+  "EN": {
+    "name": "Tort Fedora (z Twój Styl) in EN",
+    "ingredientsList": [{ "Ingredients": ["Ingredient 1", "Ingredient 2"] }],
+    "instructions": ["testInstructions"]
+  }
+}

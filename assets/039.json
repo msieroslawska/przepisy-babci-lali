@@ -1,0 +1,22 @@
+{
+  "imageName": "Tort-makowy",
+  "PL": {
+    "name": "Tort makowy",
+    "ingredientsList": [
+      {
+        "Składniki": [
+          "12 jajek -piana",
+          "400 g cukru",
+          "0,5 kg mąki",
+          "zapach migdałowy"
+        ]
+      }
+    ],
+    "instructions": [""]
+  },
+  "EN": {
+    "name": "Tort makowy in EN",
+    "ingredientsList": [{ "Ingredients": ["Ingredient 1", "Ingredient 2"] }],
+    "instructions": ["testInstructions"]
+  }
+}

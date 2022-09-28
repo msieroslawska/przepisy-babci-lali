@@ -1,0 +1,23 @@
+{
+  "imageName": "Rogaliki-polfrancuskie",
+  "PL": {
+    "name": "Rogaliki półfrancuskie",
+    "ingredientsList": [
+      {
+        "Składniki": [
+          "0,5 kg mąki",
+          "1 szklanka śmietany",
+          "1 kostka margaryny",
+          "50 g drożdży",
+          "sól"
+        ]
+      }
+    ],
+    "instructions": ["[Drożdże i sól] / [Wszystko] na 15 minut do zimnej wody."]
+  },
+  "EN": {
+    "name": "Rogaliki półfrancuskie in EN",
+    "ingredientsList": [{ "Ingredients": ["Ingredient 1", "Ingredient 2"] }],
+    "instructions": ["testInstructions"]
+  }
+}

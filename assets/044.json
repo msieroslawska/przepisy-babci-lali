@@ -1,0 +1,32 @@
+{
+  "imageName": "Orzechowiec-2",
+  "PL": {
+    "name": "Orzechowiec 2",
+    "ingredientsList": [
+      {
+        "Ciasto": [
+          "500 g mąki",
+          "200 g cukru",
+          "200 g masła",
+          "2 jajka",
+          "2 łyżki miodu",
+          "2 łyżki mleka"
+        ]
+      },
+      {
+        "Masa": [
+          "300 g krojonych orzechów",
+          "100 g cukru",
+          "0,5 kostki masła",
+          "2 łyżki miodu"
+        ]
+      }
+    ],
+    "instructions": ["Usmażyć składniki masy.", "Przełożyć masą kawową."]
+  },
+  "EN": {
+    "name": "Orzechowiec 2 in EN",
+    "ingredientsList": [{ "Ingredients": ["Ingredient 1", "Ingredient 2"] }],
+    "instructions": ["testInstructions"]
+  }
+}
