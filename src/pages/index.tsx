@@ -1,5 +1,6 @@
 import * as React from "react";
 import { graphql } from "gatsby";
+
 import Layout from "../components/layout";
 import * as sections from "../components/sections";
 import Fallback from "../components/fallback";
@@ -17,9 +18,7 @@ interface HomepageProps {
   };
 }
 
-export default function Homepage(props: HomepageProps) {
-  const { homepage } = props.data;
-
+export default function Homepage({ data: { homepage } }: HomepageProps) {
   return (
     <Layout>
       {homepage.blocks.map(block => {
@@ -30,10 +29,11 @@ export default function Homepage(props: HomepageProps) {
     </Layout>
   );
 }
-export const Head = (props: HomepageProps) => {
-  const { homepage } = props.data;
+
+export const Head = ({ data: { homepage } }: HomepageProps) => {
   return <SEOHead {...homepage} />;
 };
+
 export const query = graphql`
   {
     homepage {

@@ -1,25 +1,23 @@
-import * as React from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/layout"
-import { Container, Box, Heading } from "../components/ui"
-import SEOHead from "../components/head"
+import * as React from "react";
+import { graphql } from "gatsby";
+import Layout from "../components/layout";
+import { Container, Box, Heading } from "../components/ui";
+import SEOHead from "../components/head";
 
 interface PageProps {
   data: {
     page: {
-      id: string
-      title: string
-      slug: string
-      description: string
-      image: { id: string; url: string }
-      html: string
-    }
-  }
+      id: string;
+      title: string;
+      slug: string;
+      description: string;
+      image: { id: string; url: string };
+      html: string;
+    };
+  };
 }
 
-export default function Page(props: PageProps) {
-  const { page } = props.data
-
+export default function Page({ data: { page } }: PageProps) {
   return (
     <Layout>
       <Box paddingY={5}>
@@ -33,12 +31,13 @@ export default function Page(props: PageProps) {
         </Container>
       </Box>
     </Layout>
-  )
+  );
 }
-export const Head = (props: PageProps) => {
-  const { page } = props.data
-  return <SEOHead {...page} />
-}
+
+export const Head = ({ data: { page } }: PageProps) => {
+  return <SEOHead {...page} />;
+};
+
 export const query = graphql`
   query PageContent($id: String!) {
     page(id: { eq: $id }) {
@@ -53,4 +52,4 @@ export const query = graphql`
       html
     }
   }
-`
+`;
