@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { PageLayout } from "../components/pageLayout";
 import { Image } from "../components/image";
-import { useLanguageContext } from "../utils/languageContext";
+// import { useLanguageContext } from "../utils/languageContext";
 
 const PictureWrapper = styled.section`
   display: flex;
@@ -28,7 +28,7 @@ const Text = styled.p`
 `;
 
 const Home: React.FC = () => {
-  const { currentLanguage } = useLanguageContext();
+  // const { currentLanguage } = useLanguageContext();
 
   return (
     <PageLayout header="Przepisy babci Lali">
