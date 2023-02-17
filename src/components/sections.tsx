@@ -1,5 +1,4 @@
 import { HeroProps } from "./hero";
-import { FeatureListProps } from "./feature-list";
 import { LogoListProps } from "./logo-list";
 import { BenefitListProps } from "./benefit-list";
 import { StatListProps } from "./stat-list";
@@ -12,7 +11,6 @@ import { AboutLeadershipProps } from "./about-leadership";
 import { AboutLogoListProps } from "./about-logo-list";
 
 export { default as HomepageHero } from "./hero";
-export { default as HomepageFeatureList } from "./feature-list";
 export { default as HomepageLogoList } from "./logo-list";
 export { default as HomepageBenefitList } from "./benefit-list";
 export { default as HomepageStatList } from "./stat-list";
@@ -25,7 +23,6 @@ export { default as AboutLogoList } from "./about-logo-list";
 
 export type SectionProps =
   | HeroProps
-  | FeatureListProps
   | LogoListProps
   | BenefitListProps
   | StatListProps
@@ -38,7 +35,6 @@ export type SectionProps =
 
 type Blocktypes =
   | "HomepageHero"
-  | "HomepageFeatureList"
   | "HomepageLogoList"
   | "HomepageBenefitList"
   | "HomepageStatList"
@@ -56,7 +52,6 @@ type WithBlocktype<B = Blocktypes, P = SectionProps> = {
 
 export type HomepageBlock =
   | WithBlocktype<"HomepageHero", HeroProps>
-  | WithBlocktype<"HomepageFeatureList", FeatureListProps>
   | WithBlocktype<"HomepageLogoList", LogoListProps>
   | WithBlocktype<"HomepageBenefitList", BenefitListProps>
   | WithBlocktype<"HomepageStatList", StatListProps>
