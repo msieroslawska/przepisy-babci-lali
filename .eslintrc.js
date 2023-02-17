@@ -11,7 +11,6 @@ module.exports = {
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier",
-    "prettier/react",
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -28,4 +27,9 @@ module.exports = {
     "@typescript-eslint/no-var-requires": "off",
   },
   ignorePatterns: ["**/build/*", "**/public/*", "**/node_modules/*"],
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
 };

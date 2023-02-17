@@ -58,6 +58,7 @@ const Header = styled.h1`
 `;
 
 interface Props {
+  children: React.ReactNode;
   header: string;
 }
 

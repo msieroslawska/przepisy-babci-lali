@@ -29,7 +29,7 @@ const RecipeLayout: React.FC<Props> = props => {
 export default RecipeLayout;
 
 export const query = graphql`
-  query($imageName: String!) {
+  query ($imageName: String!) {
     allFile(
       filter: { sourceInstanceName: { eq: "assets" }, name: { eq: $imageName } }
     ) {
