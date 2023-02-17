@@ -1,4 +1,9 @@
 .cache
-package.json
-package-lock.json
 public
+static
+node_modules
+.vscode
+.idea
+post-types.json
+taxonomies.json
+acf-field-groups.json

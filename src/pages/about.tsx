@@ -5,9 +5,9 @@ import * as sections from "../components/sections"
 import Fallback from "../components/fallback"
 import SEOHead from "../components/head"
 
-interface HomepageProps {
+interface AboutProps {
   data: {
-    homepage: {
+    aboutPage: {
       id: string
       title: string
       description: string
@@ -17,12 +17,12 @@ interface HomepageProps {
   }
 }
 
-export default function Homepage(props: HomepageProps) {
-  const { homepage } = props.data
+export default function About(props: AboutProps) {
+  const { aboutPage } = props.data
 
   return (
     <Layout>
-      {homepage.blocks.map((block) => {
+      {aboutPage.blocks.map((block) => {
         const { id, blocktype, ...componentProps } = block
         const Component = sections[blocktype] || Fallback
         return <Component key={id} {...(componentProps as any)} />
@@ -30,13 +30,13 @@ export default function Homepage(props: HomepageProps) {
     </Layout>
   )
 }
-export const Head = (props: HomepageProps) => {
-  const { homepage } = props.data
-  return <SEOHead {...homepage} />
+export const Head = (props: AboutProps) => {
+  const { aboutPage } = props.data
+  return <SEOHead {...aboutPage} />
 }
 export const query = graphql`
   {
-    homepage {
+    aboutPage {
       id
       title
       description
@@ -47,14 +47,13 @@ export const query = graphql`
       blocks: content {
         id
         blocktype
-        ...HomepageHeroContent
-        ...HomepageFeatureListContent
-        ...HomepageCtaContent
-        ...HomepageLogoListContent
-        ...HomepageTestimonialListContent
-        ...HomepageBenefitListContent
-        ...HomepageStatListContent
+        ...AboutHeroContent
+        ...AboutStatListContent
         ...HomepageProductListContent
+        ...AboutLeadershipContent
+        ...HomepageBenefitListContent
+        ...AboutLogoListContent
+        ...HomepageCtaContent
       }
     }
   }

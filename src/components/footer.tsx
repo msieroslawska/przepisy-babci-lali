@@ -1,49 +1,166 @@
-import React from "react";
-import styled from "styled-components";
+import * as React from "react"
+import { graphql, useStaticQuery } from "gatsby"
+import {
+  Twitter,
+  Twitch,
+  Instagram,
+  Facebook,
+  Youtube,
+  GitHub,
+} from "react-feather"
+import {
+  Container,
+  Flex,
+  FlexList,
+  Box,
+  Space,
+  NavLink,
+  Text,
+  IconLink,
+  VisuallyHidden,
+  HomepageLink,
+} from "./ui"
+import BrandLogo from "./brand-logo"
 
-import { Navigation } from "./navigation";
-import { colors } from "../constants/colors";
-import { FooterLink } from "../../types/links";
-
-const BottomElement = styled.section`
-  flex: 0 0 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  border-top: 2px solid ${colors.spacer};
-  margin-top: 10px;
-`;
-
-const FooterWrapper = styled.ul`
-  padding: 10px 0;
-  display: flex;
-  flex-direction: row;
-  list-style: none;
-  justify-content: center;
-`;
-
-const FooterElement = styled.li`
-  margin: 0 5px;
-`;
-
-const links: FooterLink[] = [
-  {
-    href: "https://github.com/msieroslawska/przepisy-babci-lali",
-    name: "github.com/msieroslawska/przepisy-babci-lali",
+const socialMedia = {
+  TWITTER: {
+    url: "https://twitter.com",
+    name: "Twitter",
+    icon: <Twitter />,
   },
-  { href: "https://www.gatsbyjs.com/", name: "Built in Gatsby" },
-];
+  INSTAGRAM: {
+    url: "https://instagram.com",
+    name: "Instagram",
+    icon: <Instagram />,
+  },
+  FACEBOOK: {
+    url: "https://facebook.com",
+    name: "Facebook",
+    icon: <Facebook />,
+  },
+  YOUTUBE: {
+    url: "https://youtube.com",
+    name: "YouTube",
+    icon: <Youtube />,
+  },
+  GITHUB: {
+    url: "https://github.com",
+    name: "GitHub",
+    icon: <GitHub />,
+  },
+  TWITCH: {
+    url: "https://twitch.tv",
+    name: "Twitch",
+    icon: <Twitch />,
+  },
+}
 
-const renderLinks = (allLinks: FooterLink[]) =>
-  allLinks.map(l => (
-    <FooterElement key={l.name}>
-      <a href={l.href}>{l.name}</a>
-    </FooterElement>
-  ));
+const getSocialURL = ({ service, username }) => {
+  const domain = socialMedia[service]?.url
+  if (!domain) return false
+  return `${domain}/${username}`
+}
 
-export const Footer: React.FC = () => (
-  <BottomElement>
-    <Navigation />
-    <FooterWrapper>{renderLinks(links)}</FooterWrapper>
-  </BottomElement>
-);
+const getSocialIcon = ({ service }) => {
+  return socialMedia[service]?.icon
+}
+
+const getSocialName = ({ service }) => {
+  return socialMedia[service]?.name
+}
+
+interface FooterData {
+  layout: {
+    footer: {
+      id: string
+      links: HomepageLink[]
+      meta: { id: string; href: string; text: string }[]
+      copyright: string
+      socialLinks: { id: string; service: string; username: string }[]
+    }
+  }
+}
+
+export default function Footer() {
+  const data: FooterData = useStaticQuery(graphql`
+    query {
+      layout {
+        footer {
+          id
+          links {
+            id
+            href
+            text
+          }
+          meta {
+            id
+            href
+            text
+          }
+          copyright
+          socialLinks {
+            id
+            service
+            username
+          }
+        }
+      }
+    }
+  `)
+
+  const { links, meta, socialLinks, copyright } = data.layout.footer
+
+  return (
+    <Box as="footer" paddingY={4}>
+      <Container>
+        <Flex variant="start" responsive>
+          <NavLink to="/">
+            <VisuallyHidden>Home</VisuallyHidden>
+            <BrandLogo />
+          </NavLink>
+          <Space />
+          <FlexList>
+            {socialLinks &&
+              socialLinks.map((link) => {
+                const url = getSocialURL(link)
+                return (
+                  url && (
+                    <li key={link.id}>
+                      <IconLink to={url}>
+                        <VisuallyHidden>{getSocialName(link)}</VisuallyHidden>
+                        {getSocialIcon(link)}
+                      </IconLink>
+                    </li>
+                  )
+                )
+              })}
+          </FlexList>
+        </Flex>
+        <Space size={5} />
+        <Flex variant="start" responsive>
+          <FlexList variant="start" responsive>
+            {links &&
+              links.map((link) => (
+                <li key={link.id}>
+                  <NavLink to={link.href}>{link.text}</NavLink>
+                </li>
+              ))}
+          </FlexList>
+          <Space />
+          <FlexList>
+            {meta &&
+              meta.map((link) => (
+                <li key={link.id}>
+                  <NavLink to={link.href}>
+                    <Text variant="small">{link.text}</Text>
+                  </NavLink>
+                </li>
+              ))}
+          </FlexList>
+          <Text variant="small">{copyright}</Text>
+        </Flex>
+      </Container>
+      <Space size={3} />
+    </Box>
+  )
+}
