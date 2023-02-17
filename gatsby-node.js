@@ -127,19 +127,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       links: [HomepageLink]
     }
 
-    interface HomepageLogo implements Node {
-      id: ID!
-      image: HomepageImage
-      alt: String
-    }
-
-    interface HomepageLogoList implements Node & HomepageBlock {
-      id: ID!
-      blocktype: String
-      text: String
-      logos: [HomepageLogo]
-    }
-
     interface HomepageProduct implements Node {
       id: ID!
       heading: String
@@ -246,14 +233,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       content: [AboutProfile]
     }
 
-    interface AboutLogoList implements Node & HomepageBlock {
-      id: ID!
-      blocktype: String
-      heading: String
-      links: [HomepageLink]
-      logos: [HomepageLogo]
-    }
-
     interface Page implements Node {
       id: ID!
       slug: String!
@@ -309,19 +288,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       image: HomepageImage @link(from: "image___NODE")
       text: String
       links: [HomepageLink] @link(from: "links___NODE")
-    }
-
-    type ContentfulHomepageLogo implements Node & HomepageLogo @dontInfer {
-      id: ID!
-      image: HomepageImage @link(from: "image___NODE")
-      alt: String
-    }
-
-    type ContentfulHomepageLogoList implements Node & HomepageBlock & HomepageLogoList
-      @dontInfer {
-      blocktype: String @blocktype
-      text: String
-      logos: [HomepageLogo] @link(from: "logos___NODE")
     }
 
     type ContentfulHomepageProduct implements Node & HomepageProduct
@@ -389,15 +355,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       heading: String
       subhead: String
       content: [AboutProfile] @link(from: "content___NODE")
-    }
-
-    type ContentfulAboutLogoList implements Node & AboutLogoList & HomepageBlock
-      @dontInfer {
-      id: ID!
-      blocktype: String @blocktype
-      heading: String
-      links: [HomepageLink] @link(from: "links___NODE")
-      logos: [HomepageLogo] @link(from: "logos___NODE")
     }
 
     type ContentfulAboutPage implements Node & AboutPage @dontInfer {
