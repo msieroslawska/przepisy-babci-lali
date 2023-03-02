@@ -1,43 +1,56 @@
 {
-  "name": "gatsby-starter-contentful-homepage-ts",
-  "version": "1.0.0",
+  "name": "contentful-starter-gatsby-blog",
+  "description": "Contentful Gatsby Starter Blog",
+  "private": true,
+  "version": "0.0.1",
+  "author": "Contentful <opensource@contentful.com>",
+  "bugs": {
+    "url": "https://github.com/contentful/starter-gatsby-blog/issues"
+  },
+  "dependencies": {
+    "@contentful/rich-text-plain-text-renderer": "15.12.1",
+    "gatsby": "5.5.0",
+    "gatsby-plugin-image": "3.5.0",
+    "gatsby-plugin-react-helmet": "6.5.0",
+    "gatsby-plugin-sharp": "5.5.0",
+    "gatsby-source-contentful": "8.5.0",
+    "gatsby-transformer-sharp": "5.5.0",
+    "gh-pages": "3.1.0",
+    "lodash": "4.17.21",
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
+    "react-helmet": "6.1.0",
+    "reading-time": "2.0.0-1"
+  },
+  "devDependencies": {
+    "contentful-import": "8.3.2",
+    "gatsby-provision-contentful": "0.0.5",
+    "netlify-cli": "10.0.0"
+  },
   "engines": {
     "node": ">=18.0.0"
   },
+  "homepage": "https://github.com/contentful/starter-gatsby-blog#readme",
+  "keywords": [
+    "gatsby",
+    "contentful",
+    "starter"
+  ],
+  "license": "MIT",
+  "main": "n/a",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/contentful/starter-gatsby-blog.git"
+  },
   "scripts": {
-    "start": "gatsby develop",
-    "develop": "gatsby develop",
+    "dev": "gatsby develop",
     "build": "gatsby build",
+    "heroku-postbuild": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
-  },
-  "dependencies": {
-    "@contentful/rich-text-html-renderer": "16.0.2",
-    "gatsby-plugin-manifest": "5.6.0",
-    "gatsby-source-contentful": "8.6.1",
-    "@fontsource/dm-mono": "4.5.10",
-    "@fontsource/dm-sans": "4.5.9",
-    "@vanilla-extract/babel-plugin": "1.2.0",
-    "@vanilla-extract/css": "1.9.5",
-    "@vanilla-extract/css-utils": "0.1.3",
-    "@vanilla-extract/webpack-plugin": "2.2.0",
-    "gatsby": "5.6.1",
-    "gatsby-plugin-image": "3.6.0",
-    "gatsby-plugin-sharp": "5.6.0",
-    "gatsby-plugin-vanilla-extract": "4.0.1",
-    "gatsby-source-filesystem": "5.6.0",
-    "gatsby-transformer-sharp": "5.6.0",
-    "is-absolute-url": "4.0.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-feather": "2.0.10",
-    "sharp": "0.31.3"
-  },
-  "devDependencies": {
-    "contentful-cli": "2.0.0",
-    "prettier": "2.8.4",
-    "husky": "8.0.3",
-    "lint-staged": "13.1.2",
-    "typescript": "4.9.5"
+    "postinstall": "node ./bin/hello.js",
+    "setup": "node ./bin/setup.js",
+    "netlify:login": "netlify login",
+    "netlify:deploy": "netlify deploy -d public -p",
+    "gatsby-provision": "gatsby-provision-contentful --contentful-data-path='./contentful/export.json' --space-id=$CONTENTFUL_SPACE_ID --management-token=$CONTENTFUL_MANAGEMENT_TOKEN"
   }
 }
