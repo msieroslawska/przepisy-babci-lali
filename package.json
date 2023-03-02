@@ -1,12 +1,9 @@
 {
-  "name": "contentful-starter-gatsby-blog",
-  "description": "Contentful Gatsby Starter Blog",
+  "name": "przepisy-babci-lali",
+  "description": "Kolekcja przepisów babci Lali",
   "private": true,
   "version": "0.0.1",
-  "author": "Contentful <opensource@contentful.com>",
-  "bugs": {
-    "url": "https://github.com/contentful/starter-gatsby-blog/issues"
-  },
+  "author": "Marta Sierosławska",
   "dependencies": {
     "@contentful/rich-text-plain-text-renderer": "15.12.1",
     "gatsby": "5.5.0",
@@ -23,34 +20,45 @@
     "reading-time": "2.0.0-1"
   },
   "devDependencies": {
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "@types/react-helmet": "^6.1.6",
+    "@typescript-eslint/eslint-plugin": "5.6.0",
+    "@typescript-eslint/parser": "5.6.0",
     "contentful-import": "8.3.2",
+    "eslint": "8.4.1",
+    "eslint-config-airbnb": "19.0.2",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-import": "2.25.3",
+    "eslint-plugin-jsx-a11y": "6.5.1",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-react": "7.27.1",
+    "eslint-plugin-react-hooks": "4.3.0",
     "gatsby-provision-contentful": "0.0.5",
-    "netlify-cli": "10.0.0"
+    "husky": "7.0.4",
+    "prettier": "2.5.1",
+    "typescript": "4.5.3"
   },
   "engines": {
     "node": ">=18.0.0"
   },
-  "homepage": "https://github.com/contentful/starter-gatsby-blog#readme",
-  "keywords": [
-    "gatsby",
-    "contentful",
-    "starter"
-  ],
-  "license": "MIT",
-  "main": "n/a",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/contentful/starter-gatsby-blog.git"
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run style:check"
+    }
   },
+  "license": "MIT",
   "scripts": {
     "dev": "gatsby develop",
     "build": "gatsby build",
     "heroku-postbuild": "gatsby build",
     "serve": "gatsby serve",
-    "postinstall": "node ./bin/hello.js",
-    "setup": "node ./bin/setup.js",
-    "netlify:login": "netlify login",
-    "netlify:deploy": "netlify deploy -d public -p",
+    "prettier:check": "prettier -c .",
+    "prettier:fix": "prettier -w .",
+    "test:check": "eslint \"**/*.{js,jsx,ts,tsx}\"",
+    "test:fix": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix",
+    "style:check": "npm run prettier:check && npm run test:check",
+    "style:fix": "npm run prettier:fix && npm run test:fix",
     "gatsby-provision": "gatsby-provision-contentful --contentful-data-path='./contentful/export.json' --space-id=$CONTENTFUL_SPACE_ID --management-token=$CONTENTFUL_MANAGEMENT_TOKEN"
   }
 }
