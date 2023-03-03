@@ -1,22 +1,21 @@
 import React from "react";
 import { GatsbyImage, IGatsbyImageData, getImage } from "gatsby-plugin-image";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
+import type { Asset } from "contentful";
 
 import * as styles from "./hero.module.css";
 
 interface HeroProps {
-  image: IGatsbyImageData;
+  image?: Asset;
   title: string;
-  content?: {
-    __typename: string;
-    contentful_id: string;
-    raw: string;
-    references: any[];
-  };
+  content?: any;
 }
 
 const Hero: React.FC<HeroProps> = ({ image, title, content }) => {
-  console.log("xxx img", image);
+  if (!image) {
+    return null;
+  }
+
   const gatsbyImage = getImage(image);
   return (
     <div className={styles.hero}>

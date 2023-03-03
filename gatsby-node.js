@@ -9,7 +9,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const result = await graphql(
     `
       {
-        allContentfulBlogPost {
+        allContentfulRecipe {
           nodes {
             title
             slug
@@ -27,25 +27,25 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return;
   }
 
-  const posts = result.data.allContentfulBlogPost.nodes;
+  const recipes = result.data.allContentfulRecipe.nodes;
 
   // Create blog posts pages
   // But only if there's at least one blog post found in Contentful
   // `context` is available in the template as a prop and as a variable in GraphQL
 
-  if (posts.length > 0) {
-    posts.forEach((post, index) => {
-      const previousPostSlug = index === 0 ? null : posts[index - 1].slug;
-      const nextPostSlug =
-        index === posts.length - 1 ? null : posts[index + 1].slug;
+  if (recipes.length > 0) {
+    recipes.forEach((recipe, index) => {
+      const previousRecipeSlug = index === 0 ? null : recipes[index - 1].slug;
+      const nextRecipeSlug =
+        index === recipes.length - 1 ? null : recipes[index + 1].slug;
 
       createPage({
-        path: `/blog/${post.slug}/`,
+        path: `/recipe/${recipe.slug}/`,
         component: blogPost,
         context: {
-          slug: post.slug,
-          previousPostSlug,
-          nextPostSlug,
+          slug: recipe.slug,
+          previousRecipeSlug,
+          nextRecipeSlug,
         },
       });
     });

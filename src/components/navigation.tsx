@@ -16,7 +16,7 @@ const Navigation: React.FC = () => (
         </Link>
       </li>
       <li className={styles.navigationItem}>
-        <Link to="/blog/" activeClassName="active">
+        <Link to="/recipe/" activeClassName="active">
           Przepisy
         </Link>
       </li>

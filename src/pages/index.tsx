@@ -1,28 +1,25 @@
 import React from "react";
 import { graphql } from "gatsby";
-import get from "lodash/get";
 
 import Layout from "../components/layout";
 import Hero from "../components/hero";
 import ArticlePreview from "../components/article-preview";
-import { IGatsbyImageData } from "gatsby-plugin-image";
+import { TypeHeroFields } from "../types/hero";
+import { TypeRecipeFields } from "../types/recipe";
 
 interface RootProps {
   data: {
-    allContentfulBlogPost: {
-      nodes: any;
+    allContentfulRecipe: {
+      nodes: TypeRecipeFields[];
     };
-    contentfulHero: {
-      name: string;
-      image: IGatsbyImageData;
-    };
+    contentfulHero: TypeHeroFields;
   };
   location: any;
 }
 
 const RootIndex: React.FC<RootProps> = props => {
   console.log("xxx root", props);
-  const posts = props.data.allContentfulBlogPost.nodes;
+  const recipes = props.data.allContentfulRecipe.nodes;
   const heroImage = props.data.contentfulHero;
 
   return (
@@ -32,7 +29,7 @@ const RootIndex: React.FC<RootProps> = props => {
         title={heroImage.name}
         // content={author.shortBio}
       />
-      <ArticlePreview posts={posts} />
+      <ArticlePreview recipes={recipes} />
     </Layout>
   );
 };
@@ -41,13 +38,12 @@ export default RootIndex;
 
 export const pageQuery = graphql`
   query HomeQuery {
-    allContentfulBlogPost(sort: { publishDate: DESC }) {
+    allContentfulRecipe(filter: { node_locale: { eq: "en-US" } }) {
       nodes {
         title
         slug
-        publishDate(formatString: "MMMM Do, YYYY")
         tags
-        heroImage {
+        scannedImage {
           gatsbyImage(
             layout: FULL_WIDTH
             placeholder: BLURRED

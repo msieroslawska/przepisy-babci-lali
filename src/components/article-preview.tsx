@@ -1,47 +1,31 @@
 import React from "react";
 import { Link } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
-import { renderRichText } from "gatsby-source-contentful/rich-text";
 
 import Container from "./container";
 import Tags from "./tags";
 import * as styles from "./article-preview.module.css";
+import { TypeRecipeFields } from "../types/recipe";
 
-interface Post {
-  slug: any;
-  heroImage: any;
-  title: string;
-  description: {
-    raw: string;
-    references: any;
-  };
-  publishDate: any;
-  tags: string[];
+interface RecipePreviewProps {
+  recipes: TypeRecipeFields[];
 }
 
-interface ArticlePreviewProps {
-  posts: Post[];
-}
-
-const ArticlePreview: React.FC<ArticlePreviewProps> = ({ posts }) => {
-  if (!posts) return null;
-  if (!Array.isArray(posts)) return null;
+const RecipePreview: React.FC<RecipePreviewProps> = ({ recipes }) => {
+  if (!recipes) return null;
+  if (!Array.isArray(recipes)) return null;
 
   return (
     <Container>
       <ul className={styles.articleList}>
-        {posts.map(post => {
+        {recipes.map(recipe => {
           return (
-            <li key={post.slug}>
-              <Link to={`/blog/${post.slug}`} className={styles.link}>
-                {/* <GatsbyImage alt="" image={post.heroImage.gatsbyImage} /> */}
-                <h2 className={styles.title}>{post.title}</h2>
+            <li key={recipe.slug}>
+              <Link to={`/recipe/${recipe.slug}`} className={styles.link}>
+                <h2 className={styles.title}>{recipe.title}</h2>
               </Link>
-              <div>
-                {post.description?.raw && renderRichText(post.description)}
-              </div>
+
               <div className={styles.meta}>
-                <Tags tags={post.tags} />
+                <Tags tags={recipe.tags} />
               </div>
             </li>
           );
@@ -51,4 +35,4 @@ const ArticlePreview: React.FC<ArticlePreviewProps> = ({ posts }) => {
   );
 };
 
-export default ArticlePreview;
+export default RecipePreview;
