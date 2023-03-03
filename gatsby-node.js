@@ -1,10 +1,10 @@
-const path = require('path')
+const path = require("path");
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
   // Define a template for blog post
-  const blogPost = path.resolve('./src/templates/blog-post.js')
+  const blogPost = path.resolve("./src/templates/blog-post.tsx");
 
   const result = await graphql(
     `
@@ -17,17 +17,17 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         }
       }
     `
-  )
+  );
 
   if (result.errors) {
     reporter.panicOnBuild(
       `There was an error loading your Contentful posts`,
       result.errors
-    )
-    return
+    );
+    return;
   }
 
-  const posts = result.data.allContentfulBlogPost.nodes
+  const posts = result.data.allContentfulBlogPost.nodes;
 
   // Create blog posts pages
   // But only if there's at least one blog post found in Contentful
@@ -35,9 +35,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   if (posts.length > 0) {
     posts.forEach((post, index) => {
-      const previousPostSlug = index === 0 ? null : posts[index - 1].slug
+      const previousPostSlug = index === 0 ? null : posts[index - 1].slug;
       const nextPostSlug =
-        index === posts.length - 1 ? null : posts[index + 1].slug
+        index === posts.length - 1 ? null : posts[index + 1].slug;
 
       createPage({
         path: `/blog/${post.slug}/`,
@@ -47,7 +47,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           previousPostSlug,
           nextPostSlug,
         },
-      })
-    })
+      });
+    });
   }
-}
+};
