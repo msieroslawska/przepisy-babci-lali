@@ -3,8 +3,7 @@ const path = require("path");
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 
-  // Define a template for blog post
-  const blogPost = path.resolve("./src/templates/blog-post.tsx");
+  const recipeTemplate = path.resolve("./src/templates/recipe.tsx");
 
   const result = await graphql(
     `
@@ -40,8 +39,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         index === recipes.length - 1 ? null : recipes[index + 1].slug;
 
       createPage({
-        path: `/recipe/${recipe.slug}/`,
-        component: blogPost,
+        path: `/recipes/${recipe.slug}/`,
+        component: recipeTemplate,
         context: {
           slug: recipe.slug,
           previousRecipeSlug,

@@ -4,40 +4,32 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import Hero from "../components/hero";
 import RecipePreview from "../components/recipe-preview";
-import { TypeHeroFields } from "../types/hero";
 import { TypeRecipeFields } from "../types/recipe";
 
-interface RootProps {
+interface Props {
   data: {
     allContentfulRecipe: {
       nodes: TypeRecipeFields[];
     };
-    contentfulHero: TypeHeroFields;
   };
   location: any;
 }
 
-const RootIndex: React.FC<RootProps> = props => {
-  console.log("xxx root", props);
+const RecipeIndex: React.FC<Props> = props => {
   const recipes = props.data.allContentfulRecipe.nodes;
-  const heroImage = props.data.contentfulHero;
 
   return (
     <Layout location={props.location}>
-      <Hero
-        image={heroImage.image}
-        title={heroImage.name}
-        // content={author.shortBio}
-      />
+      <Hero title="Recipes" />
       <RecipePreview recipes={recipes} />
     </Layout>
   );
 };
 
-export default RootIndex;
+export default RecipeIndex;
 
 export const pageQuery = graphql`
-  query HomeQuery {
+  query RecipesIndexQuery {
     allContentfulRecipe(filter: { node_locale: { eq: "en-US" } }) {
       nodes {
         title
@@ -54,12 +46,6 @@ export const pageQuery = graphql`
         description {
           raw
         }
-      }
-    }
-    contentfulHero(id: { eq: "e0ed6ea4-be8b-5f2c-848c-0c67bc5670f8" }) {
-      name
-      image {
-        gatsbyImage(width: 200, placeholder: BLURRED)
       }
     }
   }

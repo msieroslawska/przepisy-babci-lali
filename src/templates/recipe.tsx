@@ -6,14 +6,13 @@ import { BLOCKS } from "@contentful/rich-text-types";
 import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
 import type { Asset } from "contentful";
 
-import Seo from "../components/seo";
 import Layout from "../components/layout";
 import Hero from "../components/hero";
 import Tags from "../components/tags";
-import * as styles from "./blog-post.module.css";
+import * as styles from "./recipe.module.css";
 import { TypeRecipeFields } from "../types/recipe";
 
-interface RecipeTemplateProps {
+interface eProps {
   data: {
     contentfulRecipe: TypeRecipeFields;
     previous: any;
@@ -22,7 +21,7 @@ interface RecipeTemplateProps {
   location: any;
 }
 
-const BlogPostTemplate: React.FC<RecipeTemplateProps> = props => {
+const RecipeTemplate: React.FC<Props> = props => {
   const recipe = props.data.contentfulRecipe;
   const previous = props.data.previous;
   const next = props.data.next;
@@ -59,7 +58,7 @@ const BlogPostTemplate: React.FC<RecipeTemplateProps> = props => {
     <Layout location={props.location}>
       {renderHero()}
       <div className={styles.container}>
-        <div className={styles.article}>
+        <div className={styles.recipe}>
           <div className={styles.body}>
             {/* {recipe.description?.raw &&
               renderRichText(recipe.description, options)} */}
@@ -67,7 +66,7 @@ const BlogPostTemplate: React.FC<RecipeTemplateProps> = props => {
           <Tags tags={recipe.tags} />
           {(previous || next) && (
             <nav>
-              <ul className={styles.articleNavigation}>
+              <ul className={styles.recipeNavigation}>
                 {previous && (
                   <li>
                     <Link to={`/recipe/${previous.slug}`} rel="prev">
@@ -91,7 +90,7 @@ const BlogPostTemplate: React.FC<RecipeTemplateProps> = props => {
   );
 };
 
-export default BlogPostTemplate;
+export default RecipeTemplate;
 
 export const pageQuery = graphql`
   query RecipeBySlug(

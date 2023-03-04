@@ -2,11 +2,11 @@ import React from "react";
 
 import * as styles from "./tags.module.css";
 
-interface TagsProps {
+interface Props {
   tags: string[];
 }
 
-const Tags: React.FC<TagsProps> = ({ tags }) => {
+const Tags: React.FC<Props> = ({ tags }) => {
   if (tags?.length === 0) {
     return null;
   }

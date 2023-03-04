@@ -1,11 +1,11 @@
 import React from "react";
 
-interface ContainerProps {
+interface Props {
   children: React.ReactNode;
   as?: keyof JSX.IntrinsicElements;
 }
 
-const Container: React.FC<ContainerProps> = ({ children, as = "div" }) => {
+const Container: React.FC<Props> = ({ children, as = "div" }) => {
   const Tag = as;
 
   return (

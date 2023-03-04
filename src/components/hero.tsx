@@ -5,13 +5,13 @@ import type { Asset } from "contentful";
 
 import * as styles from "./hero.module.css";
 
-interface HeroProps {
+interface Props {
   image?: Asset;
   title: string;
   content?: any;
 }
 
-const Hero: React.FC<HeroProps> = ({ image, title, content }) => {
+const Hero: React.FC<Props> = ({ image, title, content }) => {
   if (!image) {
     return null;
   }
