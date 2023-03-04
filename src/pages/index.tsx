@@ -3,7 +3,7 @@ import { graphql, PageProps } from "gatsby";
 
 import Layout from "../components/layout";
 import Hero from "../components/hero";
-import RecipePreview from "../components/recipe-preview";
+import RecipePreview from "../components/recipePreview";
 
 type Props = PageProps<Queries.HomeQuery>;
 

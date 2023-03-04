@@ -6,7 +6,7 @@ import { BLOCKS } from "@contentful/rich-text-types";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import Layout from "../components/layout";
-import Content from "../components/recipeContent";
+import RecipeHeader from "../components/recipeHeader";
 import Tags from "../components/tags";
 import * as styles from "./recipe.module.css";
 
@@ -35,12 +35,20 @@ const RecipeTemplate: React.FC<Props> = props => {
     return null;
   }
 
-  const renderContent = () => {
+  const renderRecipeHeader = () => {
     if (props.data.contentfulRecipe === null) {
       return null;
     }
 
-    return <Content {...props.data.contentfulRecipe} />;
+    return <RecipeHeader {...props.data.contentfulRecipe} />;
+  };
+
+  const renderContent = () => {
+    if (!props.data.contentfulRecipe?.description?.raw) {
+      return null;
+    }
+
+    return renderRichText(props.data.contentfulRecipe.description);
   };
 
   const renderTags = () => {
@@ -53,10 +61,11 @@ const RecipeTemplate: React.FC<Props> = props => {
 
   return (
     <Layout>
-      {renderContent()}
+      {renderRecipeHeader()}
       <div className={styles.container}>
         <div className={styles.recipe}>
           <div className={styles.body}>
+            {renderContent()}
             {/* {recipe.description?.raw &&
               renderRichText(recipe.description, options)} */}
           </div>

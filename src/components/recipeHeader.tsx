@@ -5,12 +5,12 @@ import * as styles from "./styles/hero.module.css";
 
 type Props = Queries.RecipeBySlugQuery["contentfulRecipe"];
 
-const Content: React.FC<Props> = props => {
+const RecipeHeader: React.FC<Props> = props => {
   if (!props) {
     return null;
   }
 
-  const { image, title, description } = props;
+  const { image, title } = props;
 
   const renderImage = () => {
     const gatsbyImage = getImage(image);
@@ -23,24 +23,14 @@ const Content: React.FC<Props> = props => {
     );
   };
 
-  const renderText = () => {
-    if (description === null) {
-      return null;
-    }
-
-    // @TODO: This is wrong
-    return description.raw;
-  };
-
   return (
     <div className={styles.hero}>
       {renderImage()}
       <div className={styles.details}>
         <h1 className={styles.title}>{title}</h1>
-        {description && <div className={styles.content}>{renderText()}</div>}
       </div>
     </div>
   );
 };
 
-export default Content;
+export default RecipeHeader;
