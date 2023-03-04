@@ -27,7 +27,7 @@ export const pageQuery = graphql`
         title
         slug
         tags
-        scannedImage {
+        image {
           gatsbyImage(
             layout: FULL_WIDTH
             placeholder: BLURRED

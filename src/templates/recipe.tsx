@@ -44,7 +44,7 @@ const RecipeTemplate: React.FC<Props> = props => {
   };
 
   const renderIngredients = (ingredients: Queries.ContentfulIngredient) => {
-    const quantity = ingredients.quantity?.quantity ?? "";
+    const quantity = ingredients.quantity?.quantityName ?? "";
     const unit = ingredients.unit?.unitName ?? "";
     const food = ingredients.food?.foodName;
     return (
@@ -118,12 +118,13 @@ export const pageQuery = graphql`
     $slug: String!
     $previousRecipeSlug: String
     $nextRecipeSlug: String
+    $locale: String
   ) {
-    contentfulRecipe(slug: { eq: $slug }) {
+    contentfulRecipe(slug: { eq: $slug }, node_locale: { eq: $locale }) {
       slug
       title
       source
-      image: scannedImage {
+      image {
         gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED, width: 1280)
         resize(height: 630, width: 1200) {
           src
@@ -135,7 +136,7 @@ export const pageQuery = graphql`
       }
       ingredients {
         quantity {
-          quantity
+          quantityName
         }
         unit {
           unitName

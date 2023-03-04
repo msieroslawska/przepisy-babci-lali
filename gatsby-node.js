@@ -5,7 +5,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const recipeTemplate = path.resolve("./src/templates/recipe.tsx");
 
-  const resultEnUS = await graphql(
+  const resultEn = await graphql(
     `
       {
         allContentfulRecipe(filter: { node_locale: { eq: "en-US" } }) {
@@ -18,35 +18,51 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     `
   );
 
-  if (resultEnUS.errors) {
+  const resultPl = await graphql(
+    `
+      {
+        allContentfulRecipe(filter: { node_locale: { eq: "pl" } }) {
+          nodes {
+            title
+            slug
+          }
+        }
+      }
+    `
+  );
+
+  if (resultEn.errors || resultPl.errors) {
     reporter.panicOnBuild(
       `There was an error loading your Contentful posts`,
-      resultEnUS.errors
+      resultEn.errors
     );
     return;
   }
 
-  const recipes = resultEnUS.data.allContentfulRecipe.nodes;
+  const recipesEn = resultEn.data.allContentfulRecipe.nodes;
+  const recipesPl = resultPl.data.allContentfulRecipe.nodes;
 
-  // Create blog posts pages
-  // But only if there's at least one blog post found in Contentful
-  // `context` is available in the template as a prop and as a variable in GraphQL
+  const createLocalizedRecipePages = (locale, recipes) => {
+    if (recipes.length > 0) {
+      recipes.forEach((recipe, index) => {
+        const previousRecipeSlug = index === 0 ? null : recipes[index - 1].slug;
+        const nextRecipeSlug =
+          index === recipes.length - 1 ? null : recipes[index + 1].slug;
 
-  if (recipes.length > 0) {
-    recipes.forEach((recipe, index) => {
-      const previousRecipeSlug = index === 0 ? null : recipes[index - 1].slug;
-      const nextRecipeSlug =
-        index === recipes.length - 1 ? null : recipes[index + 1].slug;
-
-      createPage({
-        path: `/recipes/${recipe.slug}/`,
-        component: recipeTemplate,
-        context: {
-          slug: recipe.slug,
-          previousRecipeSlug,
-          nextRecipeSlug,
-        },
+        createPage({
+          path: `/recipes/${locale}/${recipe.slug}/`,
+          component: recipeTemplate,
+          context: {
+            slug: recipe.slug,
+            previousRecipeSlug,
+            nextRecipeSlug,
+            locale,
+          },
+        });
       });
-    });
-  }
+    }
+  };
+
+  createLocalizedRecipePages("en-US", recipesEn);
+  createLocalizedRecipePages("pl", recipesPl);
 };

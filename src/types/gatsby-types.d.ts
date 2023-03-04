@@ -1861,7 +1861,7 @@ type ContentfulQuantity = ContentfulEntry & ContentfulReference & Node & {
   readonly internal: Internal;
   readonly node_locale: Scalars['String'];
   readonly parent: Maybe<Node>;
-  readonly quantity: Maybe<Scalars['Float']>;
+  readonly quantityName: Maybe<Scalars['Float']>;
   readonly spaceId: Maybe<Scalars['String']>;
   readonly sys: Maybe<ContentfulQuantitySys>;
   readonly updatedAt: Maybe<Scalars['Date']>;
@@ -1938,7 +1938,7 @@ type ContentfulQuantityFieldSelector = {
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly node_locale: InputMaybe<FieldSelectorEnum>;
   readonly parent: InputMaybe<NodeFieldSelector>;
-  readonly quantity: InputMaybe<FieldSelectorEnum>;
+  readonly quantityName: InputMaybe<FieldSelectorEnum>;
   readonly spaceId: InputMaybe<FieldSelectorEnum>;
   readonly sys: InputMaybe<ContentfulQuantitySysFieldSelector>;
   readonly updatedAt: InputMaybe<FieldSelectorEnum>;
@@ -1954,7 +1954,7 @@ type ContentfulQuantityFilterInput = {
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly node_locale: InputMaybe<StringQueryOperatorInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
-  readonly quantity: InputMaybe<FloatQueryOperatorInput>;
+  readonly quantityName: InputMaybe<FloatQueryOperatorInput>;
   readonly spaceId: InputMaybe<StringQueryOperatorInput>;
   readonly sys: InputMaybe<ContentfulQuantitySysFilterInput>;
   readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
@@ -2011,7 +2011,7 @@ type ContentfulQuantitySortInput = {
   readonly internal: InputMaybe<InternalSortInput>;
   readonly node_locale: InputMaybe<SortOrderEnum>;
   readonly parent: InputMaybe<NodeSortInput>;
-  readonly quantity: InputMaybe<SortOrderEnum>;
+  readonly quantityName: InputMaybe<SortOrderEnum>;
   readonly spaceId: InputMaybe<SortOrderEnum>;
   readonly sys: InputMaybe<ContentfulQuantitySysSortInput>;
   readonly updatedAt: InputMaybe<SortOrderEnum>;
@@ -2087,11 +2087,11 @@ type ContentfulRecipe = ContentfulEntry & ContentfulReference & Node & {
   readonly createdAt: Maybe<Scalars['Date']>;
   readonly description: Maybe<ContentfulRecipeDescription>;
   readonly id: Scalars['ID'];
+  readonly image: Maybe<ContentfulAsset>;
   readonly ingredients: Maybe<ReadonlyArray<Maybe<ContentfulIngredient>>>;
   readonly internal: Internal;
   readonly node_locale: Scalars['String'];
   readonly parent: Maybe<Node>;
-  readonly scannedImage: Maybe<ContentfulAsset>;
   readonly slug: Maybe<Scalars['String']>;
   readonly source: Maybe<Scalars['String']>;
   readonly spaceId: Maybe<Scalars['String']>;
@@ -2184,11 +2184,11 @@ type ContentfulRecipeFieldSelector = {
   readonly createdAt: InputMaybe<FieldSelectorEnum>;
   readonly description: InputMaybe<ContentfulRecipeDescriptionFieldSelector>;
   readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly image: InputMaybe<ContentfulAssetFieldSelector>;
   readonly ingredients: InputMaybe<ContentfulIngredientFieldSelector>;
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly node_locale: InputMaybe<FieldSelectorEnum>;
   readonly parent: InputMaybe<NodeFieldSelector>;
-  readonly scannedImage: InputMaybe<ContentfulAssetFieldSelector>;
   readonly slug: InputMaybe<FieldSelectorEnum>;
   readonly source: InputMaybe<FieldSelectorEnum>;
   readonly spaceId: InputMaybe<FieldSelectorEnum>;
@@ -2204,11 +2204,11 @@ type ContentfulRecipeFilterInput = {
   readonly createdAt: InputMaybe<DateQueryOperatorInput>;
   readonly description: InputMaybe<ContentfulRecipeDescriptionFilterInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly image: InputMaybe<ContentfulAssetFilterInput>;
   readonly ingredients: InputMaybe<ContentfulIngredientFilterListInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly node_locale: InputMaybe<StringQueryOperatorInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
-  readonly scannedImage: InputMaybe<ContentfulAssetFilterInput>;
   readonly slug: InputMaybe<StringQueryOperatorInput>;
   readonly source: InputMaybe<StringQueryOperatorInput>;
   readonly spaceId: InputMaybe<StringQueryOperatorInput>;
@@ -2269,11 +2269,11 @@ type ContentfulRecipeSortInput = {
   readonly createdAt: InputMaybe<SortOrderEnum>;
   readonly description: InputMaybe<ContentfulRecipeDescriptionSortInput>;
   readonly id: InputMaybe<SortOrderEnum>;
+  readonly image: InputMaybe<ContentfulAssetSortInput>;
   readonly ingredients: InputMaybe<ContentfulIngredientSortInput>;
   readonly internal: InputMaybe<InternalSortInput>;
   readonly node_locale: InputMaybe<SortOrderEnum>;
   readonly parent: InputMaybe<NodeSortInput>;
-  readonly scannedImage: InputMaybe<ContentfulAssetSortInput>;
   readonly slug: InputMaybe<SortOrderEnum>;
   readonly source: InputMaybe<SortOrderEnum>;
   readonly spaceId: InputMaybe<SortOrderEnum>;
@@ -4199,7 +4199,7 @@ type Query_contentfulQuantityArgs = {
   internal: InputMaybe<InternalFilterInput>;
   node_locale: InputMaybe<StringQueryOperatorInput>;
   parent: InputMaybe<NodeFilterInput>;
-  quantity: InputMaybe<FloatQueryOperatorInput>;
+  quantityName: InputMaybe<FloatQueryOperatorInput>;
   spaceId: InputMaybe<StringQueryOperatorInput>;
   sys: InputMaybe<ContentfulQuantitySysFilterInput>;
   updatedAt: InputMaybe<DateQueryOperatorInput>;
@@ -4212,11 +4212,11 @@ type Query_contentfulRecipeArgs = {
   createdAt: InputMaybe<DateQueryOperatorInput>;
   description: InputMaybe<ContentfulRecipeDescriptionFilterInput>;
   id: InputMaybe<StringQueryOperatorInput>;
+  image: InputMaybe<ContentfulAssetFilterInput>;
   ingredients: InputMaybe<ContentfulIngredientFilterListInput>;
   internal: InputMaybe<InternalFilterInput>;
   node_locale: InputMaybe<StringQueryOperatorInput>;
   parent: InputMaybe<NodeFilterInput>;
-  scannedImage: InputMaybe<ContentfulAssetFilterInput>;
   slug: InputMaybe<StringQueryOperatorInput>;
   source: InputMaybe<StringQueryOperatorInput>;
   spaceId: InputMaybe<StringQueryOperatorInput>;
@@ -5470,7 +5470,7 @@ type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: 
 type HomeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type HomeQuery = { readonly allContentfulRecipe: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly slug: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly scannedImage: { readonly gatsbyImage: import('gatsby-plugin-image').IGatsbyImageData | null } | null, readonly description: { readonly raw: string | null } | null }> }, readonly contentfulHero: { readonly name: string | null, readonly image: { readonly gatsbyImage: import('gatsby-plugin-image').IGatsbyImageData | null } | null, readonly description: { readonly description: string | null } | null } | null };
+type HomeQuery = { readonly allContentfulRecipe: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly slug: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly image: { readonly gatsbyImage: import('gatsby-plugin-image').IGatsbyImageData | null } | null, readonly description: { readonly raw: string | null } | null }> }, readonly contentfulHero: { readonly name: string | null, readonly image: { readonly gatsbyImage: import('gatsby-plugin-image').IGatsbyImageData | null } | null, readonly description: { readonly description: string | null } | null } | null };
 
 type NavigationQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -5481,15 +5481,16 @@ type RecipeBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
   previousRecipeSlug: InputMaybe<Scalars['String']>;
   nextRecipeSlug: InputMaybe<Scalars['String']>;
+  locale: InputMaybe<Scalars['String']>;
 }>;
 
 
-type RecipeBySlugQuery = { readonly contentfulRecipe: { readonly slug: string | null, readonly title: string | null, readonly source: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly image: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null, readonly resize: { readonly src: string | null } | null } | null, readonly description: { readonly raw: string | null } | null, readonly ingredients: ReadonlyArray<{ readonly quantity: { readonly quantity: number | null } | null, readonly unit: { readonly unitName: string | null } | null, readonly food: { readonly foodName: string | null } | null } | null> | null } | null, readonly previous: { readonly slug: string | null, readonly title: string | null } | null, readonly next: { readonly slug: string | null, readonly title: string | null } | null };
+type RecipeBySlugQuery = { readonly contentfulRecipe: { readonly slug: string | null, readonly title: string | null, readonly source: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly image: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null, readonly resize: { readonly src: string | null } | null } | null, readonly description: { readonly raw: string | null } | null, readonly ingredients: ReadonlyArray<{ readonly quantity: { readonly quantityName: number | null } | null, readonly unit: { readonly unitName: string | null } | null, readonly food: { readonly foodName: string | null } | null } | null> | null } | null, readonly previous: { readonly slug: string | null, readonly title: string | null } | null, readonly next: { readonly slug: string | null, readonly title: string | null } | null };
 
 type RecipesIndexQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type RecipesIndexQuery = { readonly allContentfulRecipe: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly slug: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly scannedImage: { readonly gatsbyImage: import('gatsby-plugin-image').IGatsbyImageData | null } | null, readonly description: { readonly raw: string | null } | null }> } };
+type RecipesIndexQuery = { readonly allContentfulRecipe: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly slug: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly image: { readonly gatsbyImage: import('gatsby-plugin-image').IGatsbyImageData | null } | null, readonly description: { readonly raw: string | null } | null }> } };
 
 
 }

@@ -8,6 +8,8 @@ import RecipePreview from "../components/recipePreview";
 type Props = PageProps<Queries.HomeQuery>;
 
 const RootIndex: React.FC<Props> = props => {
+  const [locale, setLocale] = React.useState("en-US");
+
   const renderHero = () => {
     if (props.data.contentfulHero === null) {
       return null;
@@ -32,7 +34,7 @@ export const pageQuery = graphql`
         title
         slug
         tags
-        scannedImage {
+        image {
           gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 424)
         }
         description {
