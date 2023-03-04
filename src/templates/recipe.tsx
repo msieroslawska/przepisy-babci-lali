@@ -8,11 +8,13 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Layout from "../components/layout";
 import RecipeHeader from "../components/recipeHeader";
 import Tags from "../components/tags";
+import { useLocale } from "../useLocale";
 import * as styles from "./recipe.module.css";
 
 type Props = PageProps<Queries.RecipeBySlugQuery>;
 
 const RecipeTemplate: React.FC<Props> = props => {
+  const { locale } = useLocale(props.location.pathname);
   const recipe = props.data.contentfulRecipe;
   const previous = props.data.previous;
   const next = props.data.next;
@@ -71,7 +73,7 @@ const RecipeTemplate: React.FC<Props> = props => {
   };
 
   return (
-    <Layout>
+    <Layout location={props.location.pathname}>
       {renderRecipeHeader()}
       <div className={styles.container}>
         <div className={styles.recipe}>
@@ -90,14 +92,14 @@ const RecipeTemplate: React.FC<Props> = props => {
               <ul className={styles.recipeNavigation}>
                 {previous && (
                   <li>
-                    <Link to={`/recipes/${previous.slug}`} rel="prev">
+                    <Link to={`/recipes/${locale}/${previous.slug}`} rel="prev">
                       ← {previous.title}
                     </Link>
                   </li>
                 )}
                 {next && (
                   <li>
-                    <Link to={`/recipes/${next.slug}`} rel="next">
+                    <Link to={`/recipes/${locale}/${next.slug}`} rel="next">
                       {next.title} →
                     </Link>
                   </li>

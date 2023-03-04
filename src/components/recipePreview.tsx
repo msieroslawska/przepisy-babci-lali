@@ -7,17 +7,18 @@ import Tags from "./tags";
 import { TypeRecipeFields } from "../types/recipe";
 
 import * as styles from "./styles/recipe-preview.module.css";
+import { Locale } from "../useLocale";
 
 // @TODO: FIX
-type Props = { recipes: Readonly<any[]> };
+type Props = { recipes: Readonly<any[]>; locale: Locale };
 
-const RecipePreview: React.FC<Props> = ({ recipes }) => {
+const RecipePreview: React.FC<Props> = ({ locale, recipes }) => {
   if (!recipes) return null;
   if (!Array.isArray(recipes)) return null;
 
   const renderRecipe = (recipe: TypeRecipeFields) => (
     <li key={recipe.slug}>
-      <Link to={`/recipes/${recipe.slug}`} className={styles.link}>
+      <Link to={`/recipes/${locale}/${recipe.slug}`} className={styles.link}>
         <h2 className={styles.title}>{recipe.title}</h2>
       </Link>
 

@@ -7,16 +7,17 @@ import Footer from "./footer";
 
 interface LayoutProps {
   children: React.ReactNode;
+  location: string;
 }
 
-const Template: React.FC<LayoutProps> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ({ children, location }) => {
   return (
     <>
-      <Navigation />
+      <Navigation location={location} />
       <main>{children}</main>
       <Footer />
     </>
   );
 };
 
-export default Template;
+export default Layout;

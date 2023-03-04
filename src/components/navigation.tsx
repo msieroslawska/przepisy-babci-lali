@@ -4,8 +4,12 @@ import { graphql, Link, useStaticQuery } from "gatsby";
 import * as styles from "./styles/navigation.module.css";
 import { useLocale } from "../useLocale";
 
-const Navigation: React.FC = () => {
-  const { locale, changeLocale } = useLocale();
+interface Props {
+  location: string;
+}
+
+const Navigation: React.FC<Props> = ({ location }) => {
+  const { locale, navigateToAnotherLocale } = useLocale(location);
 
   const data = useStaticQuery(graphql`
     query LocalizedNavigation {
@@ -37,7 +41,10 @@ const Navigation: React.FC = () => {
 
     return (
       <li className={styles.navigationItem}>
-        <Link to={`${navigationLink?.link}/${locale}`} activeClassName="active">
+        <Link
+          to={`${navigationLink?.link}/${locale}/`}
+          activeClassName="active"
+        >
           {navigationLink?.name}
         </Link>
       </li>
@@ -56,9 +63,10 @@ const Navigation: React.FC = () => {
   const localizedNavigation = locale === "pl" ? data.pl : data.en;
   const renderLocaleButton = () => {
     const onClick = () => {
-      changeLocale();
+      navigateToAnotherLocale();
     };
-    return <button onClick={onClick}>{locale.toUpperCase()}</button>;
+
+    return <button onClick={onClick}>{"change locale"}</button>;
   };
 
   return (

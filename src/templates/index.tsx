@@ -6,7 +6,9 @@ import Hero from "../components/hero";
 import RecipePreview from "../components/recipePreview";
 
 type Props = PageProps<Queries.HomeQuery>;
+
 export const RootIndex: React.FC<Props> = props => {
+  console.log("xxx", props);
   const renderHero = () => {
     if (props.data.contentfulHero === null) {
       return null;
@@ -15,9 +17,12 @@ export const RootIndex: React.FC<Props> = props => {
     return <Hero {...props.data.contentfulHero} />;
   };
   return (
-    <Layout>
+    <Layout location={props.location.pathname}>
       {renderHero()}
-      <RecipePreview recipes={props.data.allContentfulRecipe.nodes} />
+      <RecipePreview
+        recipes={props.data.allContentfulRecipe.nodes}
+        locale={props.pageContext.locale}
+      />
     </Layout>
   );
 };

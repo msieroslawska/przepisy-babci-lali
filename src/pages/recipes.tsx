@@ -11,7 +11,7 @@ const RecipeIndex: React.FC<Props> = props => {
   const recipes = props.data.allContentfulRecipe.nodes;
 
   return (
-    <Layout>
+    <Layout location={props.location.pathname}>
       <Hero name="Recipes" image={null} description={null} />
       <RecipePreview recipes={recipes} />
     </Layout>
