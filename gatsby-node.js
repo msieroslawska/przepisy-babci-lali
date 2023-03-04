@@ -5,10 +5,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const recipeTemplate = path.resolve("./src/templates/recipe.tsx");
 
-  const resultEn = await graphql(
+  const result = await graphql(
     `
       {
-        allContentfulRecipe(filter: { node_locale: { eq: "en-US" } }) {
+        en: allContentfulRecipe(filter: { node_locale: { eq: "en-US" } }) {
+          nodes {
+            title
+            slug
+          }
+        }
+        pl: allContentfulRecipe(filter: { node_locale: { eq: "pl" } }) {
           nodes {
             title
             slug
@@ -18,29 +24,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     `
   );
 
-  const resultPl = await graphql(
-    `
-      {
-        allContentfulRecipe(filter: { node_locale: { eq: "pl" } }) {
-          nodes {
-            title
-            slug
-          }
-        }
-      }
-    `
-  );
-
-  if (resultEn.errors || resultPl.errors) {
+  if (result.errors) {
     reporter.panicOnBuild(
       `There was an error loading your Contentful posts`,
-      resultEn.errors
+      result.errors
     );
     return;
   }
 
-  const recipesEn = resultEn.data.allContentfulRecipe.nodes;
-  const recipesPl = resultPl.data.allContentfulRecipe.nodes;
+  const recipesEn = result.data.en.nodes;
+  const recipesPl = result.data.pl.nodes;
 
   const createLocalizedRecipePages = (locale, recipes) => {
     if (recipes.length > 0) {
@@ -65,4 +58,22 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   createLocalizedRecipePages("en-US", recipesEn);
   createLocalizedRecipePages("pl", recipesPl);
+
+  const indexTemplate = path.resolve("./src/templates/index.tsx");
+
+  createPage({
+    path: `/en/`,
+    component: indexTemplate,
+    context: {
+      locale: "en-US",
+    },
+  });
+
+  createPage({
+    path: `/pl/`,
+    component: indexTemplate,
+    context: {
+      locale: "pl",
+    },
+  });
 };

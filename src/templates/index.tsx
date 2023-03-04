@@ -6,10 +6,7 @@ import Hero from "../components/hero";
 import RecipePreview from "../components/recipePreview";
 
 type Props = PageProps<Queries.HomeQuery>;
-
-const RootIndex: React.FC<Props> = props => {
-  const [locale, setLocale] = React.useState("en-US");
-
+export const RootIndex: React.FC<Props> = props => {
   const renderHero = () => {
     if (props.data.contentfulHero === null) {
       return null;
@@ -28,8 +25,8 @@ const RootIndex: React.FC<Props> = props => {
 export default RootIndex;
 
 export const pageQuery = graphql`
-  query Home {
-    allContentfulRecipe(filter: { node_locale: { eq: "en-US" } }) {
+  query Home($locale: String) {
+    allContentfulRecipe(filter: { node_locale: { eq: $locale } }) {
       nodes {
         title
         slug
@@ -42,7 +39,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    contentfulHero(id: { eq: "e0ed6ea4-be8b-5f2c-848c-0c67bc5670f8" }) {
+    contentfulHero(node_locale: { eq: $locale }) {
       name
       image {
         gatsbyImage(width: 200, placeholder: BLURRED)

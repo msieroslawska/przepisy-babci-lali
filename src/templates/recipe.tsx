@@ -34,7 +34,7 @@ const RecipeTemplate: React.FC<Props> = props => {
   if (recipe === null) {
     return null;
   }
-  console.log(recipe);
+
   const renderRecipeHeader = () => {
     if (props.data.contentfulRecipe === null) {
       return null;

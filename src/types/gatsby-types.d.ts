@@ -5467,15 +5467,17 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = { readonly tracedSVG: st
 
 type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: number, readonly maxWidth: number };
 
-type HomeQueryVariables = Exact<{ [key: string]: never; }>;
+type HomeQueryVariables = Exact<{
+  locale: InputMaybe<Scalars['String']>;
+}>;
 
 
 type HomeQuery = { readonly allContentfulRecipe: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly slug: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly image: { readonly gatsbyImage: import('gatsby-plugin-image').IGatsbyImageData | null } | null, readonly description: { readonly raw: string | null } | null }> }, readonly contentfulHero: { readonly name: string | null, readonly image: { readonly gatsbyImage: import('gatsby-plugin-image').IGatsbyImageData | null } | null, readonly description: { readonly description: string | null } | null } | null };
 
-type NavigationQueryVariables = Exact<{ [key: string]: never; }>;
+type LocalizedNavigationQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type NavigationQuery = { readonly allContentfulNavigation: { readonly nodes: ReadonlyArray<{ readonly navigationLink: ReadonlyArray<{ readonly name: string | null, readonly link: string | null } | null> | null }> } };
+type LocalizedNavigationQuery = { readonly en: { readonly nodes: ReadonlyArray<{ readonly navigationLink: ReadonlyArray<{ readonly name: string | null, readonly link: string | null } | null> | null }> }, readonly pl: { readonly nodes: ReadonlyArray<{ readonly navigationLink: ReadonlyArray<{ readonly name: string | null, readonly link: string | null } | null> | null }> } };
 
 type RecipeBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
