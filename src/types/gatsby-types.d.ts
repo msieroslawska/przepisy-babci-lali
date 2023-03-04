@@ -4713,7 +4713,7 @@ type RecipeBySlugQueryVariables = Exact<{
 }>;
 
 
-type RecipeBySlugQuery = { readonly contentfulRecipe: { readonly slug: string | null, readonly title: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly image: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null, readonly resize: { readonly src: string | null } | null } | null, readonly description: { readonly raw: string | null } | null, readonly ingredients: ReadonlyArray<{ readonly name: string | null } | null> | null } | null, readonly previous: { readonly slug: string | null, readonly title: string | null } | null, readonly next: { readonly slug: string | null, readonly title: string | null } | null };
+type RecipeBySlugQuery = { readonly contentfulRecipe: { readonly slug: string | null, readonly title: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly image: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null, readonly resize: { readonly src: string | null } | null } | null, readonly description: { readonly raw: string | null } | null, readonly ingredients: ReadonlyArray<{ readonly amount: string | null, readonly unit: string | null, readonly name: string | null } | null> | null } | null, readonly previous: { readonly slug: string | null, readonly title: string | null } | null, readonly next: { readonly slug: string | null, readonly title: string | null } | null };
 
 type RecipesIndexQueryVariables = Exact<{ [key: string]: never; }>;
 

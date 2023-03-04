@@ -34,7 +34,7 @@ const RecipeTemplate: React.FC<Props> = props => {
   if (recipe === null) {
     return null;
   }
-
+  console.log(recipe);
   const renderRecipeHeader = () => {
     if (props.data.contentfulRecipe === null) {
       return null;
@@ -42,6 +42,12 @@ const RecipeTemplate: React.FC<Props> = props => {
 
     return <RecipeHeader {...props.data.contentfulRecipe} />;
   };
+
+  const renderIngredients = ({ amount = "", unit = "", name }) => (
+    <li>
+      {amount} {unit} {name}
+    </li>
+  );
 
   const renderContent = () => {
     if (!props.data.contentfulRecipe?.description?.raw) {
@@ -65,6 +71,10 @@ const RecipeTemplate: React.FC<Props> = props => {
       <div className={styles.container}>
         <div className={styles.recipe}>
           <div className={styles.body}>
+            <h2>Ingredients</h2>
+            <ul>{recipe.ingredients?.map(renderIngredients)}</ul>
+
+            <h2>Preparation</h2>
             {renderContent()}
             {/* {recipe.description?.raw &&
               renderRichText(recipe.description, options)} */}
@@ -118,6 +128,8 @@ export const pageQuery = graphql`
         raw
       }
       ingredients {
+        amount
+        unit
         name
       }
     }
