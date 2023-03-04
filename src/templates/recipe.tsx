@@ -75,14 +75,14 @@ const RecipeTemplate: React.FC<Props> = props => {
               <ul className={styles.recipeNavigation}>
                 {previous && (
                   <li>
-                    <Link to={`/recipe/${previous.slug}`} rel="prev">
+                    <Link to={`/recipes/${previous.slug}`} rel="prev">
                       ← {previous.title}
                     </Link>
                   </li>
                 )}
                 {next && (
                   <li>
-                    <Link to={`/recipe/${next.slug}`} rel="next">
+                    <Link to={`/recipes/${next.slug}`} rel="next">
                       {next.title} →
                     </Link>
                   </li>

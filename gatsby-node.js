@@ -5,10 +5,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const recipeTemplate = path.resolve("./src/templates/recipe.tsx");
 
-  const result = await graphql(
+  const resultEnUS = await graphql(
     `
       {
-        allContentfulRecipe {
+        allContentfulRecipe(filter: { node_locale: { eq: "en-US" } }) {
           nodes {
             title
             slug
@@ -18,15 +18,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     `
   );
 
-  if (result.errors) {
+  if (resultEnUS.errors) {
     reporter.panicOnBuild(
       `There was an error loading your Contentful posts`,
-      result.errors
+      resultEnUS.errors
     );
     return;
   }
 
-  const recipes = result.data.allContentfulRecipe.nodes;
+  const recipes = resultEnUS.data.allContentfulRecipe.nodes;
 
   // Create blog posts pages
   // But only if there's at least one blog post found in Contentful
