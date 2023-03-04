@@ -1633,6 +1633,7 @@ type ContentfulRecipe = ContentfulEntry & ContentfulReference & Node & {
   readonly parent: Maybe<Node>;
   readonly scannedImage: Maybe<ContentfulAsset>;
   readonly slug: Maybe<Scalars['String']>;
+  readonly source: Maybe<Scalars['String']>;
   readonly spaceId: Maybe<Scalars['String']>;
   readonly sys: Maybe<ContentfulRecipeSys>;
   readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
@@ -1729,6 +1730,7 @@ type ContentfulRecipeFieldSelector = {
   readonly parent: InputMaybe<NodeFieldSelector>;
   readonly scannedImage: InputMaybe<ContentfulAssetFieldSelector>;
   readonly slug: InputMaybe<FieldSelectorEnum>;
+  readonly source: InputMaybe<FieldSelectorEnum>;
   readonly spaceId: InputMaybe<FieldSelectorEnum>;
   readonly sys: InputMaybe<ContentfulRecipeSysFieldSelector>;
   readonly tags: InputMaybe<FieldSelectorEnum>;
@@ -1748,6 +1750,7 @@ type ContentfulRecipeFilterInput = {
   readonly parent: InputMaybe<NodeFilterInput>;
   readonly scannedImage: InputMaybe<ContentfulAssetFilterInput>;
   readonly slug: InputMaybe<StringQueryOperatorInput>;
+  readonly source: InputMaybe<StringQueryOperatorInput>;
   readonly spaceId: InputMaybe<StringQueryOperatorInput>;
   readonly sys: InputMaybe<ContentfulRecipeSysFilterInput>;
   readonly tags: InputMaybe<StringQueryOperatorInput>;
@@ -1812,6 +1815,7 @@ type ContentfulRecipeSortInput = {
   readonly parent: InputMaybe<NodeSortInput>;
   readonly scannedImage: InputMaybe<ContentfulAssetSortInput>;
   readonly slug: InputMaybe<SortOrderEnum>;
+  readonly source: InputMaybe<SortOrderEnum>;
   readonly spaceId: InputMaybe<SortOrderEnum>;
   readonly sys: InputMaybe<ContentfulRecipeSysSortInput>;
   readonly tags: InputMaybe<SortOrderEnum>;
@@ -3460,6 +3464,7 @@ type Query_contentfulRecipeArgs = {
   parent: InputMaybe<NodeFilterInput>;
   scannedImage: InputMaybe<ContentfulAssetFilterInput>;
   slug: InputMaybe<StringQueryOperatorInput>;
+  source: InputMaybe<StringQueryOperatorInput>;
   spaceId: InputMaybe<StringQueryOperatorInput>;
   sys: InputMaybe<ContentfulRecipeSysFilterInput>;
   tags: InputMaybe<StringQueryOperatorInput>;

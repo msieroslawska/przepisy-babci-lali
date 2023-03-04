@@ -6,14 +6,14 @@ interface Props {
   tags: Readonly<(string | null)[]>;
 }
 
-const Tags: React.FC<Props> = ({ tags }) => {
-  if (tags?.length === 0) {
+const Tags: React.FC<Props> = props => {
+  if (!props.tags || props.tags.length === 0) {
     return null;
   }
 
   return (
     <small className={styles.tags}>
-      {tags.map(tag => (
+      {props.tags.map(tag => (
         <div key={tag} className={styles.tag}>
           {tag}
         </div>
