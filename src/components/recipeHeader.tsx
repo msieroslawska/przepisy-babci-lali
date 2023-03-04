@@ -10,7 +10,7 @@ const RecipeHeader: React.FC<Props> = props => {
     return null;
   }
 
-  const { image, title } = props;
+  const { image, title, source } = props;
 
   const renderImage = () => {
     const gatsbyImage = getImage(image);
@@ -28,6 +28,7 @@ const RecipeHeader: React.FC<Props> = props => {
       {renderImage()}
       <div className={styles.details}>
         <h1 className={styles.title}>{title}</h1>
+        {source && <h3 className={styles.content}>{source}</h3>}
       </div>
     </div>
   );

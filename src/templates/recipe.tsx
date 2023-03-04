@@ -43,18 +43,23 @@ const RecipeTemplate: React.FC<Props> = props => {
     return <RecipeHeader {...props.data.contentfulRecipe} />;
   };
 
-  const renderIngredients = ({ amount = "", unit = "", name }) => (
-    <li>
-      {amount} {unit} {name}
-    </li>
-  );
+  const renderIngredients = (ingredients: Queries.ContentfulIngredient) => {
+    const quantity = ingredients.quantity?.quantity ?? "";
+    const unit = ingredients.unit?.unitName ?? "";
+    const food = ingredients.food?.foodName;
+    return (
+      <li>
+        {quantity} {unit} {food}
+      </li>
+    );
+  };
 
   const renderContent = () => {
-    if (!props.data.contentfulRecipe?.description?.raw) {
+    if (!recipe.description?.raw) {
       return null;
     }
 
-    return renderRichText(props.data.contentfulRecipe.description);
+    return renderRichText(recipe.description);
   };
 
   const renderTags = () => {
@@ -117,6 +122,7 @@ export const pageQuery = graphql`
     contentfulRecipe(slug: { eq: $slug }) {
       slug
       title
+      source
       image: scannedImage {
         gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED, width: 1280)
         resize(height: 630, width: 1200) {
@@ -128,9 +134,15 @@ export const pageQuery = graphql`
         raw
       }
       ingredients {
-        amount
-        unit
-        name
+        quantity {
+          quantity
+        }
+        unit {
+          unitName
+        }
+        food {
+          foodName
+        }
       }
     }
     previous: contentfulRecipe(slug: { eq: $previousRecipeSlug }) {

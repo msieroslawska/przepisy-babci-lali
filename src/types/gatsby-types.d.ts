@@ -666,6 +666,236 @@ type ContentfulEntrySortInput = {
   readonly parent: InputMaybe<NodeSortInput>;
 };
 
+type ContentfulFood = ContentfulEntry & ContentfulReference & Node & {
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly contentfulid: Maybe<Scalars['String']>;
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly foodName: Maybe<Scalars['String']>;
+  readonly id: Scalars['ID'];
+  readonly ingredient: Maybe<ReadonlyArray<Maybe<ContentfulIngredient>>>;
+  readonly internal: Internal;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulFoodSys>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+};
+
+
+type ContentfulFood_createdAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type ContentfulFood_updatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+type ContentfulFoodConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulFoodEdge>;
+  readonly group: ReadonlyArray<ContentfulFoodGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulFood>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type ContentfulFoodConnection_distinctArgs = {
+  field: ContentfulFoodFieldSelector;
+};
+
+
+type ContentfulFoodConnection_groupArgs = {
+  field: ContentfulFoodFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type ContentfulFoodConnection_maxArgs = {
+  field: ContentfulFoodFieldSelector;
+};
+
+
+type ContentfulFoodConnection_minArgs = {
+  field: ContentfulFoodFieldSelector;
+};
+
+
+type ContentfulFoodConnection_sumArgs = {
+  field: ContentfulFoodFieldSelector;
+};
+
+type ContentfulFoodEdge = {
+  readonly next: Maybe<ContentfulFood>;
+  readonly node: ContentfulFood;
+  readonly previous: Maybe<ContentfulFood>;
+};
+
+type ContentfulFoodFieldSelector = {
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly contentful_id: InputMaybe<FieldSelectorEnum>;
+  readonly contentfulid: InputMaybe<FieldSelectorEnum>;
+  readonly createdAt: InputMaybe<FieldSelectorEnum>;
+  readonly foodName: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly ingredient: InputMaybe<ContentfulIngredientFieldSelector>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly node_locale: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly spaceId: InputMaybe<FieldSelectorEnum>;
+  readonly sys: InputMaybe<ContentfulFoodSysFieldSelector>;
+  readonly updatedAt: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulFoodFilterInput = {
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly contentfulid: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly foodName: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly ingredient: InputMaybe<ContentfulIngredientFilterListInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulFoodSysFilterInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
+};
+
+type ContentfulFoodGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulFoodEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulFoodGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulFood>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type ContentfulFoodGroupConnection_distinctArgs = {
+  field: ContentfulFoodFieldSelector;
+};
+
+
+type ContentfulFoodGroupConnection_groupArgs = {
+  field: ContentfulFoodFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type ContentfulFoodGroupConnection_maxArgs = {
+  field: ContentfulFoodFieldSelector;
+};
+
+
+type ContentfulFoodGroupConnection_minArgs = {
+  field: ContentfulFoodFieldSelector;
+};
+
+
+type ContentfulFoodGroupConnection_sumArgs = {
+  field: ContentfulFoodFieldSelector;
+};
+
+type ContentfulFoodSortInput = {
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly contentful_id: InputMaybe<SortOrderEnum>;
+  readonly contentfulid: InputMaybe<SortOrderEnum>;
+  readonly createdAt: InputMaybe<SortOrderEnum>;
+  readonly foodName: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly ingredient: InputMaybe<ContentfulIngredientSortInput>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly node_locale: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly spaceId: InputMaybe<SortOrderEnum>;
+  readonly sys: InputMaybe<ContentfulFoodSysSortInput>;
+  readonly updatedAt: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulFoodSys = {
+  readonly contentType: Maybe<ContentfulFoodSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
+};
+
+type ContentfulFoodSysContentType = {
+  readonly sys: Maybe<ContentfulFoodSysContentTypeSys>;
+};
+
+type ContentfulFoodSysContentTypeFieldSelector = {
+  readonly sys: InputMaybe<ContentfulFoodSysContentTypeSysFieldSelector>;
+};
+
+type ContentfulFoodSysContentTypeFilterInput = {
+  readonly sys: InputMaybe<ContentfulFoodSysContentTypeSysFilterInput>;
+};
+
+type ContentfulFoodSysContentTypeSortInput = {
+  readonly sys: InputMaybe<ContentfulFoodSysContentTypeSysSortInput>;
+};
+
+type ContentfulFoodSysContentTypeSys = {
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
+};
+
+type ContentfulFoodSysContentTypeSysFieldSelector = {
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly linkType: InputMaybe<FieldSelectorEnum>;
+  readonly type: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulFoodSysContentTypeSysFilterInput = {
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
+};
+
+type ContentfulFoodSysContentTypeSysSortInput = {
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly linkType: InputMaybe<SortOrderEnum>;
+  readonly type: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulFoodSysFieldSelector = {
+  readonly contentType: InputMaybe<ContentfulFoodSysContentTypeFieldSelector>;
+  readonly revision: InputMaybe<FieldSelectorEnum>;
+  readonly type: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulFoodSysFilterInput = {
+  readonly contentType: InputMaybe<ContentfulFoodSysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
+};
+
+type ContentfulFoodSysSortInput = {
+  readonly contentType: InputMaybe<ContentfulFoodSysContentTypeSortInput>;
+  readonly revision: InputMaybe<SortOrderEnum>;
+  readonly type: InputMaybe<SortOrderEnum>;
+};
+
 type ContentfulHero = ContentfulEntry & ContentfulReference & Node & {
   /** Returns the first child node of type contentfulHeroDescriptionTextNode or null if there are no children of given type on this node */
   readonly childContentfulHeroDescriptionTextNode: Maybe<contentfulHeroDescriptionTextNode>;
@@ -920,20 +1150,20 @@ type ContentfulImageCropFocus =
   | 'top_right';
 
 type ContentfulIngredient = ContentfulEntry & ContentfulReference & Node & {
-  readonly amount: Maybe<Scalars['String']>;
   readonly children: ReadonlyArray<Node>;
   readonly contentful_id: Scalars['String'];
   readonly contentfulid: Maybe<Scalars['String']>;
   readonly createdAt: Maybe<Scalars['Date']>;
+  readonly food: Maybe<ContentfulFood>;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
-  readonly name: Maybe<Scalars['String']>;
   readonly node_locale: Scalars['String'];
   readonly parent: Maybe<Node>;
+  readonly quantity: Maybe<ContentfulQuantity>;
   readonly recipe: Maybe<ReadonlyArray<Maybe<ContentfulRecipe>>>;
   readonly spaceId: Maybe<Scalars['String']>;
   readonly sys: Maybe<ContentfulIngredientSys>;
-  readonly unit: Maybe<Scalars['String']>;
+  readonly unit: Maybe<ContentfulUnit>;
   readonly updatedAt: Maybe<Scalars['Date']>;
 };
 
@@ -999,38 +1229,38 @@ type ContentfulIngredientEdge = {
 };
 
 type ContentfulIngredientFieldSelector = {
-  readonly amount: InputMaybe<FieldSelectorEnum>;
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly contentful_id: InputMaybe<FieldSelectorEnum>;
   readonly contentfulid: InputMaybe<FieldSelectorEnum>;
   readonly createdAt: InputMaybe<FieldSelectorEnum>;
+  readonly food: InputMaybe<ContentfulFoodFieldSelector>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
-  readonly name: InputMaybe<FieldSelectorEnum>;
   readonly node_locale: InputMaybe<FieldSelectorEnum>;
   readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly quantity: InputMaybe<ContentfulQuantityFieldSelector>;
   readonly recipe: InputMaybe<ContentfulRecipeFieldSelector>;
   readonly spaceId: InputMaybe<FieldSelectorEnum>;
   readonly sys: InputMaybe<ContentfulIngredientSysFieldSelector>;
-  readonly unit: InputMaybe<FieldSelectorEnum>;
+  readonly unit: InputMaybe<ContentfulUnitFieldSelector>;
   readonly updatedAt: InputMaybe<FieldSelectorEnum>;
 };
 
 type ContentfulIngredientFilterInput = {
-  readonly amount: InputMaybe<StringQueryOperatorInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
   readonly contentfulid: InputMaybe<StringQueryOperatorInput>;
   readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly food: InputMaybe<ContentfulFoodFilterInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
-  readonly name: InputMaybe<StringQueryOperatorInput>;
   readonly node_locale: InputMaybe<StringQueryOperatorInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
+  readonly quantity: InputMaybe<ContentfulQuantityFilterInput>;
   readonly recipe: InputMaybe<ContentfulRecipeFilterListInput>;
   readonly spaceId: InputMaybe<StringQueryOperatorInput>;
   readonly sys: InputMaybe<ContentfulIngredientSysFilterInput>;
-  readonly unit: InputMaybe<StringQueryOperatorInput>;
+  readonly unit: InputMaybe<ContentfulUnitFilterInput>;
   readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
@@ -1080,20 +1310,20 @@ type ContentfulIngredientGroupConnection_sumArgs = {
 };
 
 type ContentfulIngredientSortInput = {
-  readonly amount: InputMaybe<SortOrderEnum>;
   readonly children: InputMaybe<NodeSortInput>;
   readonly contentful_id: InputMaybe<SortOrderEnum>;
   readonly contentfulid: InputMaybe<SortOrderEnum>;
   readonly createdAt: InputMaybe<SortOrderEnum>;
+  readonly food: InputMaybe<ContentfulFoodSortInput>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
-  readonly name: InputMaybe<SortOrderEnum>;
   readonly node_locale: InputMaybe<SortOrderEnum>;
   readonly parent: InputMaybe<NodeSortInput>;
+  readonly quantity: InputMaybe<ContentfulQuantitySortInput>;
   readonly recipe: InputMaybe<ContentfulRecipeSortInput>;
   readonly spaceId: InputMaybe<SortOrderEnum>;
   readonly sys: InputMaybe<ContentfulIngredientSysSortInput>;
-  readonly unit: InputMaybe<SortOrderEnum>;
+  readonly unit: InputMaybe<ContentfulUnitSortInput>;
   readonly updatedAt: InputMaybe<SortOrderEnum>;
 };
 
@@ -1621,6 +1851,236 @@ type ContentfulNavigationSysSortInput = {
   readonly type: InputMaybe<SortOrderEnum>;
 };
 
+type ContentfulQuantity = ContentfulEntry & ContentfulReference & Node & {
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly contentfulid: Maybe<Scalars['String']>;
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly id: Scalars['ID'];
+  readonly ingredient: Maybe<ReadonlyArray<Maybe<ContentfulIngredient>>>;
+  readonly internal: Internal;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly quantity: Maybe<Scalars['Float']>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulQuantitySys>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+};
+
+
+type ContentfulQuantity_createdAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type ContentfulQuantity_updatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+type ContentfulQuantityConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulQuantityEdge>;
+  readonly group: ReadonlyArray<ContentfulQuantityGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulQuantity>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type ContentfulQuantityConnection_distinctArgs = {
+  field: ContentfulQuantityFieldSelector;
+};
+
+
+type ContentfulQuantityConnection_groupArgs = {
+  field: ContentfulQuantityFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type ContentfulQuantityConnection_maxArgs = {
+  field: ContentfulQuantityFieldSelector;
+};
+
+
+type ContentfulQuantityConnection_minArgs = {
+  field: ContentfulQuantityFieldSelector;
+};
+
+
+type ContentfulQuantityConnection_sumArgs = {
+  field: ContentfulQuantityFieldSelector;
+};
+
+type ContentfulQuantityEdge = {
+  readonly next: Maybe<ContentfulQuantity>;
+  readonly node: ContentfulQuantity;
+  readonly previous: Maybe<ContentfulQuantity>;
+};
+
+type ContentfulQuantityFieldSelector = {
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly contentful_id: InputMaybe<FieldSelectorEnum>;
+  readonly contentfulid: InputMaybe<FieldSelectorEnum>;
+  readonly createdAt: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly ingredient: InputMaybe<ContentfulIngredientFieldSelector>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly node_locale: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly quantity: InputMaybe<FieldSelectorEnum>;
+  readonly spaceId: InputMaybe<FieldSelectorEnum>;
+  readonly sys: InputMaybe<ContentfulQuantitySysFieldSelector>;
+  readonly updatedAt: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulQuantityFilterInput = {
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly contentfulid: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly ingredient: InputMaybe<ContentfulIngredientFilterListInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly quantity: InputMaybe<FloatQueryOperatorInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulQuantitySysFilterInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
+};
+
+type ContentfulQuantityGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulQuantityEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulQuantityGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulQuantity>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type ContentfulQuantityGroupConnection_distinctArgs = {
+  field: ContentfulQuantityFieldSelector;
+};
+
+
+type ContentfulQuantityGroupConnection_groupArgs = {
+  field: ContentfulQuantityFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type ContentfulQuantityGroupConnection_maxArgs = {
+  field: ContentfulQuantityFieldSelector;
+};
+
+
+type ContentfulQuantityGroupConnection_minArgs = {
+  field: ContentfulQuantityFieldSelector;
+};
+
+
+type ContentfulQuantityGroupConnection_sumArgs = {
+  field: ContentfulQuantityFieldSelector;
+};
+
+type ContentfulQuantitySortInput = {
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly contentful_id: InputMaybe<SortOrderEnum>;
+  readonly contentfulid: InputMaybe<SortOrderEnum>;
+  readonly createdAt: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly ingredient: InputMaybe<ContentfulIngredientSortInput>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly node_locale: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly quantity: InputMaybe<SortOrderEnum>;
+  readonly spaceId: InputMaybe<SortOrderEnum>;
+  readonly sys: InputMaybe<ContentfulQuantitySysSortInput>;
+  readonly updatedAt: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulQuantitySys = {
+  readonly contentType: Maybe<ContentfulQuantitySysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
+};
+
+type ContentfulQuantitySysContentType = {
+  readonly sys: Maybe<ContentfulQuantitySysContentTypeSys>;
+};
+
+type ContentfulQuantitySysContentTypeFieldSelector = {
+  readonly sys: InputMaybe<ContentfulQuantitySysContentTypeSysFieldSelector>;
+};
+
+type ContentfulQuantitySysContentTypeFilterInput = {
+  readonly sys: InputMaybe<ContentfulQuantitySysContentTypeSysFilterInput>;
+};
+
+type ContentfulQuantitySysContentTypeSortInput = {
+  readonly sys: InputMaybe<ContentfulQuantitySysContentTypeSysSortInput>;
+};
+
+type ContentfulQuantitySysContentTypeSys = {
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
+};
+
+type ContentfulQuantitySysContentTypeSysFieldSelector = {
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly linkType: InputMaybe<FieldSelectorEnum>;
+  readonly type: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulQuantitySysContentTypeSysFilterInput = {
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
+};
+
+type ContentfulQuantitySysContentTypeSysSortInput = {
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly linkType: InputMaybe<SortOrderEnum>;
+  readonly type: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulQuantitySysFieldSelector = {
+  readonly contentType: InputMaybe<ContentfulQuantitySysContentTypeFieldSelector>;
+  readonly revision: InputMaybe<FieldSelectorEnum>;
+  readonly type: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulQuantitySysFilterInput = {
+  readonly contentType: InputMaybe<ContentfulQuantitySysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
+};
+
+type ContentfulQuantitySysSortInput = {
+  readonly contentType: InputMaybe<ContentfulQuantitySysContentTypeSortInput>;
+  readonly revision: InputMaybe<SortOrderEnum>;
+  readonly type: InputMaybe<SortOrderEnum>;
+};
+
 type ContentfulRecipe = ContentfulEntry & ContentfulReference & Node & {
   readonly children: ReadonlyArray<Node>;
   readonly contentful_id: Scalars['String'];
@@ -1890,6 +2350,236 @@ type ContentfulRecipeSysSortInput = {
 type ContentfulReference = {
   readonly contentful_id: Scalars['String'];
   readonly id: Scalars['ID'];
+};
+
+type ContentfulUnit = ContentfulEntry & ContentfulReference & Node & {
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly contentfulid: Maybe<Scalars['String']>;
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly id: Scalars['ID'];
+  readonly ingredient: Maybe<ReadonlyArray<Maybe<ContentfulIngredient>>>;
+  readonly internal: Internal;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulUnitSys>;
+  readonly unitName: Maybe<Scalars['String']>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+};
+
+
+type ContentfulUnit_createdAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type ContentfulUnit_updatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+type ContentfulUnitConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulUnitEdge>;
+  readonly group: ReadonlyArray<ContentfulUnitGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulUnit>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type ContentfulUnitConnection_distinctArgs = {
+  field: ContentfulUnitFieldSelector;
+};
+
+
+type ContentfulUnitConnection_groupArgs = {
+  field: ContentfulUnitFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type ContentfulUnitConnection_maxArgs = {
+  field: ContentfulUnitFieldSelector;
+};
+
+
+type ContentfulUnitConnection_minArgs = {
+  field: ContentfulUnitFieldSelector;
+};
+
+
+type ContentfulUnitConnection_sumArgs = {
+  field: ContentfulUnitFieldSelector;
+};
+
+type ContentfulUnitEdge = {
+  readonly next: Maybe<ContentfulUnit>;
+  readonly node: ContentfulUnit;
+  readonly previous: Maybe<ContentfulUnit>;
+};
+
+type ContentfulUnitFieldSelector = {
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly contentful_id: InputMaybe<FieldSelectorEnum>;
+  readonly contentfulid: InputMaybe<FieldSelectorEnum>;
+  readonly createdAt: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly ingredient: InputMaybe<ContentfulIngredientFieldSelector>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly node_locale: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly spaceId: InputMaybe<FieldSelectorEnum>;
+  readonly sys: InputMaybe<ContentfulUnitSysFieldSelector>;
+  readonly unitName: InputMaybe<FieldSelectorEnum>;
+  readonly updatedAt: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulUnitFilterInput = {
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly contentfulid: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly ingredient: InputMaybe<ContentfulIngredientFilterListInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulUnitSysFilterInput>;
+  readonly unitName: InputMaybe<StringQueryOperatorInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
+};
+
+type ContentfulUnitGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulUnitEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulUnitGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulUnit>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type ContentfulUnitGroupConnection_distinctArgs = {
+  field: ContentfulUnitFieldSelector;
+};
+
+
+type ContentfulUnitGroupConnection_groupArgs = {
+  field: ContentfulUnitFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type ContentfulUnitGroupConnection_maxArgs = {
+  field: ContentfulUnitFieldSelector;
+};
+
+
+type ContentfulUnitGroupConnection_minArgs = {
+  field: ContentfulUnitFieldSelector;
+};
+
+
+type ContentfulUnitGroupConnection_sumArgs = {
+  field: ContentfulUnitFieldSelector;
+};
+
+type ContentfulUnitSortInput = {
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly contentful_id: InputMaybe<SortOrderEnum>;
+  readonly contentfulid: InputMaybe<SortOrderEnum>;
+  readonly createdAt: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly ingredient: InputMaybe<ContentfulIngredientSortInput>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly node_locale: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly spaceId: InputMaybe<SortOrderEnum>;
+  readonly sys: InputMaybe<ContentfulUnitSysSortInput>;
+  readonly unitName: InputMaybe<SortOrderEnum>;
+  readonly updatedAt: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulUnitSys = {
+  readonly contentType: Maybe<ContentfulUnitSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
+};
+
+type ContentfulUnitSysContentType = {
+  readonly sys: Maybe<ContentfulUnitSysContentTypeSys>;
+};
+
+type ContentfulUnitSysContentTypeFieldSelector = {
+  readonly sys: InputMaybe<ContentfulUnitSysContentTypeSysFieldSelector>;
+};
+
+type ContentfulUnitSysContentTypeFilterInput = {
+  readonly sys: InputMaybe<ContentfulUnitSysContentTypeSysFilterInput>;
+};
+
+type ContentfulUnitSysContentTypeSortInput = {
+  readonly sys: InputMaybe<ContentfulUnitSysContentTypeSysSortInput>;
+};
+
+type ContentfulUnitSysContentTypeSys = {
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
+};
+
+type ContentfulUnitSysContentTypeSysFieldSelector = {
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly linkType: InputMaybe<FieldSelectorEnum>;
+  readonly type: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulUnitSysContentTypeSysFilterInput = {
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
+};
+
+type ContentfulUnitSysContentTypeSysSortInput = {
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly linkType: InputMaybe<SortOrderEnum>;
+  readonly type: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulUnitSysFieldSelector = {
+  readonly contentType: InputMaybe<ContentfulUnitSysContentTypeFieldSelector>;
+  readonly revision: InputMaybe<FieldSelectorEnum>;
+  readonly type: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulUnitSysFilterInput = {
+  readonly contentType: InputMaybe<ContentfulUnitSysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
+};
+
+type ContentfulUnitSysSortInput = {
+  readonly contentType: InputMaybe<ContentfulUnitSysContentTypeSortInput>;
+  readonly revision: InputMaybe<SortOrderEnum>;
+  readonly type: InputMaybe<SortOrderEnum>;
 };
 
 type DateQueryOperatorInput = {
@@ -3151,12 +3841,15 @@ type Query = {
   readonly allContentfulAsset: ContentfulAssetConnection;
   readonly allContentfulContentType: ContentfulContentTypeConnection;
   readonly allContentfulEntry: ContentfulEntryConnection;
+  readonly allContentfulFood: ContentfulFoodConnection;
   readonly allContentfulHero: ContentfulHeroConnection;
   readonly allContentfulHeroDescriptionTextNode: contentfulHeroDescriptionTextNodeConnection;
   readonly allContentfulIngredient: ContentfulIngredientConnection;
   readonly allContentfulNavigation: ContentfulNavigationConnection;
   readonly allContentfulNavigationItem: ContentfulNavigationItemConnection;
+  readonly allContentfulQuantity: ContentfulQuantityConnection;
   readonly allContentfulRecipe: ContentfulRecipeConnection;
+  readonly allContentfulUnit: ContentfulUnitConnection;
   readonly allDirectory: DirectoryConnection;
   readonly allFile: FileConnection;
   readonly allImageSharp: ImageSharpConnection;
@@ -3168,12 +3861,15 @@ type Query = {
   readonly contentfulAsset: Maybe<ContentfulAsset>;
   readonly contentfulContentType: Maybe<ContentfulContentType>;
   readonly contentfulEntry: Maybe<ContentfulEntry>;
+  readonly contentfulFood: Maybe<ContentfulFood>;
   readonly contentfulHero: Maybe<ContentfulHero>;
   readonly contentfulHeroDescriptionTextNode: Maybe<contentfulHeroDescriptionTextNode>;
   readonly contentfulIngredient: Maybe<ContentfulIngredient>;
   readonly contentfulNavigation: Maybe<ContentfulNavigation>;
   readonly contentfulNavigationItem: Maybe<ContentfulNavigationItem>;
+  readonly contentfulQuantity: Maybe<ContentfulQuantity>;
   readonly contentfulRecipe: Maybe<ContentfulRecipe>;
+  readonly contentfulUnit: Maybe<ContentfulUnit>;
   readonly directory: Maybe<Directory>;
   readonly file: Maybe<File>;
   readonly imageSharp: Maybe<ImageSharp>;
@@ -3206,6 +3902,14 @@ type Query_allContentfulEntryArgs = {
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
   sort: InputMaybe<ReadonlyArray<InputMaybe<ContentfulEntrySortInput>>>;
+};
+
+
+type Query_allContentfulFoodArgs = {
+  filter: InputMaybe<ContentfulFoodFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<ContentfulFoodSortInput>>>;
 };
 
 
@@ -3249,11 +3953,27 @@ type Query_allContentfulNavigationItemArgs = {
 };
 
 
+type Query_allContentfulQuantityArgs = {
+  filter: InputMaybe<ContentfulQuantityFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<ContentfulQuantitySortInput>>>;
+};
+
+
 type Query_allContentfulRecipeArgs = {
   filter: InputMaybe<ContentfulRecipeFilterInput>;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
   sort: InputMaybe<ReadonlyArray<InputMaybe<ContentfulRecipeSortInput>>>;
+};
+
+
+type Query_allContentfulUnitArgs = {
+  filter: InputMaybe<ContentfulUnitFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<ContentfulUnitSortInput>>>;
 };
 
 
@@ -3372,6 +4092,23 @@ type Query_contentfulEntryArgs = {
 };
 
 
+type Query_contentfulFoodArgs = {
+  children: InputMaybe<NodeFilterListInput>;
+  contentful_id: InputMaybe<StringQueryOperatorInput>;
+  contentfulid: InputMaybe<StringQueryOperatorInput>;
+  createdAt: InputMaybe<DateQueryOperatorInput>;
+  foodName: InputMaybe<StringQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  ingredient: InputMaybe<ContentfulIngredientFilterListInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  node_locale: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  spaceId: InputMaybe<StringQueryOperatorInput>;
+  sys: InputMaybe<ContentfulFoodSysFilterInput>;
+  updatedAt: InputMaybe<DateQueryOperatorInput>;
+};
+
+
 type Query_contentfulHeroArgs = {
   childContentfulHeroDescriptionTextNode: InputMaybe<contentfulHeroDescriptionTextNodeFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
@@ -3402,20 +4139,20 @@ type Query_contentfulHeroDescriptionTextNodeArgs = {
 
 
 type Query_contentfulIngredientArgs = {
-  amount: InputMaybe<StringQueryOperatorInput>;
   children: InputMaybe<NodeFilterListInput>;
   contentful_id: InputMaybe<StringQueryOperatorInput>;
   contentfulid: InputMaybe<StringQueryOperatorInput>;
   createdAt: InputMaybe<DateQueryOperatorInput>;
+  food: InputMaybe<ContentfulFoodFilterInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
   node_locale: InputMaybe<StringQueryOperatorInput>;
   parent: InputMaybe<NodeFilterInput>;
+  quantity: InputMaybe<ContentfulQuantityFilterInput>;
   recipe: InputMaybe<ContentfulRecipeFilterListInput>;
   spaceId: InputMaybe<StringQueryOperatorInput>;
   sys: InputMaybe<ContentfulIngredientSysFilterInput>;
-  unit: InputMaybe<StringQueryOperatorInput>;
+  unit: InputMaybe<ContentfulUnitFilterInput>;
   updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
@@ -3452,6 +4189,23 @@ type Query_contentfulNavigationItemArgs = {
 };
 
 
+type Query_contentfulQuantityArgs = {
+  children: InputMaybe<NodeFilterListInput>;
+  contentful_id: InputMaybe<StringQueryOperatorInput>;
+  contentfulid: InputMaybe<StringQueryOperatorInput>;
+  createdAt: InputMaybe<DateQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  ingredient: InputMaybe<ContentfulIngredientFilterListInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  node_locale: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  quantity: InputMaybe<FloatQueryOperatorInput>;
+  spaceId: InputMaybe<StringQueryOperatorInput>;
+  sys: InputMaybe<ContentfulQuantitySysFilterInput>;
+  updatedAt: InputMaybe<DateQueryOperatorInput>;
+};
+
+
 type Query_contentfulRecipeArgs = {
   children: InputMaybe<NodeFilterListInput>;
   contentful_id: InputMaybe<StringQueryOperatorInput>;
@@ -3469,6 +4223,23 @@ type Query_contentfulRecipeArgs = {
   sys: InputMaybe<ContentfulRecipeSysFilterInput>;
   tags: InputMaybe<StringQueryOperatorInput>;
   title: InputMaybe<StringQueryOperatorInput>;
+  updatedAt: InputMaybe<DateQueryOperatorInput>;
+};
+
+
+type Query_contentfulUnitArgs = {
+  children: InputMaybe<NodeFilterListInput>;
+  contentful_id: InputMaybe<StringQueryOperatorInput>;
+  contentfulid: InputMaybe<StringQueryOperatorInput>;
+  createdAt: InputMaybe<DateQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  ingredient: InputMaybe<ContentfulIngredientFilterListInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  node_locale: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  spaceId: InputMaybe<StringQueryOperatorInput>;
+  sys: InputMaybe<ContentfulUnitSysFilterInput>;
+  unitName: InputMaybe<StringQueryOperatorInput>;
   updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
@@ -4713,7 +5484,7 @@ type RecipeBySlugQueryVariables = Exact<{
 }>;
 
 
-type RecipeBySlugQuery = { readonly contentfulRecipe: { readonly slug: string | null, readonly title: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly image: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null, readonly resize: { readonly src: string | null } | null } | null, readonly description: { readonly raw: string | null } | null, readonly ingredients: ReadonlyArray<{ readonly amount: string | null, readonly unit: string | null, readonly name: string | null } | null> | null } | null, readonly previous: { readonly slug: string | null, readonly title: string | null } | null, readonly next: { readonly slug: string | null, readonly title: string | null } | null };
+type RecipeBySlugQuery = { readonly contentfulRecipe: { readonly slug: string | null, readonly title: string | null, readonly source: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly image: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null, readonly resize: { readonly src: string | null } | null } | null, readonly description: { readonly raw: string | null } | null, readonly ingredients: ReadonlyArray<{ readonly quantity: { readonly quantity: number | null } | null, readonly unit: { readonly unitName: string | null } | null, readonly food: { readonly foodName: string | null } | null } | null> | null } | null, readonly previous: { readonly slug: string | null, readonly title: string | null } | null, readonly next: { readonly slug: string | null, readonly title: string | null } | null };
 
 type RecipesIndexQueryVariables = Exact<{ [key: string]: never; }>;
 
