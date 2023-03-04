@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   max-width: var(--size-max-width);
   align-items: center;
   margin: 0 auto;

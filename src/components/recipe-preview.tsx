@@ -6,20 +6,18 @@ import Tags from "./tags";
 
 import { TypeRecipeFields } from "../types/recipe";
 
-import * as styles from "./recipe-preview.module.css";
+import * as styles from "./styles/recipe-preview.module.css";
 
-interface RecipePreviewProps {
-  recipes: TypeRecipeFields[];
-}
+// @TODO: FIX
+type Props = { recipes: Readonly<any[]> };
 
-const RecipePreview: React.FC<RecipePreviewProps> = ({ recipes }) => {
-  console.log("XXX RECIPES", recipes);
+const RecipePreview: React.FC<Props> = ({ recipes }) => {
   if (!recipes) return null;
   if (!Array.isArray(recipes)) return null;
 
   const renderRecipe = (recipe: TypeRecipeFields) => (
     <li key={recipe.slug}>
-      <Link to={`/recipe/${recipe.slug}`} className={styles.link}>
+      <Link to={`/recipes/${recipe.slug}`} className={styles.link}>
         <h2 className={styles.title}>{recipe.title}</h2>
       </Link>
 

@@ -1,31 +1,21 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
+import { Link, graphql, PageProps } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
-import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
-import type { Asset } from "contentful";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import Layout from "../components/layout";
-import Hero from "../components/hero";
+import Content from "../components/recipeContent";
 import Tags from "../components/tags";
 import * as styles from "./recipe.module.css";
-import { TypeRecipeFields } from "../types/recipe";
 
-interface eProps {
-  data: {
-    contentfulRecipe: TypeRecipeFields;
-    previous: any;
-    next: any;
-  };
-  location: any;
-}
+type Props = PageProps<Queries.RecipeBySlugQuery>;
 
 const RecipeTemplate: React.FC<Props> = props => {
   const recipe = props.data.contentfulRecipe;
   const previous = props.data.previous;
   const next = props.data.next;
-  const image = getImage(recipe.scannedImage);
 
   const options = {
     renderNode: {
@@ -41,29 +31,36 @@ const RecipeTemplate: React.FC<Props> = props => {
     },
   };
 
-  const renderHero = () => {
-    if (!image) {
+  if (recipe === null) {
+    return null;
+  }
+
+  const renderContent = () => {
+    if (props.data.contentfulRecipe === null) {
       return null;
     }
-    return (
-      <Hero
-        image={image}
-        title={recipe.title}
-        content={recipe.description.content}
-      />
-    );
+
+    return <Content {...props.data.contentfulRecipe} />;
+  };
+
+  const renderTags = () => {
+    if (recipe.tags === null) {
+      return null;
+    }
+
+    return <Tags tags={recipe.tags} />;
   };
 
   return (
-    <Layout location={props.location}>
-      {renderHero()}
+    <Layout>
+      {renderContent()}
       <div className={styles.container}>
         <div className={styles.recipe}>
           <div className={styles.body}>
             {/* {recipe.description?.raw &&
               renderRichText(recipe.description, options)} */}
           </div>
-          <Tags tags={recipe.tags} />
+          {renderTags()}
           {(previous || next) && (
             <nav>
               <ul className={styles.recipeNavigation}>
@@ -101,8 +98,8 @@ export const pageQuery = graphql`
     contentfulRecipe(slug: { eq: $slug }) {
       slug
       title
-      scannedImage {
-        gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 1280)
+      image: scannedImage {
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED, width: 1280)
         resize(height: 630, width: 1200) {
           src
         }

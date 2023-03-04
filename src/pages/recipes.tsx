@@ -1,26 +1,18 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, PageProps } from "gatsby";
 
 import Layout from "../components/layout";
 import Hero from "../components/hero";
 import RecipePreview from "../components/recipe-preview";
-import { TypeRecipeFields } from "../types/recipe";
 
-interface Props {
-  data: {
-    allContentfulRecipe: {
-      nodes: TypeRecipeFields[];
-    };
-  };
-  location: any;
-}
+type Props = PageProps<Queries.RecipesIndexQuery>;
 
 const RecipeIndex: React.FC<Props> = props => {
   const recipes = props.data.allContentfulRecipe.nodes;
 
   return (
-    <Layout location={props.location}>
-      <Hero title="Recipes" />
+    <Layout>
+      <Hero name="Recipes" image={null} description={null} />
       <RecipePreview recipes={recipes} />
     </Layout>
   );
@@ -29,7 +21,7 @@ const RecipeIndex: React.FC<Props> = props => {
 export default RecipeIndex;
 
 export const pageQuery = graphql`
-  query RecipesIndexQuery {
+  query RecipesIndex {
     allContentfulRecipe(filter: { node_locale: { eq: "en-US" } }) {
       nodes {
         title

@@ -3,9 +3,14 @@ require("dotenv").config({
 });
 
 module.exports = {
+  graphqlTypegen: {
+    typesOutputPath: `./src/types/gatsby-types.d.ts`,
+    generateOnBuild: false,
+    documentSearchPaths: [`./gatsby-node.ts`, `./plugins/**/gatsby-node.ts`],
+  },
   siteMetadata: {
-    title: "Gatsby Contentful Starter",
-    description: "Official Contentful Gatsby Starter",
+    title: "Grandma Lala's Recipes",
+    description: "...trying to preserve my late grandma's recipes",
   },
   plugins: [
     "gatsby-transformer-sharp",
@@ -17,7 +22,7 @@ module.exports = {
       options: {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        host: process.env.CONTENTFUL_HOST
+        host: process.env.CONTENTFUL_HOST,
       },
     },
   ],

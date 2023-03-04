@@ -1,31 +1,35 @@
 import React from "react";
-import { GatsbyImage, IGatsbyImageData, getImage } from "gatsby-plugin-image";
-import { renderRichText } from "gatsby-source-contentful/rich-text";
-import type { Asset } from "contentful";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-import * as styles from "./hero.module.css";
+import * as styles from "./styles/hero.module.css";
 
-interface Props {
-  image?: Asset;
-  title: string;
-  content?: any;
-}
+type Props = Queries.HomeQuery["contentfulHero"];
 
-const Hero: React.FC<Props> = ({ image, title, content }) => {
-  if (!image) {
+const Hero: React.FC<Props> = props => {
+  if (!props) {
     return null;
   }
 
-  const gatsbyImage = getImage(image);
+  const { image, name, description } = props;
+
+  const renderImage = () => {
+    const gatsbyImage = getImage(image);
+
+    return (
+      gatsbyImage &&
+      name && (
+        <GatsbyImage className={styles.image} alt={name} image={gatsbyImage} />
+      )
+    );
+  };
+
   return (
     <div className={styles.hero}>
-      {gatsbyImage && (
-        <GatsbyImage className={styles.image} alt={title} image={gatsbyImage} />
-      )}
+      {renderImage()}
       <div className={styles.details}>
-        <h1 className={styles.title}>{title}</h1>
-        {content && (
-          <div className={styles.content}>{renderRichText(content)}</div>
+        <h1 className={styles.title}>{name}</h1>
+        {description && description.description && (
+          <div className={styles.content}>{description.description}</div>
         )}
       </div>
     </div>

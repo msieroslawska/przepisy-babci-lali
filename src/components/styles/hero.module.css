@@ -22,8 +22,8 @@
   background: var(--background);
   left: 0;
   max-width: 40rem;
-  width: 85%;
-  padding: var(--space-2xl) var(--size-gutter) 0;
+  width: 55%;
+  padding: var(--space-xl) var(--size-gutter) 0;
   position: absolute;
 }
 
@@ -43,7 +43,7 @@
 
 @media (min-width: 480px) {
   .details {
-    padding-top: var(--space-3xl);
+    padding-top: var(--space-xl);
   }
 }
 
@@ -54,7 +54,7 @@
 
   .details {
     max-width: 44rem;
-    padding: var(--space-3xl) var(--size-gutter) 0;
+    padding: var(--space-xl) var(--size-gutter) 0;
   }
 }
 
@@ -66,6 +66,6 @@
 
   .details {
     left: var(--size-gutter);
-    padding: var(--space-3xl) var(--size-gutter) 0 0;
+    padding: var(--space-xl) var(--size-gutter) 0 0;
   }
 }

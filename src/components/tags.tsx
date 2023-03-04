@@ -1,9 +1,9 @@
 import React from "react";
 
-import * as styles from "./tags.module.css";
+import * as styles from "./styles/tags.module.css";
 
 interface Props {
-  tags: string[];
+  tags: Readonly<(string | null)[]>;
 }
 
 const Tags: React.FC<Props> = ({ tags }) => {
