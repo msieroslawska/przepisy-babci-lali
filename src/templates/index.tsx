@@ -5,7 +5,9 @@ import Layout from "../components/layout";
 import Hero from "../components/hero";
 import RecipePreview from "../components/recipePreview";
 
-type Props = PageProps<Queries.HomeQuery>;
+import { PageContextWithLocale } from "../types";
+
+type Props = PageProps<Queries.HomeQuery, PageContextWithLocale>;
 
 export const RootIndex: React.FC<Props> = props => {
   console.log("xxx", props);

@@ -1,5 +1,6 @@
 import { navigate } from "gatsby";
-export type Locale = "en-US" | "pl";
+
+import type { Locale } from "./types";
 
 export const useLocale = (currentLocation: string) => {
   const extractLocaleFromLocation = () => {

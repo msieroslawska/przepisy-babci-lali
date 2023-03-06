@@ -5489,10 +5489,17 @@ type RecipeBySlugQueryVariables = Exact<{
 
 type RecipeBySlugQuery = { readonly contentfulRecipe: { readonly slug: string | null, readonly title: string | null, readonly source: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly image: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null, readonly resize: { readonly src: string | null } | null } | null, readonly description: { readonly raw: string | null } | null, readonly ingredients: ReadonlyArray<{ readonly quantity: { readonly quantityName: number | null } | null, readonly unit: { readonly unitName: string | null } | null, readonly food: { readonly foodName: string | null } | null } | null> | null } | null, readonly previous: { readonly slug: string | null, readonly title: string | null } | null, readonly next: { readonly slug: string | null, readonly title: string | null } | null };
 
-type RecipesIndexQueryVariables = Exact<{ [key: string]: never; }>;
+type RecipesIndexQueryVariables = Exact<{
+  locale: InputMaybe<Scalars['String']>;
+}>;
 
 
 type RecipesIndexQuery = { readonly allContentfulRecipe: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly slug: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly image: { readonly gatsbyImage: import('gatsby-plugin-image').IGatsbyImageData | null } | null, readonly description: { readonly raw: string | null } | null }> } };
+
+type AllRecipesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type AllRecipesQuery = { readonly en: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly slug: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly image: { readonly gatsbyImage: import('gatsby-plugin-image').IGatsbyImageData | null } | null, readonly description: { readonly raw: string | null } | null }> }, readonly pl: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly slug: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly image: { readonly gatsbyImage: import('gatsby-plugin-image').IGatsbyImageData | null } | null, readonly description: { readonly raw: string | null } | null }> } };
 
 
 }

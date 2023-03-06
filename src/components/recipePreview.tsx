@@ -4,13 +4,10 @@ import { Link } from "gatsby";
 import Container from "./container";
 import Tags from "./tags";
 
-import { TypeRecipeFields } from "../types/recipe";
-
 import * as styles from "./styles/recipe-preview.module.css";
-import { Locale } from "../useLocale";
+import { Locale, Recipes, TypeRecipeFields } from "../types";
 
-// @TODO: FIX
-type Props = { recipes: Readonly<any[]>; locale: Locale };
+type Props = { recipes: Recipes; locale: Locale };
 
 const RecipePreview: React.FC<Props> = ({ locale, recipes }) => {
   if (!recipes) return null;

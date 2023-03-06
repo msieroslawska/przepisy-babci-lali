@@ -4,8 +4,9 @@ import { graphql, PageProps } from "gatsby";
 import Layout from "../components/layout";
 import Hero from "../components/hero";
 import RecipePreview from "../components/recipePreview";
+import { PageContextWithLocale } from "../types";
 
-type Props = PageProps<Queries.RecipesIndexQuery>;
+type Props = PageProps<Queries.RecipesIndexQuery, PageContextWithLocale>;
 
 const RecipeIndex: React.FC<Props> = props => {
   const recipes = props.data.allContentfulRecipe.nodes;
@@ -13,7 +14,7 @@ const RecipeIndex: React.FC<Props> = props => {
   return (
     <Layout location={props.location.pathname}>
       <Hero name="Recipes" image={null} description={null} />
-      <RecipePreview recipes={recipes} />
+      <RecipePreview recipes={recipes} locale={props.pageContext.locale} />
     </Layout>
   );
 };
@@ -21,8 +22,8 @@ const RecipeIndex: React.FC<Props> = props => {
 export default RecipeIndex;
 
 export const pageQuery = graphql`
-  query RecipesIndex {
-    allContentfulRecipe(filter: { node_locale: { eq: "en-US" } }) {
+  query RecipesIndex($locale: String) {
+    allContentfulRecipe(filter: { node_locale: { eq: $locale } }) {
       nodes {
         title
         slug

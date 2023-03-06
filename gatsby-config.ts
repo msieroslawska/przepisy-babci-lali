@@ -1,8 +1,10 @@
+import type { GatsbyConfig } from "gatsby";
+
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
-module.exports = {
+const config: GatsbyConfig = {
   graphqlTypegen: {
     typesOutputPath: `./src/types/gatsby-types.d.ts`,
     generateOnBuild: false,
@@ -27,3 +29,5 @@ module.exports = {
     },
   ],
 };
+
+export default config;
