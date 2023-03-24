@@ -1,19 +1,15 @@
 import React from "react";
-import { Link, graphql, PageProps, useStaticQuery } from "gatsby";
+import { Link, PageProps } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
-import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-import Layout from "../components/layout";
-import RecipeHeader from "../components/recipeHeader";
-import { useLocale } from "../useLocale";
+import { Layout, RecipeHeader } from "../components";
 import * as styles from "./recipe.module.css";
 
 type Props = PageProps<Queries.RecipeBySlugQuery>;
 
 const RecipeTemplate: React.FC<Props> = props => {
-  const { locale } = useLocale(props.location.pathname);
   const recipe = props.data.contentfulRecipe;
   const previous = props.data.previous;
   const next = props.data.next;
@@ -116,7 +112,7 @@ const RecipeTemplate: React.FC<Props> = props => {
   };
 
   return (
-    <Layout location={props.location.pathname}>
+    <Layout>
       {renderRecipeHeader()}
       <div className={styles.container}>
         <div className={styles.recipe}>
@@ -130,7 +126,7 @@ const RecipeTemplate: React.FC<Props> = props => {
               renderRichText(recipe.description, options)} */}
           </div>
           {renderTags()}
-          {(previous || next) && (
+          {/* {(previous || next) && (
             <nav>
               <ul className={styles.recipeNavigation}>
                 {previous && (
@@ -149,7 +145,7 @@ const RecipeTemplate: React.FC<Props> = props => {
                 )}
               </ul>
             </nav>
-          )}
+          )} */}
         </div>
       </div>
     </Layout>

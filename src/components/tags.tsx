@@ -6,7 +6,7 @@ interface Props {
   tags: Readonly<(string | null)[]>;
 }
 
-const Tags: React.FC<Props> = props => {
+export const Tags: React.FC<Props> = props => {
   if (!props.tags || props.tags.length === 0) {
     return null;
   }
@@ -21,5 +21,3 @@ const Tags: React.FC<Props> = props => {
     </small>
   );
 };
-
-export default Tags;

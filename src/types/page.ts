@@ -1,10 +1,10 @@
-import { Locale } from "./";
+import { Language } from "./language";
 
 export type Recipes = Queries.AllRecipesQuery["en"]["nodes"];
 export type Recipe = Recipes extends readonly (infer U)[] ? U : never;
 type Slug = Recipe["slug"];
 
-export type PageContextWithLocale = { locale: Locale };
+export type PageContextWithLocale = { language: Language };
 export type PageContextWithSlugData = {
   slug: Slug;
   previousRecipeSlug: Slug;
@@ -14,7 +14,6 @@ export type PageContextWithSlugData = {
 export type PageContextWithRecipeData = {
   title: Recipe["title"];
   slug: Recipe["slug"];
-  // tags: Recipe["tags"];
   image: Recipe["image"];
   description: Recipe["description"];
 };

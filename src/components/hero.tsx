@@ -5,7 +5,7 @@ import * as styles from "./styles/hero.module.css";
 
 type Props = Queries.HomeQuery["contentfulHero"];
 
-const Hero: React.FC<Props> = props => {
+export const Hero: React.FC<Props> = props => {
   if (!props) {
     return null;
   }
@@ -35,5 +35,3 @@ const Hero: React.FC<Props> = props => {
     </div>
   );
 };
-
-export default Hero;

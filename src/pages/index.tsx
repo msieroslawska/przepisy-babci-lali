@@ -1,20 +1,12 @@
 import React from "react";
 import { graphql, PageProps } from "gatsby";
-import { useIntl, Link, FormattedMessage, IntlShape } from "gatsby-plugin-intl";
 
-import Layout from "../components/layout";
-import Hero from "../components/hero";
-import RecipePreview from "../components/recipePreview";
+import { Hero, Layout, RecipePreview } from "../components/";
+import { PageContextWithLocale } from "../types";
 
-import { Language, PageContextWithLocale, TypeRecipeFields } from "../types";
-
-type Props = PageProps<Queries.HomeQuery, IntlShape>;
+type Props = PageProps<Queries.HomeQuery, PageContextWithLocale>;
 
 export const RootIndex: React.FC<Props> = props => {
-  const intl = useIntl();
-  console.log("xxx", props.pageContext.language); //.intl.language);
-  // intl.locale;
-
   const renderHero = () => {
     if (props.data.contentfulHero === null) {
       return null;
@@ -23,15 +15,10 @@ export const RootIndex: React.FC<Props> = props => {
     return <Hero {...props.data.contentfulHero} />;
   };
 
-  // const filterRecipesBasedOnLocale = (recipes: TypeRecipeFields[]) => recipes.filter(recipe => recipe.)
-
   return (
-    <Layout language={props.pageContext.language as Language}>
+    <Layout>
       {renderHero()}
-      <RecipePreview
-        recipes={props.data.allContentfulRecipe.nodes}
-        language={props.pageContext.language as Language}
-      />
+      <RecipePreview recipes={props.data.allContentfulRecipe.nodes} />
     </Layout>
   );
 };

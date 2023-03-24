@@ -1394,31 +1394,10 @@ type ContentfulIngredientSysSortInput = {
 type ContentfulNavigation = ContentfulEntry & ContentfulReference & Node & {
   readonly children: ReadonlyArray<Node>;
   readonly contentful_id: Scalars['String'];
-  readonly createdAt: Maybe<Scalars['Date']>;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
-  readonly navigationLink: Maybe<ReadonlyArray<Maybe<ContentfulNavigationItem>>>;
   readonly node_locale: Scalars['String'];
   readonly parent: Maybe<Node>;
-  readonly spaceId: Maybe<Scalars['String']>;
-  readonly sys: Maybe<ContentfulNavigationSys>;
-  readonly updatedAt: Maybe<Scalars['Date']>;
-};
-
-
-type ContentfulNavigation_createdAtArgs = {
-  difference: InputMaybe<Scalars['String']>;
-  formatString: InputMaybe<Scalars['String']>;
-  fromNow: InputMaybe<Scalars['Boolean']>;
-  locale: InputMaybe<Scalars['String']>;
-};
-
-
-type ContentfulNavigation_updatedAtArgs = {
-  difference: InputMaybe<Scalars['String']>;
-  formatString: InputMaybe<Scalars['String']>;
-  fromNow: InputMaybe<Scalars['Boolean']>;
-  locale: InputMaybe<Scalars['String']>;
 };
 
 type ContentfulNavigationConnection = {
@@ -1469,33 +1448,19 @@ type ContentfulNavigationEdge = {
 type ContentfulNavigationFieldSelector = {
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly contentful_id: InputMaybe<FieldSelectorEnum>;
-  readonly createdAt: InputMaybe<FieldSelectorEnum>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
-  readonly navigationLink: InputMaybe<ContentfulNavigationItemFieldSelector>;
   readonly node_locale: InputMaybe<FieldSelectorEnum>;
   readonly parent: InputMaybe<NodeFieldSelector>;
-  readonly spaceId: InputMaybe<FieldSelectorEnum>;
-  readonly sys: InputMaybe<ContentfulNavigationSysFieldSelector>;
-  readonly updatedAt: InputMaybe<FieldSelectorEnum>;
 };
 
 type ContentfulNavigationFilterInput = {
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
-  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
-  readonly navigationLink: InputMaybe<ContentfulNavigationItemFilterListInput>;
   readonly node_locale: InputMaybe<StringQueryOperatorInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
-  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
-  readonly sys: InputMaybe<ContentfulNavigationSysFilterInput>;
-  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
-};
-
-type ContentfulNavigationFilterListInput = {
-  readonly elemMatch: InputMaybe<ContentfulNavigationFilterInput>;
 };
 
 type ContentfulNavigationGroupConnection = {
@@ -1542,33 +1507,10 @@ type ContentfulNavigationGroupConnection_sumArgs = {
 type ContentfulNavigationItem = ContentfulEntry & ContentfulReference & Node & {
   readonly children: ReadonlyArray<Node>;
   readonly contentful_id: Scalars['String'];
-  readonly createdAt: Maybe<Scalars['Date']>;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
-  readonly link: Maybe<Scalars['String']>;
-  readonly name: Maybe<Scalars['String']>;
-  readonly navigation: Maybe<ReadonlyArray<Maybe<ContentfulNavigation>>>;
   readonly node_locale: Scalars['String'];
   readonly parent: Maybe<Node>;
-  readonly spaceId: Maybe<Scalars['String']>;
-  readonly sys: Maybe<ContentfulNavigationItemSys>;
-  readonly updatedAt: Maybe<Scalars['Date']>;
-};
-
-
-type ContentfulNavigationItem_createdAtArgs = {
-  difference: InputMaybe<Scalars['String']>;
-  formatString: InputMaybe<Scalars['String']>;
-  fromNow: InputMaybe<Scalars['Boolean']>;
-  locale: InputMaybe<Scalars['String']>;
-};
-
-
-type ContentfulNavigationItem_updatedAtArgs = {
-  difference: InputMaybe<Scalars['String']>;
-  formatString: InputMaybe<Scalars['String']>;
-  fromNow: InputMaybe<Scalars['Boolean']>;
-  locale: InputMaybe<Scalars['String']>;
 };
 
 type ContentfulNavigationItemConnection = {
@@ -1619,37 +1561,19 @@ type ContentfulNavigationItemEdge = {
 type ContentfulNavigationItemFieldSelector = {
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly contentful_id: InputMaybe<FieldSelectorEnum>;
-  readonly createdAt: InputMaybe<FieldSelectorEnum>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
-  readonly link: InputMaybe<FieldSelectorEnum>;
-  readonly name: InputMaybe<FieldSelectorEnum>;
-  readonly navigation: InputMaybe<ContentfulNavigationFieldSelector>;
   readonly node_locale: InputMaybe<FieldSelectorEnum>;
   readonly parent: InputMaybe<NodeFieldSelector>;
-  readonly spaceId: InputMaybe<FieldSelectorEnum>;
-  readonly sys: InputMaybe<ContentfulNavigationItemSysFieldSelector>;
-  readonly updatedAt: InputMaybe<FieldSelectorEnum>;
 };
 
 type ContentfulNavigationItemFilterInput = {
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
-  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
-  readonly link: InputMaybe<StringQueryOperatorInput>;
-  readonly name: InputMaybe<StringQueryOperatorInput>;
-  readonly navigation: InputMaybe<ContentfulNavigationFilterListInput>;
   readonly node_locale: InputMaybe<StringQueryOperatorInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
-  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
-  readonly sys: InputMaybe<ContentfulNavigationItemSysFilterInput>;
-  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
-};
-
-type ContentfulNavigationItemFilterListInput = {
-  readonly elemMatch: InputMaybe<ContentfulNavigationItemFilterInput>;
 };
 
 type ContentfulNavigationItemGroupConnection = {
@@ -1696,159 +1620,19 @@ type ContentfulNavigationItemGroupConnection_sumArgs = {
 type ContentfulNavigationItemSortInput = {
   readonly children: InputMaybe<NodeSortInput>;
   readonly contentful_id: InputMaybe<SortOrderEnum>;
-  readonly createdAt: InputMaybe<SortOrderEnum>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
-  readonly link: InputMaybe<SortOrderEnum>;
-  readonly name: InputMaybe<SortOrderEnum>;
-  readonly navigation: InputMaybe<ContentfulNavigationSortInput>;
   readonly node_locale: InputMaybe<SortOrderEnum>;
   readonly parent: InputMaybe<NodeSortInput>;
-  readonly spaceId: InputMaybe<SortOrderEnum>;
-  readonly sys: InputMaybe<ContentfulNavigationItemSysSortInput>;
-  readonly updatedAt: InputMaybe<SortOrderEnum>;
-};
-
-type ContentfulNavigationItemSys = {
-  readonly contentType: Maybe<ContentfulNavigationItemSysContentType>;
-  readonly revision: Maybe<Scalars['Int']>;
-  readonly type: Maybe<Scalars['String']>;
-};
-
-type ContentfulNavigationItemSysContentType = {
-  readonly sys: Maybe<ContentfulNavigationItemSysContentTypeSys>;
-};
-
-type ContentfulNavigationItemSysContentTypeFieldSelector = {
-  readonly sys: InputMaybe<ContentfulNavigationItemSysContentTypeSysFieldSelector>;
-};
-
-type ContentfulNavigationItemSysContentTypeFilterInput = {
-  readonly sys: InputMaybe<ContentfulNavigationItemSysContentTypeSysFilterInput>;
-};
-
-type ContentfulNavigationItemSysContentTypeSortInput = {
-  readonly sys: InputMaybe<ContentfulNavigationItemSysContentTypeSysSortInput>;
-};
-
-type ContentfulNavigationItemSysContentTypeSys = {
-  readonly id: Maybe<Scalars['String']>;
-  readonly linkType: Maybe<Scalars['String']>;
-  readonly type: Maybe<Scalars['String']>;
-};
-
-type ContentfulNavigationItemSysContentTypeSysFieldSelector = {
-  readonly id: InputMaybe<FieldSelectorEnum>;
-  readonly linkType: InputMaybe<FieldSelectorEnum>;
-  readonly type: InputMaybe<FieldSelectorEnum>;
-};
-
-type ContentfulNavigationItemSysContentTypeSysFilterInput = {
-  readonly id: InputMaybe<StringQueryOperatorInput>;
-  readonly linkType: InputMaybe<StringQueryOperatorInput>;
-  readonly type: InputMaybe<StringQueryOperatorInput>;
-};
-
-type ContentfulNavigationItemSysContentTypeSysSortInput = {
-  readonly id: InputMaybe<SortOrderEnum>;
-  readonly linkType: InputMaybe<SortOrderEnum>;
-  readonly type: InputMaybe<SortOrderEnum>;
-};
-
-type ContentfulNavigationItemSysFieldSelector = {
-  readonly contentType: InputMaybe<ContentfulNavigationItemSysContentTypeFieldSelector>;
-  readonly revision: InputMaybe<FieldSelectorEnum>;
-  readonly type: InputMaybe<FieldSelectorEnum>;
-};
-
-type ContentfulNavigationItemSysFilterInput = {
-  readonly contentType: InputMaybe<ContentfulNavigationItemSysContentTypeFilterInput>;
-  readonly revision: InputMaybe<IntQueryOperatorInput>;
-  readonly type: InputMaybe<StringQueryOperatorInput>;
-};
-
-type ContentfulNavigationItemSysSortInput = {
-  readonly contentType: InputMaybe<ContentfulNavigationItemSysContentTypeSortInput>;
-  readonly revision: InputMaybe<SortOrderEnum>;
-  readonly type: InputMaybe<SortOrderEnum>;
 };
 
 type ContentfulNavigationSortInput = {
   readonly children: InputMaybe<NodeSortInput>;
   readonly contentful_id: InputMaybe<SortOrderEnum>;
-  readonly createdAt: InputMaybe<SortOrderEnum>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
-  readonly navigationLink: InputMaybe<ContentfulNavigationItemSortInput>;
   readonly node_locale: InputMaybe<SortOrderEnum>;
   readonly parent: InputMaybe<NodeSortInput>;
-  readonly spaceId: InputMaybe<SortOrderEnum>;
-  readonly sys: InputMaybe<ContentfulNavigationSysSortInput>;
-  readonly updatedAt: InputMaybe<SortOrderEnum>;
-};
-
-type ContentfulNavigationSys = {
-  readonly contentType: Maybe<ContentfulNavigationSysContentType>;
-  readonly revision: Maybe<Scalars['Int']>;
-  readonly type: Maybe<Scalars['String']>;
-};
-
-type ContentfulNavigationSysContentType = {
-  readonly sys: Maybe<ContentfulNavigationSysContentTypeSys>;
-};
-
-type ContentfulNavigationSysContentTypeFieldSelector = {
-  readonly sys: InputMaybe<ContentfulNavigationSysContentTypeSysFieldSelector>;
-};
-
-type ContentfulNavigationSysContentTypeFilterInput = {
-  readonly sys: InputMaybe<ContentfulNavigationSysContentTypeSysFilterInput>;
-};
-
-type ContentfulNavigationSysContentTypeSortInput = {
-  readonly sys: InputMaybe<ContentfulNavigationSysContentTypeSysSortInput>;
-};
-
-type ContentfulNavigationSysContentTypeSys = {
-  readonly id: Maybe<Scalars['String']>;
-  readonly linkType: Maybe<Scalars['String']>;
-  readonly type: Maybe<Scalars['String']>;
-};
-
-type ContentfulNavigationSysContentTypeSysFieldSelector = {
-  readonly id: InputMaybe<FieldSelectorEnum>;
-  readonly linkType: InputMaybe<FieldSelectorEnum>;
-  readonly type: InputMaybe<FieldSelectorEnum>;
-};
-
-type ContentfulNavigationSysContentTypeSysFilterInput = {
-  readonly id: InputMaybe<StringQueryOperatorInput>;
-  readonly linkType: InputMaybe<StringQueryOperatorInput>;
-  readonly type: InputMaybe<StringQueryOperatorInput>;
-};
-
-type ContentfulNavigationSysContentTypeSysSortInput = {
-  readonly id: InputMaybe<SortOrderEnum>;
-  readonly linkType: InputMaybe<SortOrderEnum>;
-  readonly type: InputMaybe<SortOrderEnum>;
-};
-
-type ContentfulNavigationSysFieldSelector = {
-  readonly contentType: InputMaybe<ContentfulNavigationSysContentTypeFieldSelector>;
-  readonly revision: InputMaybe<FieldSelectorEnum>;
-  readonly type: InputMaybe<FieldSelectorEnum>;
-};
-
-type ContentfulNavigationSysFilterInput = {
-  readonly contentType: InputMaybe<ContentfulNavigationSysContentTypeFilterInput>;
-  readonly revision: InputMaybe<IntQueryOperatorInput>;
-  readonly type: InputMaybe<StringQueryOperatorInput>;
-};
-
-type ContentfulNavigationSysSortInput = {
-  readonly contentType: InputMaybe<ContentfulNavigationSysContentTypeSortInput>;
-  readonly revision: InputMaybe<SortOrderEnum>;
-  readonly type: InputMaybe<SortOrderEnum>;
 };
 
 type ContentfulQuantity = ContentfulEntry & ContentfulReference & Node & {
@@ -4160,32 +3944,20 @@ type Query_contentfulIngredientArgs = {
 type Query_contentfulNavigationArgs = {
   children: InputMaybe<NodeFilterListInput>;
   contentful_id: InputMaybe<StringQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
-  navigationLink: InputMaybe<ContentfulNavigationItemFilterListInput>;
   node_locale: InputMaybe<StringQueryOperatorInput>;
   parent: InputMaybe<NodeFilterInput>;
-  spaceId: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulNavigationSysFilterInput>;
-  updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
 
 type Query_contentfulNavigationItemArgs = {
   children: InputMaybe<NodeFilterListInput>;
   contentful_id: InputMaybe<StringQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
-  link: InputMaybe<StringQueryOperatorInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  navigation: InputMaybe<ContentfulNavigationFilterListInput>;
   node_locale: InputMaybe<StringQueryOperatorInput>;
   parent: InputMaybe<NodeFilterInput>;
-  spaceId: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulNavigationItemSysFilterInput>;
-  updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
 

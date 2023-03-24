@@ -5,7 +5,7 @@ import * as styles from "./styles/hero.module.css";
 
 type Props = Queries.RecipeBySlugQuery["contentfulRecipe"];
 
-const RecipeHeader: React.FC<Props> = props => {
+export const RecipeHeader: React.FC<Props> = props => {
   if (!props) {
     return null;
   }
@@ -33,5 +33,3 @@ const RecipeHeader: React.FC<Props> = props => {
     </div>
   );
 };
-
-export default RecipeHeader;

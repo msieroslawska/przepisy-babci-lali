@@ -1,18 +1,18 @@
 import React from "react";
 import { Link } from "gatsby";
 
-import Container from "./container";
+import { Container } from "./";
 
 import * as styles from "./styles/recipe-preview.module.css";
-import { Locale, Recipes, TypeRecipeFields } from "../types";
+import { Recipes, TypeRecipeFields } from "../types";
+import { useLanguage } from "../useLanguage";
 
-type Props = { recipes: Recipes; language: string };
+type Props = { recipes: Recipes };
 
-const RecipePreview: React.FC<Props> = ({ language, recipes }) => {
+export const RecipePreview: React.FC<Props> = ({ recipes }) => {
   if (!recipes) return null;
   if (!Array.isArray(recipes)) return null;
-
-  // const filterBasedOnLocale = (recipe: TypeRecipeFields) => recipe.;
+  const { language } = useLanguage();
 
   const renderRecipe = (recipe: TypeRecipeFields) => (
     <li key={recipe.slug}>
@@ -30,5 +30,3 @@ const RecipePreview: React.FC<Props> = ({ language, recipes }) => {
     </Container>
   );
 };
-
-export default RecipePreview;

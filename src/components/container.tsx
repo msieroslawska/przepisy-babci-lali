@@ -5,7 +5,7 @@ interface Props {
   as?: keyof JSX.IntrinsicElements;
 }
 
-const Container: React.FC<Props> = ({ children, as = "div" }) => {
+export const Container: React.FC<Props> = ({ children, as = "div" }) => {
   const Tag = as;
 
   return (
@@ -20,5 +20,3 @@ const Container: React.FC<Props> = ({ children, as = "div" }) => {
     </Tag>
   );
 };
-
-export default Container;
