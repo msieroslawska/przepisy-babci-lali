@@ -1,5 +1,6 @@
 import React from "react";
-import { Link, PageProps } from "gatsby";
+import { graphql, PageProps, useStaticQuery } from "gatsby";
+import { Link } from "gatsby-plugin-intl";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { BLOCKS } from "@contentful/rich-text-types";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
@@ -126,26 +127,26 @@ const RecipeTemplate: React.FC<Props> = props => {
               renderRichText(recipe.description, options)} */}
           </div>
           {renderTags()}
-          {/* {(previous || next) && (
+          {(previous || next) && (
             <nav>
               <ul className={styles.recipeNavigation}>
                 {previous && (
                   <li>
-                    <Link to={`/recipes/${locale}/${previous.slug}`} rel="prev">
+                    <Link to={`/recipes/${previous.slug}`} rel="prev">
                       ← {previous.title}
                     </Link>
                   </li>
                 )}
                 {next && (
                   <li>
-                    <Link to={`/recipes/${locale}/${next.slug}`} rel="next">
+                    <Link to={`/recipes/${next.slug}`} rel="next">
                       {next.title} →
                     </Link>
                   </li>
                 )}
               </ul>
             </nav>
-          )} */}
+          )}
         </div>
       </div>
     </Layout>
@@ -153,3 +154,53 @@ const RecipeTemplate: React.FC<Props> = props => {
 };
 
 export default RecipeTemplate;
+
+export const pageQuery = graphql`
+  query RecipeBySlug(
+    $slug: String!
+    $previousRecipeSlug: String
+    $nextRecipeSlug: String
+    $language: String
+  ) {
+    contentfulRecipe(slug: { eq: $slug }, node_locale: { eq: $language }) {
+      slug
+      title
+      source
+      image {
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED, width: 1280)
+        resize(height: 630, width: 1200) {
+          src
+        }
+      }
+      tags
+      description {
+        raw
+      }
+      ingredients {
+        quantity {
+          quantityName
+        }
+        unit {
+          unitName
+        }
+        food {
+          foodName
+        }
+      }
+    }
+    previous: contentfulRecipe(
+      slug: { eq: $previousRecipeSlug }
+      node_locale: { eq: $language }
+    ) {
+      slug
+      title
+    }
+    next: contentfulRecipe(
+      slug: { eq: $nextRecipeSlug }
+      node_locale: { eq: $language }
+    ) {
+      slug
+      title
+    }
+  }
+`;
