@@ -1,78 +1,53 @@
 import React from "react";
-import { graphql, Link, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
+import {
+  useIntl,
+  Link,
+  FormattedMessage,
+  IntlContextConsumer,
+  changeLocale,
+} from "gatsby-plugin-intl";
 
 import * as styles from "./styles/navigation.module.css";
 import { useLocale } from "../useLocale";
+import { oppositeLanguage } from "../utils/language";
+import { Language } from "../types";
 
 interface Props {
-  location: string;
+  language: Language;
 }
 
-const Navigation: React.FC<Props> = ({ location }) => {
-  const { locale, navigateToAnotherLocale } = useLocale(location);
+type NavigationLink = { name: string; link: string };
+const LINKS: NavigationLink[] = [
+  { name: "home", link: "/" },
+  { name: "recipes", link: "/recipes" },
+];
 
-  const data = useStaticQuery(graphql`
-    query LocalizedNavigation {
-      en: allContentfulNavigation(filter: { node_locale: { eq: "en-US" } }) {
-        nodes {
-          navigationLink {
-            name
-            link
-          }
-        }
-      }
-      pl: allContentfulNavigation(filter: { node_locale: { eq: "pl" } }) {
-        nodes {
-          navigationLink {
-            name
-            link
-          }
-        }
-      }
-    }
-  `);
-
-  const renderNavigationLinks = (
-    navigationLink: { link: string | null; name: string | null } | null
-  ) => {
-    if (!navigationLink?.link) {
-      return null;
-    }
-
+const Navigation: React.FC<Props> = props => {
+  const renderNavigationLinks = (navigationLink: NavigationLink) => {
     return (
       <li className={styles.navigationItem}>
-        <Link
-          to={`${navigationLink?.link}/${locale}/`}
-          activeClassName="active"
-        >
-          {navigationLink?.name}
+        <Link to={navigationLink.link} activeClassName="active">
+          {navigationLink.name}
         </Link>
       </li>
     );
   };
 
-  if (
-    data.en === null ||
-    data.pl === null ||
-    data.en.nodes[0].navigationLink === null ||
-    data.pl.nodes[0].navigationLink === null
-  ) {
-    return null;
-  }
-
-  const localizedNavigation = locale === "pl" ? data.pl : data.en;
   const renderLocaleButton = () => {
+    const newLanguage = oppositeLanguage[props.language];
+
     const onClick = () => {
-      navigateToAnotherLocale();
+      changeLocale(newLanguage);
     };
 
-    return <button onClick={onClick}>{"change locale"}</button>;
+    return <button onClick={onClick}>{newLanguage}</button>;
   };
 
   return (
     <nav role="navigation" className={styles.container} aria-label="Main">
       <ul className={styles.navigation}>
-        {localizedNavigation.nodes[0].navigationLink.map(renderNavigationLinks)}
+        {LINKS.map(renderNavigationLinks)}
         {renderLocaleButton()}
       </ul>
     </nav>

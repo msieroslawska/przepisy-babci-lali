@@ -1,9 +1,10 @@
-export type Recipes = Queries.AllRecipesQuery['en']['nodes']
-export type Recipe = Recipes extends readonly (infer U)[] ? U : never;
-type Slug = Recipe['slug']
-export type Locale = 'pl' | 'en-US';
+import { Locale } from "./";
 
-export type PageContextWithLocale = { locale: Locale }
+export type Recipes = Queries.AllRecipesQuery["en"]["nodes"];
+export type Recipe = Recipes extends readonly (infer U)[] ? U : never;
+type Slug = Recipe["slug"];
+
+export type PageContextWithLocale = { locale: Locale };
 export type PageContextWithSlugData = {
   slug: Slug;
   previousRecipeSlug: Slug;
@@ -13,10 +14,12 @@ export type PageContextWithSlugData = {
 export type PageContextWithRecipeData = {
   title: Recipe["title"];
   slug: Recipe["slug"];
-  tags: Recipe["tags"];
+  // tags: Recipe["tags"];
   image: Recipe["image"];
   description: Recipe["description"];
 };
 
-export type PageContextWithLocalizedSlugData = PageContextWithLocale & PageContextWithSlugData;
-export type PageContextWithLocalizedRecipeData = PageContextWithLocale & PageContextWithRecipeData;
+export type PageContextWithLocalizedSlugData = PageContextWithLocale &
+  PageContextWithSlugData;
+export type PageContextWithLocalizedRecipeData = PageContextWithLocale &
+  PageContextWithRecipeData;

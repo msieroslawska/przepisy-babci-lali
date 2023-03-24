@@ -22,12 +22,11 @@ const RecipeIndex: React.FC<Props> = props => {
 export default RecipeIndex;
 
 export const pageQuery = graphql`
-  query RecipesIndex($locale: String) {
-    allContentfulRecipe(filter: { node_locale: { eq: $locale } }) {
+  query RecipesIndex($language: String) {
+    allContentfulRecipe(filter: { node_locale: { eq: $language } }) {
       nodes {
         title
         slug
-        tags
         image {
           gatsbyImage(
             layout: FULL_WIDTH

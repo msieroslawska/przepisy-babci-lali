@@ -27,6 +27,16 @@ const config: GatsbyConfig = {
         host: process.env.CONTENTFUL_HOST,
       },
     },
+    {
+      resolve: `gatsby-plugin-intl`,
+      options: {
+        path: `${__dirname}/src/intl`, // @TODO: might not be needed at all
+        languages: [`en`, `pl`],
+        defaultLanguage: `en`,
+        // option to redirect to default language when connecting `/`
+        redirect: true,
+      },
+    },
   ],
 };
 

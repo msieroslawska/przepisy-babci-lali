@@ -4,16 +4,17 @@ import "./styles/variables.css";
 import "./styles/global.css";
 import Navigation from "./navigation";
 import Footer from "./footer";
+import { Language } from "../types";
 
 interface LayoutProps {
   children: React.ReactNode;
-  location: string;
+  language: Language;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, location }) => {
+const Layout: React.FC<LayoutProps> = ({ children, language }) => {
   return (
     <>
-      <Navigation location={location} />
+      <Navigation language={language} />
       <main>{children}</main>
       <Footer />
     </>

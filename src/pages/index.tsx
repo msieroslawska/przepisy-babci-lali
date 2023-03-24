@@ -1,16 +1,20 @@
 import React from "react";
 import { graphql, PageProps } from "gatsby";
+import { useIntl, Link, FormattedMessage, IntlShape } from "gatsby-plugin-intl";
 
 import Layout from "../components/layout";
 import Hero from "../components/hero";
 import RecipePreview from "../components/recipePreview";
 
-import { PageContextWithLocale } from "../types";
+import { Language, PageContextWithLocale, TypeRecipeFields } from "../types";
 
-type Props = PageProps<Queries.HomeQuery, PageContextWithLocale>;
+type Props = PageProps<Queries.HomeQuery, IntlShape>;
 
 export const RootIndex: React.FC<Props> = props => {
-  console.log("xxx", props);
+  const intl = useIntl();
+  console.log("xxx", props.pageContext.language); //.intl.language);
+  // intl.locale;
+
   const renderHero = () => {
     if (props.data.contentfulHero === null) {
       return null;
@@ -18,12 +22,15 @@ export const RootIndex: React.FC<Props> = props => {
 
     return <Hero {...props.data.contentfulHero} />;
   };
+
+  // const filterRecipesBasedOnLocale = (recipes: TypeRecipeFields[]) => recipes.filter(recipe => recipe.)
+
   return (
-    <Layout location={props.location.pathname}>
+    <Layout language={props.pageContext.language as Language}>
       {renderHero()}
       <RecipePreview
         recipes={props.data.allContentfulRecipe.nodes}
-        locale={props.pageContext.locale}
+        language={props.pageContext.language as Language}
       />
     </Layout>
   );
@@ -32,12 +39,11 @@ export const RootIndex: React.FC<Props> = props => {
 export default RootIndex;
 
 export const pageQuery = graphql`
-  query Home($locale: String) {
-    allContentfulRecipe(filter: { node_locale: { eq: $locale } }) {
+  query Home($language: String) {
+    allContentfulRecipe(filter: { node_locale: { eq: $language } }) {
       nodes {
         title
         slug
-        tags
         image {
           gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 424)
         }
@@ -46,10 +52,10 @@ export const pageQuery = graphql`
         }
       }
     }
-    contentfulHero(node_locale: { eq: $locale }) {
+    contentfulHero(node_locale: { eq: $language }) {
       name
       image {
-        gatsbyImage(width: 200, placeholder: BLURRED)
+        gatsbyImage(width: 800, placeholder: BLURRED)
       }
       description {
         description

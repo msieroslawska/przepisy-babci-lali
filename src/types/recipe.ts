@@ -31,7 +31,7 @@ export interface TypeRecipeFields {
   source?: EntryFields.Symbol;
   ingredients: Entry<TypeIngredientFields>[];
   description: CFRichTextTypes.Block | CFRichTextTypes.Inline;
-  tags?: EntryFields.Symbol[];
+  // tags?: EntryFields.Symbol[];
 }
 
 export type TypeRecipe = Entry<TypeRecipeFields>;

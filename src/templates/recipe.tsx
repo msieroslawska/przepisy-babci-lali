@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, graphql, PageProps } from "gatsby";
+import { Link, graphql, PageProps, useStaticQuery } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
@@ -7,7 +7,6 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import Layout from "../components/layout";
 import RecipeHeader from "../components/recipeHeader";
-import Tags from "../components/tags";
 import { useLocale } from "../useLocale";
 import * as styles from "./recipe.module.css";
 
@@ -32,6 +31,50 @@ const RecipeTemplate: React.FC<Props> = props => {
       },
     },
   };
+
+  // const data = useStaticQuery(graphql`
+  //   query RecipeBySlug(
+  //     $slug: String!
+  //     $previousRecipeSlug: String
+  //     $nextRecipeSlug: String
+  //     $locale: String
+  //   ) {
+  //     contentfulRecipe(slug: { eq: $slug }, node_locale: { eq: $locale }) {
+  //       slug
+  //       title
+  //       source
+  //       image {
+  //         gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED, width: 1280)
+  //         resize(height: 630, width: 1200) {
+  //           src
+  //         }
+  //       }
+  //       tags
+  //       description {
+  //         raw
+  //       }
+  //       ingredients {
+  //         quantity {
+  //           quantityName
+  //         }
+  //         unit {
+  //           unitName
+  //         }
+  //         food {
+  //           foodName
+  //         }
+  //       }
+  //     }
+  //     previous: contentfulRecipe(slug: { eq: $previousRecipeSlug }) {
+  //       slug
+  //       title
+  //     }
+  //     next: contentfulRecipe(slug: { eq: $nextRecipeSlug }) {
+  //       slug
+  //       title
+  //     }
+  //   }
+  // `);
 
   if (recipe === null) {
     return null;
@@ -65,11 +108,11 @@ const RecipeTemplate: React.FC<Props> = props => {
   };
 
   const renderTags = () => {
-    if (recipe.tags === null) {
-      return null;
-    }
+    // if (recipe.tags === null) {
+    return null;
+    // }
 
-    return <Tags tags={recipe.tags} />;
+    // return <Tags tags={recipe.tags} />;
   };
 
   return (
@@ -114,47 +157,3 @@ const RecipeTemplate: React.FC<Props> = props => {
 };
 
 export default RecipeTemplate;
-
-export const pageQuery = graphql`
-  query RecipeBySlug(
-    $slug: String!
-    $previousRecipeSlug: String
-    $nextRecipeSlug: String
-    $locale: String
-  ) {
-    contentfulRecipe(slug: { eq: $slug }, node_locale: { eq: $locale }) {
-      slug
-      title
-      source
-      image {
-        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED, width: 1280)
-        resize(height: 630, width: 1200) {
-          src
-        }
-      }
-      tags
-      description {
-        raw
-      }
-      ingredients {
-        quantity {
-          quantityName
-        }
-        unit {
-          unitName
-        }
-        food {
-          foodName
-        }
-      }
-    }
-    previous: contentfulRecipe(slug: { eq: $previousRecipeSlug }) {
-      slug
-      title
-    }
-    next: contentfulRecipe(slug: { eq: $nextRecipeSlug }) {
-      slug
-      title
-    }
-  }
-`;
