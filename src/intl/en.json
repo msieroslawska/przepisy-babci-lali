@@ -17,5 +17,9 @@
   "navigation": {
     "home": "Main page",
     "recipes": "Recipes"
+  },
+  "recipe": {
+    "ingredients": "Ingredients",
+    "preparation": "Preparation"
   }
 }

@@ -17,5 +17,9 @@
   "navigation": {
     "home": "Strona główna",
     "recipes": "Przepisy"
+  },
+  "recipe": {
+    "ingredients": "Składniki",
+    "preparation": "Sposób przygotowania"
   }
 }

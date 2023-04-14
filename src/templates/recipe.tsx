@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql, PageProps, useStaticQuery } from "gatsby";
-import { Link } from "gatsby-plugin-intl";
+import { Link, FormattedMessage } from "gatsby-plugin-intl";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { BLOCKS } from "@contentful/rich-text-types";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
@@ -118,10 +118,14 @@ const RecipeTemplate: React.FC<Props> = props => {
       <div className={styles.container}>
         <div className={styles.recipe}>
           <div className={styles.body}>
-            <h2>Ingredients</h2>
+            <h2>
+              <FormattedMessage id="recipe.ingredients" />
+            </h2>
             <ul>{recipe.ingredients?.map(renderIngredients)}</ul>
 
-            <h2>Preparation</h2>
+            <h2>
+              <FormattedMessage id="recipe.preparation" />
+            </h2>
             {renderContent()}
             {/* {recipe.description?.raw &&
               renderRichText(recipe.description, options)} */}
