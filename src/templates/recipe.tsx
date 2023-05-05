@@ -1,9 +1,7 @@
 import React from "react";
-import { graphql, PageProps, useStaticQuery } from "gatsby";
+import { graphql, PageProps } from "gatsby";
 import { Link, FormattedMessage } from "gatsby-plugin-intl";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
-import { BLOCKS } from "@contentful/rich-text-types";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import { Layout, RecipeHeader } from "../components";
 import * as styles from "./recipe.module.css";
@@ -14,64 +12,6 @@ const RecipeTemplate: React.FC<Props> = props => {
   const recipe = props.data.contentfulRecipe;
   const previous = props.data.previous;
   const next = props.data.next;
-
-  const options = {
-    renderNode: {
-      [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
-        const { gatsbyImage, description } = node.data.target;
-        const image = getImage(gatsbyImage);
-
-        if (!image) {
-          return null;
-        }
-        return <GatsbyImage image={image} alt={description} />;
-      },
-    },
-  };
-
-  // const data = useStaticQuery(graphql`
-  //   query RecipeBySlug(
-  //     $slug: String!
-  //     $previousRecipeSlug: String
-  //     $nextRecipeSlug: String
-  //     $locale: String
-  //   ) {
-  //     contentfulRecipe(slug: { eq: $slug }, node_locale: { eq: $locale }) {
-  //       slug
-  //       title
-  //       source
-  //       image {
-  //         gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED, width: 1280)
-  //         resize(height: 630, width: 1200) {
-  //           src
-  //         }
-  //       }
-  //       tags
-  //       description {
-  //         raw
-  //       }
-  //       ingredients {
-  //         quantity {
-  //           quantityName
-  //         }
-  //         unit {
-  //           unitName
-  //         }
-  //         food {
-  //           foodName
-  //         }
-  //       }
-  //     }
-  //     previous: contentfulRecipe(slug: { eq: $previousRecipeSlug }) {
-  //       slug
-  //       title
-  //     }
-  //     next: contentfulRecipe(slug: { eq: $nextRecipeSlug }) {
-  //       slug
-  //       title
-  //     }
-  //   }
-  // `);
 
   if (recipe === null) {
     return null;

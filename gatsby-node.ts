@@ -1,5 +1,5 @@
 import type { GatsbyNode } from "gatsby";
-import { Recipes, PageContextWithSlugData } from "./src/types";
+import { PageContextWithSlugData } from "./src/types";
 
 const path = require("path");
 
@@ -11,7 +11,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
   const { createPage } = actions;
 
   const recipeTemplate = path.resolve("./src/templates/recipe.tsx");
-  // const recipeIndexTemplate = path.resolve("./src/templates/recipes.tsx");
 
   const result = await graphql<Queries.AllRecipesQuery>(
     `
@@ -43,7 +42,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
   const edges = result.data?.all.edges;
 
-  if (edges.length > 0) {
+  if (edges && edges?.length > 0) {
     edges.forEach(edge => {
       const { next, previous, node } = edge;
       createPage<PageContextWithSlugData>({
