@@ -29,11 +29,10 @@ const RecipeTemplate: React.FC<Props> = props => {
     const quantity = ingredients.quantity?.quantityName ?? "";
     const unit = ingredients.unit?.unitName ?? "";
     const food = ingredients.food?.foodName;
-    return (
-      <li>
-        {quantity} {unit} {food}
-      </li>
-    );
+
+    const ingredient = `${quantity} ${unit} ${food}`;
+
+    return <li key={ingredient}>{ingredient}</li>;
   };
 
   const renderContent = () => {
