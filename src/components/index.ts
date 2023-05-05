@@ -2,6 +2,7 @@ export { Container } from "./container";
 export { Footer } from "./footer";
 export { Hero } from "./hero";
 export { Layout } from "./layout";
+export { LocaleButton } from "./localeButton";
 export { Navigation } from "./navigation";
 export { RecipeHeader } from "./recipeHeader";
 export { RecipePreview } from "./recipePreview";

@@ -3,7 +3,8 @@ import { Link, FormattedMessage } from "gatsby-plugin-intl";
 
 import * as styles from "./styles/navigation.module.css";
 import { NavigationLink } from "../types";
-import { useLanguage } from "../useLanguage";
+
+import { LocaleButton } from "./localeButton";
 
 const LINKS: NavigationLink[] = [
   { name: "home", link: "/" },
@@ -11,11 +12,9 @@ const LINKS: NavigationLink[] = [
 ];
 
 export const Navigation: React.FC = () => {
-  const { changeLanguage, oppositeLanguage } = useLanguage();
-
   const renderNavigationLinks = (navigationLink: NavigationLink) => {
     return (
-      <li className={styles.navigationItem}>
+      <li key={navigationLink.name} className={styles.navigationItem}>
         <Link to={navigationLink.link} activeClassName="active">
           <FormattedMessage id={`navigation.${navigationLink.name}`} />
         </Link>
@@ -23,19 +22,11 @@ export const Navigation: React.FC = () => {
     );
   };
 
-  const renderLocaleButton = () => {
-    const onClick = () => {
-      changeLanguage();
-    };
-
-    return <button onClick={onClick}>{oppositeLanguage}</button>;
-  };
-
   return (
     <nav role="navigation" className={styles.container} aria-label="Main">
       <ul className={styles.navigation}>
         {LINKS.map(renderNavigationLinks)}
-        {renderLocaleButton()}
+        <LocaleButton />
       </ul>
     </nav>
   );

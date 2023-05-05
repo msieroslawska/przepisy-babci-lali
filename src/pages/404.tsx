@@ -18,3 +18,4 @@ const NotFoundPage = () => (
 );
 
 export default NotFoundPage;
+export { Head } from "../components/head";

@@ -24,6 +24,7 @@ export const RootIndex: React.FC<Props> = props => {
 };
 
 export default RootIndex;
+export { Head } from "../components/head";
 
 export const pageQuery = graphql`
   query Home($language: String) {

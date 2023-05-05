@@ -1,19 +1,17 @@
 {
-  "title": "Gatsby English",
   "description": "Grandma Lala has passed away few years ago. What I have left are memories, pictures and her recipe notebooks.",
-  "author": "@louisbertin",
-  "hello": "Hi people!",
-  "welcome": "Welcome to your new Gatsby site.",
-  "title_page2": "Page two",
-  "hello_page2": "Hi from the second page",
-  "go_page2": "Go to page 2",
-  "welcome_page2": "Welcome to page 2",
-  "go_back": "Go back to the homepage",
-  "footer_build": "Built with",
+  "footerBuild": {
+    "websiteBuiltIn": "Strona zbudowana w",
+    "and": "i",
+    "source": "Źródło",
+    "basedOn": "bazowane na",
+    "starter": "tym starterze"
+  },
   "notfound": {
-    "header": "NOT FOUND",
+    "header": "NIE ZNALEZIONIO",
     "description": "You just hit a route that doesn't exist... the sadness."
   },
+  "changeLocale": "Change the language to",
   "navigation": {
     "home": "Strona główna",
     "recipes": "Przepisy"

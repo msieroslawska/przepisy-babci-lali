@@ -18,6 +18,7 @@ const RecipeIndex: React.FC<Props> = props => {
 };
 
 export default RecipeIndex;
+export { Head } from "../components/head";
 
 export const pageQuery = graphql`
   query RecipesIndex($language: String) {
