@@ -6,7 +6,7 @@
   "author": "Marta Sierosławska",
   "dependencies": {
     "@contentful/rich-text-plain-text-renderer": "16.0.4",
-    "gatsby": "5.9.0",
+    "gatsby": "5.9.1",
     "gatsby-plugin-image": "3.9.0",
     "gatsby-plugin-intl": "5.8.1",
     "gatsby-plugin-sharp": "5.9.0",
