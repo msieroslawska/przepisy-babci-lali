@@ -47,7 +47,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: var(--semibold);
+  font-weight: 600;
   line-height: var(--dense);
 }
 

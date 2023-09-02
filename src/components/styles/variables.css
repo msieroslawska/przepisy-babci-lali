@@ -53,16 +53,16 @@
   /* tokens */
   /* colors */
   --primary: #4a90e2;
-  --background: var(--white);
+  --background: #fff;
   --border: var(--black-fade-5);
 
   /* text */
   /* color */
   --text-color: var(--black);
   /* size */
-  --text-lead: var(--text-lg);
-  --text-prose: var(--text-md);
-  --text-title: var(--text-3xl);
+  --text-lead: 18px;
+  --text-prose: 16px;
+  --text-title: 32px;
   /* tracking */
   --text-prose-tracking: -0.011em;
 
@@ -83,6 +83,6 @@
     --text-lead: var(--text-2xl);
     --text-title: var(--text-4xl);
     --text-prose-tracking: -0.014em;
-    --text-prose: var(--text-lg);
+    --text-prose: 18px;
   }
 }

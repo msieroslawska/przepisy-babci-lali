@@ -9,7 +9,7 @@
 
 .title {
   display: inline-block;
-  font-size: var(--text-lg);
+  font-size: 18px;
   margin-bottom: var(--space-xs);
   margin-top: var(--space-lg);
   border-bottom: 1.5px solid transparent;

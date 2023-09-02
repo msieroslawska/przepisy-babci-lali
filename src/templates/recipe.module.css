@@ -1,6 +1,6 @@
 .meta {
   font-family: var(--font-serif);
-  font-size: var(--text-lg);
+  font-size: 18px;
   font-style: italic;
   margin: 0 auto 1em;
   max-width: var(--size-max-width);
@@ -49,7 +49,7 @@
 .recipe h5,
 .recipe h6 {
   font-size: var(--text-prose);
-  font-weight: var(--semibold);
+  font-weight: 600;
   margin-bottom: 0.5em;
   margin-top: 3em;
 }

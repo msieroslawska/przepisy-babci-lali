@@ -1,0 +1,33 @@
+---
+import Layout from '@layouts/layout.astro';
+import { contentfulClient } from "../lib/contentful";
+import type { RecipeSkeleton } from "../types"
+
+const entries = await contentfulClient.getEntries<RecipeSkeleton>({
+  content_type: "recipe",
+});
+
+const recipes = entries.items.map((item) => {
+  const { title, slug } = item.fields;
+  return {
+    title,
+    slug,
+    // description,
+    // date: new Date(date).toLocaleDateString()
+  };
+});
+---
+<Layout>
+  <ul>
+    {recipes.map((recipe) => (
+      <li>
+
+        <a href={`/recipes/${recipe.slug}/`}>
+          <h2>{recipe.title}</h2>
+        </a>
+
+
+      </li>
+    ))}
+  </ul>
+</Layout>

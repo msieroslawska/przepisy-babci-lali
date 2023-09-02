@@ -1,0 +1,24 @@
+---
+import Layout from '@layouts/layout.astro';
+import { contentfulClient } from "../lib/contentful";
+import type { HeroSkeleton } from "../types"
+
+const hero = await contentfulClient.withoutUnresolvableLinks.getEntry<HeroSkeleton>("C4FseBO0WLxoeZiho1shu")
+---
+
+<Layout title="Home">
+  <div class="flex mx-auto my-0 items-end max-w-7xl min-h-[200px] pb-6 relative">
+    <div class="h-[61.8vh] max-h-[560px] w-full">
+      <img
+        alt={hero.fields.image?.fields.title}
+        src={`https:${hero.fields.image?.fields.file?.url}`}
+      />
+    </div>
+    <div class="bg-white left-0 max-w-[40rem] w-[55%] pt-5 py-6 pb-0 absolute">
+      <h1 class="tracking-tight text-5xl font-extrabold">{hero.fields.name}</h1>
+      <div class="text-lg font-semibold m-0">
+        {hero.fields.description}
+      </div>
+    </div>
+  </div>
+</Layout>
