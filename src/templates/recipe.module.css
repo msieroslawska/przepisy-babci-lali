@@ -49,7 +49,7 @@
 .recipe h5,
 .recipe h6 {
   font-size: var(--text-prose);
-  font-weight: 600;
+  font-weight: var(--semibold);
   margin-bottom: 0.5em;
   margin-top: 3em;
 }

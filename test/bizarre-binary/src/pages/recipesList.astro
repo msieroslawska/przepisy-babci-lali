@@ -1,0 +1,18 @@
+---
+import Layout from '@layouts/layout.astro';
+import { getAllRecipes, mapRecipes } from "../lib/contentful";
+
+const recipes = await getAllRecipes();
+const mappedRecipes = mapRecipes(recipes);
+---
+<Layout>
+  <ul>
+    {mappedRecipes.map((recipe) => (
+      <li>
+        <a href={`/recipes/${recipe.slug}/`}>
+          <h2>{recipe.title}</h2>
+        </a>
+      </li>
+    ))}
+  </ul>
+</Layout>

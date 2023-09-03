@@ -1,5 +1,6 @@
 {
   "extends": "astro/tsconfigs/strict",
+  "include": ["**/*.ts", "**/*.tsx", "**/*.astro"],
   "compilerOptions": {
     "baseUrl": ".",
     "jsx": "react-jsx",
@@ -8,6 +9,7 @@
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"]
     },
-    "verbatimModuleSyntax": true
+    "verbatimModuleSyntax": true,
+    "rootDir": "."
   }
 }
