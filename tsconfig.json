@@ -1,13 +1,19 @@
 {
-  "include": ["./src/**/*", "./gatsby-config.ts", "./gatsby-node.ts"],
+  "extends": "astro/tsconfigs/strict",
+  "include": ["**/*.ts", "**/*.tsx", "**/*.astro"],
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
-      "jsx": "react",
-    "outDir": "./build",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "baseUrl": "src",
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "paths": {
+      "@lib/*": ["lib/*"],
+      "@utils/*": ["utils/*"],
+      "@components/*": ["components/*"],
+      "@layouts/*": ["layouts/*"],
+      "@assets/*": ["assets/*"],
+      "@pages/*": ["pages/*"]
+    },
+    "verbatimModuleSyntax": true,
+    "rootDir": "."
   }
 }

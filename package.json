@@ -1,62 +1,43 @@
 {
   "name": "przepisy-babci-lali",
-  "description": "Kolekcja przepisów babci Lali",
-  "private": true,
-  "version": "1.0.0",
+  "description": "Kolekcja przepisów Babci Lali",
+  "version": "2.0.0",
   "author": "Marta Sierosławska",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astrocheck && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint:check": "eslint \"**/*.{js,astro}\"",
+    "lint:fix": "eslint \"**/*.{js,astro}\" --fix",
+    "types": "cf-content-types-generator --v10 -s  -t"
+  },
   "dependencies": {
-    "@contentful/rich-text-plain-text-renderer": "16.0.4",
-    "gatsby": "5.9.0",
-    "gatsby-plugin-image": "3.9.0",
-    "gatsby-plugin-intl": "5.8.1",
-    "gatsby-plugin-sharp": "5.9.0",
-    "gatsby-source-contentful": "8.9.1",
-    "gatsby-transformer-sharp": "5.9.0",
-    "gh-pages": "5.0.0",
+    "@astrojs/image": "0.18.0",
+    "@astrojs/react": "3.0.3",
+    "@astrojs/tailwind": "5.0.1",
+    "@contentful/rich-text-html-renderer": "16.2.0",
+    "@fontsource-variable/inter": "5.0.12",
+    "@tailwindcss/typography": "0.5.10",
+    "astro": "3.2.3",
+    "astro-icon": "0.8.1",
+    "astro-navbar": "2.2.1",
+    "contentful": "10.6.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-helmet": "6.1.0"
+    "tailwindcss": "3.3.3"
   },
   "devDependencies": {
-    "@types/node": "20.0.0",
-    "@types/react": "18.2.5",
-    "@types/react-dom": "18.2.3",
-    "@types/react-helmet": "6.1.6",
-    "@typescript-eslint/eslint-plugin": "5.59.2",
-    "@typescript-eslint/parser": "5.59.2",
-    "contentful-import": "8.5.50",
-    "eslint": "8.39.0",
-    "eslint-config-airbnb": "19.0.4",
-    "eslint-config-prettier": "8.8.0",
-    "eslint-plugin-import": "2.27.5",
-    "eslint-plugin-jsx-a11y": "6.7.1",
-    "eslint-plugin-prettier": "4.2.1",
-    "eslint-plugin-react": "7.32.2",
-    "eslint-plugin-react-hooks": "4.6.0",
-    "gatsby-provision-contentful": "0.0.5",
-    "husky": "8.0.3",
-    "typescript": "5.0.4"
-  },
-  "engines": {
-    "node": ">=18.0.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run style:check"
-    }
-  },
-  "license": "MIT",
-  "scripts": {
-    "dev": "gatsby develop",
-    "build": "gatsby build",
-    "heroku-postbuild": "gatsby build",
-    "serve": "gatsby serve",
-    "prettier:check": "prettier -c .",
-    "prettier:fix": "prettier -w .",
-    "test:check": "eslint \"**/*.{js,jsx,ts,tsx}\"",
-    "test:fix": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix",
-    "style:check": "npm run prettier:check && npm run test:check",
-    "style:fix": "npm run prettier:fix && npm run test:fix",
-    "gatsby-provision": "gatsby-provision-contentful --contentful-data-path='./contentful/export.json' --space-id=$CONTENTFUL_SPACE_ID --management-token=$CONTENTFUL_MANAGEMENT_TOKEN"
+    "@astrojs/check": "0.2.0",
+    "@types/node": "20.8.2",
+    "@types/react": "18.2.25",
+    "@types/react-dom": "18.2.10",
+    "@typescript-eslint/parser": "6.7.4",
+    "cf-content-types-generator": "2.12.9",
+    "eslint": "8.50.0",
+    "eslint-plugin-astro": "0.29.1",
+    "typescript": "5.2.2"
   }
 }

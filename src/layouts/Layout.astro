@@ -1,0 +1,37 @@
+---
+import BaseHead from '@components/BaseHead.astro';
+import Container from "@components/Container.astro";
+import Footer from "@components/Footer.astro";
+import Navbar from "@components/navbar/Navbar.astro";
+import "@fontsource-variable/inter/index.css";
+
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={title}/>
+  </head>
+  <body>
+    <div class="h-screen flex flex-col justify-between">
+      <Navbar />
+      <Container class="flex-auto">
+        <slot />
+      </Container>
+      <Footer />
+    </div>
+    <style is:global>
+      /* Improve Page speed */
+      /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
+      img {
+        content-visibility: auto;
+      }
+    </style>
+  </body>
+</html>

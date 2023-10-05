@@ -1,35 +1,27 @@
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true,
-    node: true,
-  },
-  parser: "@typescript-eslint/parser",
+  // ...
   extends: [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
-    "prettier",
+    // ...
+    "plugin:astro/recommended",
   ],
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
+  // ...
+  overrides: [
+    {
+      // Define the configuration for `.astro` file.
+      files: ["*.astro"],
+      // Allows Astro components to be parsed.
+      parser: "astro-eslint-parser",
+      // Parse the script in `.astro` as TypeScript by adding the following configuration.
+      // It's the setting you need when using TypeScript.
+      parserOptions: {
+        parser: "@typescript-eslint/parser",
+        extraFileExtensions: [".astro"],
+      },
+      rules: {
+        // override/add rules settings here, such as:
+        // "astro/no-set-html-directive": "error"
+      },
     },
-    ecmaVersion: 12,
-    sourceType: "module",
-  },
-  plugins: ["react", "@typescript-eslint", "prettier"],
-  rules: {
-    "import/prefer-default-export": "off",
-    "react/prop-types": "off",
-    "react/no-unescaped-entities": "off",
-    "@typescript-eslint/no-var-requires": "off",
-  },
-  ignorePatterns: ["**/build/*", "**/public/*", "**/node_modules/*"],
-  settings: {
-    react: {
-      version: "detect",
-    },
-  },
+    // ...
+  ],
 };
