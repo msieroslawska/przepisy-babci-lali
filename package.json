@@ -15,7 +15,6 @@
     "types": "cf-content-types-generator --v10 -s  -t"
   },
   "dependencies": {
-    "@astrojs/image": "0.18.0",
     "@astrojs/react": "3.0.3",
     "@astrojs/tailwind": "5.0.1",
     "@contentful/rich-text-html-renderer": "16.2.0",
