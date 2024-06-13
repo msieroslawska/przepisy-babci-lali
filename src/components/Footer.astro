@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 import InlineLink from "@components/ui/InlineLink.astro";
 import Container from "./Container.astro";
 ---
@@ -7,15 +7,20 @@ import Container from "./Container.astro";
 <Container class="flex-none">
   <footer class="flex flex-col items-center justify-center">
     <div class="text-sm text-slate-500 flex">
-      <span>Page built using
+      <span
+        >Page built using
+        <Icon class="text-black w-4 h-4" name="simple-icons:contentful" />
         <InlineLink href="https://contentful.com/">Contentful</InlineLink>
         {` and `}
+        <Icon class="text-black w-4 h-4" name="simple-icons:astro" />
         <InlineLink href="https://astro.build">Astro</InlineLink>
       </span>
       <span class="mx-3">&middot;</span>
       <div class="flex items-center">
-        <Icon class="text-black w-4 h-4" name="bx:bxl-github" />
-        <InlineLink href="https://github.com/msieroslawska/przepisy-babci-lali/">
+        <Icon class="text-black w-4 h-4" name="simple-icons:github" />
+        <InlineLink
+          href="https://github.com/msieroslawska/przepisy-babci-lali/"
+        >
           Source
         </InlineLink>
       </div>
@@ -26,8 +31,11 @@ import Container from "./Container.astro";
       or Purchase a commercial license from https://web3templates.com
     -->
     <p class="text-xs text-slate-500 mt-1">
-      Based on <InlineLink href="https://astroship.web3templates.com/">Astroship template</InlineLink> made by <InlineLink
-        href="https://web3templates.com">Web3Templates</InlineLink>
+      Based on <InlineLink href="https://astroship.web3templates.com/"
+        >Astroship template</InlineLink
+      > made by <InlineLink href="https://web3templates.com"
+        >Web3Templates</InlineLink
+      >
     </p>
   </footer>
 </Container>
