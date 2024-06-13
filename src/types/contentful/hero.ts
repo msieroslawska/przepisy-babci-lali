@@ -1,6 +1,6 @@
 import type { ChainModifiers, Entry, EntryFieldTypes, EntrySkeletonType, LocaleCode } from "contentful";
 
-interface HeroFields {
+export interface HeroFields {
     name: EntryFieldTypes.Symbol;
     image: EntryFieldTypes.AssetLink;
     description: EntryFieldTypes.Text;

@@ -1,23 +1,11 @@
 ---
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
-import RecipeLayout from '@layouts/RecipeLayout.astro';
-import { contentfulClient } from "../../lib/contentful";
-import type { RecipeSkeleton } from "../../types"
+import RecipeLayout from "@layouts/RecipeLayout.astro";
+import { getPages } from "../../lib/contentful";
 
 export async function getStaticPaths() {
-  const entries = await contentfulClient.getEntries<RecipeSkeleton>({
-    content_type: "recipe",
-  });
-
-  const pages = entries.items.map((item) => ({
-    params: { slug: item.fields.slug },
-    props: {
-      title: item.fields.title,
-      description: documentToHtmlString(item.fields.description),
-    },
-  }));
-  return pages;
+  return getPages("en");
 }
+
 const { description, title } = Astro.props;
 ---
 
