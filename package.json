@@ -19,10 +19,10 @@
     "@contentful/rich-text-html-renderer": "16.5.2",
     "@contentful/rich-text-types": "^16.5.2",
     "@fontsource-variable/inter": "5.0.18",
-    "@iconify-json/simple-icons": "^1.1.105",
+    "@iconify-json/simple-icons": "1.1.105",
     "@tailwindcss/typography": "0.5.13",
     "astro": "4.10.2",
-    "astro-icon": "^1.1.0",
+    "astro-icon": "1.1.0",
     "astro-navbar": "2.3.3",
     "contentful": "10.12.0",
     "react": "18.3.1",
@@ -34,11 +34,11 @@
     "@types/node": "20.14.2",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
-    "@typescript-eslint/eslint-plugin": "^7.13.0",
+    "@typescript-eslint/eslint-plugin": "7.13.0",
     "@typescript-eslint/parser": "7.13.0",
     "cf-content-types-generator": "2.15.3",
-    "eslint": "9.4.0",
-    "eslint-plugin-astro": "1.2.2",
+    "eslint": "8.57.0",
+    "eslint-plugin-astro": "1.1.0",
     "typescript": "5.4.5"
   }
 }
