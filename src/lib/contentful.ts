@@ -1,4 +1,5 @@
 import contentful from "contentful";
+import type { Document } from "@contentful/rich-text-types";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 
 import type { HeroSkeleton, RecipeSkeleton } from "../types";
@@ -16,27 +17,41 @@ const getAllRecipes = async () =>
     },
   );
 
-const isDocument = (value: any): value is Document => {
-  return value.sys?.type === "Document";
+const isDocument = (value: unknown): value is Document => {
+  return (
+    typeof value === "object" &&
+    value !== null &&
+    "nodeType" in value &&
+    value.nodeType === "document"
+  );
 };
 
 export const getPages = async () => {
   const recipes = await getAllRecipes();
 
   return recipes.items.map(recipe => {
-    const document = recipe.fields.description["pl"];
-    const description = isDocument(document)
-      ? documentToHtmlString(document)
-      : document;
+    const getDescription = (document: unknown) => {
+      return isDocument(document)
+        ? documentToHtmlString(document)
+        : JSON.stringify(document);
+    }
+
     return {
-      params: { slug: recipe.fields.slug["pl"] },
+      params: { slug: recipe.fields.slug["en"] },
       props: {
-        title: recipe.fields.title["pl"],
-        description,
+        title: {
+          en: recipe.fields.title["en"],
+          pl: recipe.fields.title["pl"],
+        },
+        description: {
+          en: getDescription(recipe.fields.description["en"]),
+          pl: getDescription(recipe.fields.description["pl"]),
+      },
       },
     };
-  });
-};
+  }
+  );
+}
 
 export const getMappedRecipes = async () => {
   const recipes = await getAllRecipes();

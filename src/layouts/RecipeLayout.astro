@@ -1,9 +1,14 @@
 ---
-import Layout from '@layouts/Layout.astro';
-const { description, title } = Astro.props
+import Layout from "@layouts/Layout.astro";
+const {
+  description,
+  title: { pl, en },
+} = Astro.props;
 ---
 
-<Layout title={title}>
-  <h1>{title}</h1>
-  <article class="prose lg:prose-xl" set:html={description} />
+<Layout title={pl}>
+  <h1>{pl} | {en}</h1>
+  <article class="prose lg:prose-xl" set:html={description.pl} />
+  <hr />
+  <article class="prose lg:prose-xl" set:html={description.en} />
 </Layout>

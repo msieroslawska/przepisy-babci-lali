@@ -3,7 +3,7 @@ import RecipeLayout from "@layouts/RecipeLayout.astro";
 import { getPages } from "../../lib/contentful";
 
 export async function getStaticPaths() {
-  return getPages("en");
+  return getPages();
 }
 
 const { description, title } = Astro.props;

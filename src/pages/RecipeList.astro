@@ -11,8 +11,9 @@ const mappedRecipes = await getMappedRecipes();
       mappedRecipes.map(recipe => (
         <li>
           <a href={`/recipes/${recipe.slug.en}/`}>
-            <h2>{recipe.title.en}</h2>
-            <p>{JSON.stringify(recipe.title)}</p>
+            <h2>
+              {recipe.title.pl} | {recipe.title.en}
+            </h2>
           </a>
         </li>
       ))
