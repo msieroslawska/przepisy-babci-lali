@@ -5,23 +5,29 @@ import { getHero } from "../lib/contentful";
 const { heroImage, hero } = await getHero();
 ---
 
-<main
-  class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24"
->
-  <div class="py-6 md:order-1 md:block">
-    <Image src={heroImage} alt="Babcia i ja" width={500} height={1000} />
-  </div>
-  <div>
-    <h1
-      class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter"
-    >
-      {hero.fields?.name["pl"]}
-    </h1>
-    <p class="text-lg mt-4 text-slate-600 max-w-xl">
-      {hero.fields?.description["pl"]}
-    </p>
-    <p class="text-lg mt-4 text-slate-600 max-w-xl">
-      {hero.fields?.description["en"]}
-    </p>
+<main class="hero">
+  <div class="hero-content flex-col lg:flex-row">
+    <Image
+      src={heroImage}
+      alt="Babcia i ja"
+      width={500}
+      height={1000}
+      class="max-w-sm rounded-lg shadow-2xl"
+    />
+
+    <div>
+      <h1 class="text-5xl font-bold">
+        {hero.fields?.name["pl"]}
+      </h1>
+      <p class="py-6">
+        {hero.fields?.description["pl"]}
+      </p>
+      <p class="py-6">
+        {hero.fields?.description["en"]}
+      </p>
+      <button class="btn btn-primary"
+        ><a href="/RecipeList">Przepisy | Recipes</a></button
+      >
+    </div>
   </div>
 </main>

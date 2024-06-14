@@ -37,6 +37,7 @@
     "@typescript-eslint/eslint-plugin": "7.13.0",
     "@typescript-eslint/parser": "7.13.0",
     "cf-content-types-generator": "2.15.3",
+    "daisyui": "^4.12.2",
     "eslint": "8.57.0",
     "eslint-plugin-astro": "1.1.0",
     "typescript": "5.4.5"

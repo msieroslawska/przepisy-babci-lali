@@ -18,11 +18,8 @@ const { title } = Astro.props;
     <BaseHead title={title} />
   </head>
   <body>
-    <div class="grid grid-rows-[80px_auto_80px] min-h-screen">
-      <Navbar />
-      <Container class="">
-        <slot />
-      </Container>
+    <div class="grid grid-rows-[auto_80px] min-h-screen bg-base-200">
+      <slot />
       <Footer />
     </div>
     <style is:global>

@@ -13,19 +13,13 @@ const items = [
 ];
 ---
 
-<Container class="flex-none">
-  <header class="flex flex-col lg:flex-row justify-between items-center my-5">
-    <!-- <div class="w-full mt-2 lg:flex lg:mt-0"> -->
-    <ul class="flex flex-col sm:flex-row sm:gap-3">
+<Container>
+  <header class="navbar">
+    <ul class="">
       {
         items.map(item => (
-          <li>
-            <a
-              href={item.path}
-              class="flex lg:px-3 py-2 text-gray-600 hover:text-gray-900"
-            >
-              {item.title}
-            </a>
+          <li class="btn bg-primary">
+            <a href={item.path}>{item.title}</a>
           </li>
         ))
       }
