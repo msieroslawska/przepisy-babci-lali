@@ -5,8 +5,6 @@ import { getPages } from "../../lib/contentful";
 export async function getStaticPaths() {
   return getPages();
 }
-
-const { description, title } = Astro.props;
 ---
 
-<RecipeLayout title={title} description={description} />
+<RecipeLayout {...Astro.props} />

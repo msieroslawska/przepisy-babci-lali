@@ -1,14 +1,34 @@
 ---
 import Layout from "@layouts/Layout.astro";
-const {
-  description,
-  title: { pl, en },
-} = Astro.props;
+import { Image } from "astro:assets";
+import type { RecipeSkeleton } from "types";
+
+interface Props {
+  // description: RecipeSkeleton["fields"]["description"];
+  description: { pl: string; en: string };
+  title: { pl: string; en: string };
+  image: string;
+  ingredients: { pl: any; en: any };
+}
+
+const { description, title, image, ingredients } = Astro.props;
 ---
 
-<Layout title={pl}>
-  <h1>{pl} | {en}</h1>
-  <article class="prose lg:prose-xl" set:html={description.pl} />
-  <hr />
-  <article class="prose lg:prose-xl" set:html={description.en} />
+<Layout title={title.en}>
+  <h1>{title.pl} | {title.en}</h1>
+  <Image
+    src={image}
+    alt="Babcia i ja"
+    width={700}
+    height={1000}
+    class="rounded-lg shadow-2xl mx-auto"
+  />
+  <article class="flex">
+    <div class="flex-1 p-4" set:html={description.pl} />
+    <div class="flex-1 p-4" set:html={description.en} />
+  </article>
+
+  <article class="flex">
+    {JSON.stringify(ingredients.en[0].fields)}
+  </article>
 </Layout>

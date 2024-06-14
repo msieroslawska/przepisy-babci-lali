@@ -10,11 +10,14 @@ const contentfulClient = contentful.createClient({
   host: "cdn.contentful.com",
 });
 
+const prefixImage = (url?: string) => `https:${url}?w=1000&h=500`;
+
 const getAllRecipes = async () =>
   contentfulClient.withoutUnresolvableLinks.withAllLocales.getEntries<RecipeSkeleton>(
     {
       content_type: "recipe",
-    },
+      include: 3,
+    }
   );
 
 const isDocument = (value: unknown): value is Document => {
@@ -34,7 +37,7 @@ export const getPages = async () => {
       return isDocument(document)
         ? documentToHtmlString(document)
         : JSON.stringify(document);
-    }
+    };
 
     return {
       params: { slug: recipe.fields.slug["en"] },
@@ -46,19 +49,24 @@ export const getPages = async () => {
         description: {
           en: getDescription(recipe.fields.description["en"]),
           pl: getDescription(recipe.fields.description["pl"]),
-      },
+        },
+        image:
+          prefixImage(recipe.fields.image?.["en"]?.fields.file?.["en"]?.url) ??
+          null,
+        ingredients: {
+          en: recipe.fields.ingredients["en"],
+          pl: recipe.fields.ingredients["pl"],
+        },
       },
     };
-  }
-  );
-}
+  });
+};
 
 export const getMappedRecipes = async () => {
   const recipes = await getAllRecipes();
   return recipes.items.map(recipe => {
-    const { image, title, slug } = recipe.fields;
+    const { title, slug } = recipe.fields;
     return {
-      image,
       title,
       slug,
       id: recipe.sys.id,
@@ -69,15 +77,12 @@ export const getMappedRecipes = async () => {
 export const getHero = async () => {
   const hero =
     await contentfulClient.withoutUnresolvableLinks.withAllLocales.getEntry<HeroSkeleton>(
-      "C4FseBO0WLxoeZiho1shu",
+      "C4FseBO0WLxoeZiho1shu"
     );
 
   const heroImage = await contentfulClient
     .getAsset("1BfFi4cIf3oUp66FUnMYhL")
-    .then(asset => `https:${asset.fields.file?.url}?w=1000&h=500`);
-
-  // const localizedHero = hero.fields.hero[currentLocale];
-  console.log(heroImage);
+    .then(asset => prefixImage(asset.fields.file?.url));
 
   return { hero, heroImage };
 };
