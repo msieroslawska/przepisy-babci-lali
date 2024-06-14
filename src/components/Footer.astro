@@ -5,19 +5,22 @@ import Container from "./Container.astro";
 ---
 
 <Container class="flex-none">
-  <footer class="flex flex-col items-center justify-center">
+  <footer class="flex flex-col items-center justify-center my-5">
     <div class="text-sm text-slate-500 flex">
       <span
         >Page built using
-        <Icon class="text-black w-4 h-4" name="simple-icons:contentful" />
+        <Icon
+          class="text-black w-4 h-4 inline"
+          name="simple-icons:contentful"
+        />
         <InlineLink href="https://contentful.com/">Contentful</InlineLink>
         {` and `}
-        <Icon class="text-black w-4 h-4" name="simple-icons:astro" />
+        <Icon class="text-black w-4 h-4 inline" name="simple-icons:astro" />
         <InlineLink href="https://astro.build">Astro</InlineLink>
       </span>
       <span class="mx-3">&middot;</span>
       <div class="flex items-center">
-        <Icon class="text-black w-4 h-4" name="simple-icons:github" />
+        <Icon class="text-black w-4 h-4 inline" name="simple-icons:github" />
         <InlineLink
           href="https://github.com/msieroslawska/przepisy-babci-lali/"
         >
