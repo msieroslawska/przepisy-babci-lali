@@ -14,7 +14,7 @@ const { navigationItems } = Astro.props;
     <ul class="">
       {
         navigationItems.map(item => (
-          <li class="btn btn-neutral hover:btn-accent">
+          <li class="btn btn-neutral hover:btn-accent mx-4">
             <a href={item.path}>{item.title}</a>
           </li>
         ))

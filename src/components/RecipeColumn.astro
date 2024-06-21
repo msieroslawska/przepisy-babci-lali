@@ -11,9 +11,9 @@ type Props = {
 const { description, iconVariant, ingredients, title } = Astro.props;
 ---
 
-<article class="flex-1 p-2 prose prose-headings:underline">
+<div class="flex-1">
   <div>
-    <h1>
+    <h1 class="text-2xl">
       <Icon
         class="text-black w-4 h-4 inline"
         name=`circle-flags:${iconVariant}`
@@ -24,5 +24,5 @@ const { description, iconVariant, ingredients, title } = Astro.props;
       {ingredients.map((ingredient: any) => <li>{ingredient}</li>)}
     </ul>
   </div>
-  <div class="flex-1 p-4" set:html={description} />
-</article>
+  <div set:html={description} />
+</div>

@@ -18,26 +18,28 @@ const translatedIngredients = parseIngredients(ingredients);
 
 <Layout title={title.en} navOptions={{ showHome: true, showRecipes: true }}>
   <Container class="">
-    <Image
-      src={image.src}
-      alt={image.alt}
-      width={700}
-      height={1000}
-      class="rounded-lg shadow-2xl mx-auto"
-    />
-    <div class="flex">
-      <RecipeColumn
-        description={description.en}
-        iconVariant="en"
-        ingredients={translatedIngredients.en}
-        title={title.en}
+    <article class="prose prose-headings:underline prose-img:rounded-xl">
+      <Image
+        src={image.src}
+        alt={image.alt}
+        width={700}
+        height={1000}
+        class="shadow-2xl border-2 border-primary p-2"
       />
-      <RecipeColumn
-        description={description.pl}
-        iconVariant="pl"
-        ingredients={translatedIngredients.pl}
-        title={title.pl}
-      />
-    </div>
+      <div class="flex">
+        <RecipeColumn
+          description={description.en}
+          iconVariant="en"
+          ingredients={translatedIngredients.en}
+          title={title.en}
+        />
+        <RecipeColumn
+          description={description.pl}
+          iconVariant="pl"
+          ingredients={translatedIngredients.pl}
+          title={title.pl}
+        />
+      </div>
+    </article>
   </Container>
 </Layout>
