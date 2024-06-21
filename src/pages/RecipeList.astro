@@ -6,14 +6,15 @@ const mappedRecipes = await getMappedRecipes();
 ---
 
 <RecipeListLayout title="Recipes">
-  <ul>
+  <ul class="list-disc list-inside">
     {
       mappedRecipes.map(recipe => (
         <li>
-          <a href={`/recipes/${recipe.slug.en}/`}>
-            <h2>
-              {recipe.title.pl} | {recipe.title.en}
-            </h2>
+          <a
+            class="link hover:link-accent"
+            href={`/recipes/${recipe.slug.en}/`}
+          >
+            {recipe.title.pl} | {recipe.title.en}
           </a>
         </li>
       ))

@@ -11,7 +11,7 @@ type Props = {
 const { description, iconVariant, ingredients, title } = Astro.props;
 ---
 
-<div class="flex-1 p-4">
+<article class="flex-1 p-2 prose prose-headings:underline">
   <div>
     <h1>
       <Icon
@@ -25,4 +25,4 @@ const { description, iconVariant, ingredients, title } = Astro.props;
     </ul>
   </div>
   <div class="flex-1 p-4" set:html={description} />
-</div>
+</article>

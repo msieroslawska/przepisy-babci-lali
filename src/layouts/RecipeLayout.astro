@@ -25,7 +25,7 @@ const translatedIngredients = parseIngredients(ingredients);
       height={1000}
       class="rounded-lg shadow-2xl mx-auto"
     />
-    <article class="flex">
+    <div class="flex">
       <RecipeColumn
         description={description.en}
         iconVariant="en"
@@ -38,6 +38,6 @@ const translatedIngredients = parseIngredients(ingredients);
         ingredients={translatedIngredients.pl}
         title={title.pl}
       />
-    </article>
+    </div>
   </Container>
 </Layout>

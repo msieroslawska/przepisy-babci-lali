@@ -9,20 +9,19 @@ import Container from "./Container.astro";
     <div class="text-sm text-slate-500 flex">
       <span
         >Page built using
-        <Icon
-          class="text-black w-4 h-4 inline"
-          name="simple-icons:contentful"
-        />
-        <InlineLink href="https://contentful.com/">Contentful</InlineLink>
+        <InlineLink href="https://contentful.com/" iconVariant="contentful"
+          >Contentful</InlineLink
+        >
         {` and `}
-        <Icon class="text-black w-4 h-4 inline" name="simple-icons:astro" />
-        <InlineLink href="https://astro.build">Astro</InlineLink>
+        <InlineLink href="https://astro.build" iconVariant="astro"
+          >Astro</InlineLink
+        >
       </span>
       <span class="mx-3">&middot;</span>
       <div class="flex items-center">
-        <Icon class="text-black w-4 h-4 inline" name="simple-icons:github" />
         <InlineLink
           href="https://github.com/msieroslawska/przepisy-babci-lali/"
+          iconVariant="github"
         >
           Source
         </InlineLink>
