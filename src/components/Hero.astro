@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 import { getHero } from "../lib/contentful";
 
 const { heroImage, hero } = await getHero();
@@ -20,14 +21,13 @@ const { heroImage, hero } = await getHero();
         {hero.fields?.name["pl"]}
       </h1>
       <p class="py-3">
+        <Icon class="text-black w-4 h-4 inline" name="circle-flags:pl" />
         {hero.fields?.description["pl"]}
       </p>
       <p class="py-3">
+        <Icon class="text-black w-4 h-4 inline" name="circle-flags:us" />
         {hero.fields?.description["en"]}
       </p>
-      <button class="btn btn-primary"
-        ><a href="/RecipeList">Przepisy | Recipes</a></button
-      >
     </div>
   </div>
 </main>

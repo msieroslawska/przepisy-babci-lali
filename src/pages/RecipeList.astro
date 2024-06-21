@@ -1,11 +1,11 @@
 ---
-import Layout from "@layouts/Layout.astro";
+import RecipeListLayout from "@layouts/RecipeListLayout.astro";
 import { getMappedRecipes } from "../lib/contentful";
 
 const mappedRecipes = await getMappedRecipes();
 ---
 
-<Layout title="Recipes">
+<RecipeListLayout title="Recipes">
   <ul>
     {
       mappedRecipes.map(recipe => (
@@ -19,4 +19,4 @@ const mappedRecipes = await getMappedRecipes();
       ))
     }
   </ul>
-</Layout>
+</RecipeListLayout>

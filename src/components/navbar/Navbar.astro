@@ -1,29 +1,24 @@
 ---
 import Container from "@components/Container.astro";
+import type { NavigationItem } from "types";
 
-const items = [
-  {
-    title: "Strona główna | Home",
-    path: "/",
-  },
-  {
-    title: "Przepisy | Recipes",
-    path: "/RecipeList",
-  },
-];
+export interface Props {
+  navigationItems: NavigationItem[];
+}
+
+const { navigationItems } = Astro.props;
 ---
 
 <Container>
   <header class="navbar">
     <ul class="">
       {
-        items.map(item => (
+        navigationItems.map(item => (
           <li class="btn bg-primary">
             <a href={item.path}>{item.title}</a>
           </li>
         ))
       }
     </ul>
-    <!-- </div> -->
   </header>
 </Container>

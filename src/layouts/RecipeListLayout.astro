@@ -1,13 +1,17 @@
 ---
+import Container from "@components/Container.astro";
 import Layout from "@layouts/Layout.astro";
 import "@fontsource-variable/inter/index.css";
 
 export interface Props {
   title: string;
 }
+
 const { title } = Astro.props;
 ---
 
-<Layout title={title} navOptions={{ showHome: false, showRecipes: true }}>
-  <slot />
+<Layout title={title} navOptions={{ showHome: true, showRecipes: false }}>
+  <Container class="">
+    <slot />
+  </Container>
 </Layout>

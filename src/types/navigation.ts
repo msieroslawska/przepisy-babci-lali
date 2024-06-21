@@ -1,3 +1,9 @@
-export type NavigationItem = "Home" | "Recipes";
+export type NavigationItem = {
+  title: string;
+  path: string;
+};
 
-export type NavigationLink = Record<NavigationItem, string>;
+export type NavigationOptions = {
+  showHome: boolean;
+  showRecipes: boolean;
+};

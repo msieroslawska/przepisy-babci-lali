@@ -1,6 +1,7 @@
 ---
-import Layout from "@layouts/Layout.astro";
 import { Image } from "astro:assets";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Container.astro";
 import type { RecipeSkeleton } from "types";
 
 interface Props {
@@ -14,21 +15,23 @@ interface Props {
 const { description, title, image, ingredients } = Astro.props;
 ---
 
-<Layout title={title.en}>
-  <h1>{title.pl} | {title.en}</h1>
-  <Image
-    src={image}
-    alt="Babcia i ja"
-    width={700}
-    height={1000}
-    class="rounded-lg shadow-2xl mx-auto"
-  />
-  <article class="flex">
-    <div class="flex-1 p-4" set:html={description.pl} />
-    <div class="flex-1 p-4" set:html={description.en} />
-  </article>
+<Layout title={title.en} navOptions={{ showHome: true, showRecipes: true }}>
+  <Container class="">
+    <h1>{title.pl} | {title.en}</h1>
+    <Image
+      src={image}
+      alt="Babcia i ja"
+      width={700}
+      height={1000}
+      class="rounded-lg shadow-2xl mx-auto"
+    />
+    <article class="flex">
+      <div class="flex-1 p-4" set:html={description.pl} />
+      <div class="flex-1 p-4" set:html={description.en} />
+    </article>
 
-  <article class="flex">
-    {JSON.stringify(ingredients.en[0].fields)}
-  </article>
+    <article class="flex">
+      {JSON.stringify(ingredients.en[0].fields)}
+    </article>
+  </Container>
 </Layout>

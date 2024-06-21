@@ -19,6 +19,7 @@
     "@contentful/rich-text-html-renderer": "16.5.2",
     "@contentful/rich-text-types": "^16.5.2",
     "@fontsource-variable/inter": "5.0.18",
+    "@iconify-json/circle-flags": "^1.1.47",
     "@iconify-json/simple-icons": "1.1.105",
     "@tailwindcss/typography": "0.5.13",
     "astro": "4.10.2",
