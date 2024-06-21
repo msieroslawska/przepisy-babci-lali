@@ -1,10 +1,11 @@
 ---
+import type { GetStaticPaths } from "astro";
 import RecipeLayout from "@layouts/RecipeLayout.astro";
 import { getPages } from "../../lib/contentful";
 
-export async function getStaticPaths() {
+export const getStaticPaths = (async () => {
   return getPages();
-}
+}) satisfies GetStaticPaths;
 ---
 
 <RecipeLayout {...Astro.props} />

@@ -1,37 +1,43 @@
 ---
+import type { InferGetStaticPropsType } from "astro";
 import { Image } from "astro:assets";
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/Container.astro";
-import type { RecipeSkeleton } from "types";
+import type { getStaticPaths } from "@pages/recipes/[slug].astro";
 
-interface Props {
-  // description: RecipeSkeleton["fields"]["description"];
-  description: { pl: string; en: string };
-  title: { pl: string; en: string };
-  image: string;
-  ingredients: { pl: any; en: any };
-}
+import { parseIngredients } from "@utils/getContentfulValues";
+import RecipeColumn from "@components/RecipeColumn.astro";
+import type { Recipe } from "types";
+
+export type RecipeProps = InferGetStaticPropsType<typeof getStaticPaths>;
+export type ParsedIngredients = ReturnType<typeof parseIngredients>;
 
 const { description, title, image, ingredients } = Astro.props;
+const translatedIngredients = parseIngredients(ingredients);
 ---
 
 <Layout title={title.en} navOptions={{ showHome: true, showRecipes: true }}>
   <Container class="">
-    <h1>{title.pl} | {title.en}</h1>
     <Image
-      src={image}
-      alt="Babcia i ja"
+      src={image.src}
+      alt={image.alt}
       width={700}
       height={1000}
       class="rounded-lg shadow-2xl mx-auto"
     />
     <article class="flex">
-      <div class="flex-1 p-4" set:html={description.pl} />
-      <div class="flex-1 p-4" set:html={description.en} />
-    </article>
-
-    <article class="flex">
-      {JSON.stringify(ingredients.en[0].fields)}
+      <RecipeColumn
+        description={description.en}
+        iconVariant="en"
+        ingredients={translatedIngredients.en}
+        title={title.en}
+      />
+      <RecipeColumn
+        description={description.pl}
+        iconVariant="pl"
+        ingredients={translatedIngredients.pl}
+        title={title.pl}
+      />
     </article>
   </Container>
 </Layout>
