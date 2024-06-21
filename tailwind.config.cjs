@@ -9,6 +9,9 @@ module.exports = {
       fontFamily: {
         sans: ["Inter Variable", "Inter", ...defaultTheme.fontFamily.sans],
       },
+      blur: {
+        xs: "1.5px",
+      },
     },
   },
   plugins: [require("@tailwindcss/typography"), require("daisyui")],

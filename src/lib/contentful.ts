@@ -1,6 +1,6 @@
 import contentful, { type AssetFile } from "contentful";
 
-import type { HeroSkeleton, RecipeSkeleton } from "../types";
+import type { HeroSkeleton, MappedRecipe, RecipeSkeleton } from "../types";
 import { getRichTextValue, getStringValue } from "@utils/getContentfulValues";
 
 const baseClient = contentful.createClient({
@@ -12,6 +12,13 @@ const baseClient = contentful.createClient({
 const contentfulClient = baseClient.withoutUnresolvableLinks.withAllLocales;
 
 const prefixImage = (url?: string) => `https:${url}?w=1000&h=500`;
+
+const getImageProps = (image: any) => {
+  return {
+    alt: image?.["en"]?.fields.title?.["en"] ?? "",
+    src: prefixImage(image?.["en"]?.fields.file?.["en"]?.url) ?? null,
+  };
+};
 
 const getAllRecipes = async () =>
   contentfulClient.getEntries<RecipeSkeleton>({
@@ -38,24 +45,19 @@ export const getPages = async () => {
           en: getRichTextValue(description["en"]),
           pl: getRichTextValue(description["pl"]),
         },
-        image: {
-          alt: recipe.fields.image?.["en"]?.fields.title?.["en"] ?? "",
-          src:
-            prefixImage(
-              recipe.fields.image?.["en"]?.fields.file?.["en"]?.url
-            ) ?? null,
-        },
+        image: getImageProps(recipe.fields.image),
         ingredients: ingredients["en"],
       },
     };
   });
 };
 
-export const getMappedRecipes = async () => {
+export const getMappedRecipes = async (): Promise<MappedRecipe[]> => {
   const recipes = await getAllRecipes();
   return recipes.items.map(recipe => {
     const { title, slug } = recipe.fields;
     return {
+      image: getImageProps(recipe.fields.image),
       title,
       slug,
       id: recipe.sys.id,

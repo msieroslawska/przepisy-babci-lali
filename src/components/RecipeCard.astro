@@ -1,0 +1,26 @@
+---
+import { Image } from "astro:assets";
+import type { MappedRecipe } from "types";
+
+type Props = MappedRecipe;
+
+const { image, slug, title } = Astro.props;
+---
+
+<a class="link hover:link-accent" href={`/recipes/${slug.en}/`}>
+  <div
+    class="card w-96 bg-base-100 shadow-xl my-2 hover:scale-105 transition-transform duration-300 ease-in-out"
+  >
+    <Image
+      src={image.src}
+      alt={image.alt}
+      width={500}
+      height={200}
+      class="object-none object-center blur-xs hover:blur-inherit"
+    />
+
+    <div class="card-body">
+      <h2 class="card-title">{title.pl} | {title.en}</h2>
+    </div>
+  </div>
+</a>

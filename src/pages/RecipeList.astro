@@ -1,23 +1,11 @@
 ---
 import RecipeListLayout from "@layouts/RecipeListLayout.astro";
+import RecipeCard from "@components/RecipeCard.astro";
 import { getMappedRecipes } from "../lib/contentful";
 
 const mappedRecipes = await getMappedRecipes();
 ---
 
 <RecipeListLayout title="Recipes">
-  <ul class="list-disc list-inside">
-    {
-      mappedRecipes.map(recipe => (
-        <li>
-          <a
-            class="link hover:link-accent"
-            href={`/recipes/${recipe.slug.en}/`}
-          >
-            {recipe.title.pl} | {recipe.title.en}
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+  {mappedRecipes.map(recipe => <RecipeCard {...recipe} />)}
 </RecipeListLayout>
