@@ -1,9 +1,0 @@
-.cache
-public
-static
-node_modules
-.vscode
-.idea
-post-types.json
-taxonomies.json
-acf-field-groups.json

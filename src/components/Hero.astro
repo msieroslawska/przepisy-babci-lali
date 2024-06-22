@@ -1,0 +1,33 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import { getHero } from "../lib/contentful";
+
+const { heroImage, hero } = await getHero();
+---
+
+<main class="hero">
+  <div class="hero-content flex-col lg:flex-row">
+    <Image
+      src={heroImage.src}
+      alt="Babcia i ja"
+      width={heroImage.width}
+      height={heroImage.height}
+      class="max-w-sm rounded-lg shadow-2xl"
+    />
+
+    <div>
+      <h1 class="text-5xl font-bold">
+        {hero.fields?.name["pl"]}
+      </h1>
+      <p class="py-3">
+        <Icon class="text-black w-4 h-4 inline" name="circle-flags:pl" />
+        {hero.fields?.description["pl"]}
+      </p>
+      <p class="py-3">
+        <Icon class="text-black w-4 h-4 inline" name="circle-flags:us" />
+        {hero.fields?.description["en"]}
+      </p>
+    </div>
+  </div>
+</main>

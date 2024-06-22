@@ -1,0 +1,43 @@
+---
+import { Icon } from "astro-icon/components";
+import InlineLink from "@components/InlineLink.astro";
+import Container from "./Container.astro";
+---
+
+<Container class="flex-none">
+  <footer class="flex flex-col items-center justify-center my-5">
+    <div class="text-sm text-slate-500 flex">
+      <span
+        >Page built using
+        <InlineLink href="https://contentful.com/" iconVariant="contentful"
+          >Contentful</InlineLink
+        >
+        {` and `}
+        <InlineLink href="https://astro.build" iconVariant="astro"
+          >Astro</InlineLink
+        >
+      </span>
+      <span class="mx-3">&middot;</span>
+      <div class="flex items-center">
+        <InlineLink
+          href="https://github.com/msieroslawska/przepisy-babci-lali/"
+          iconVariant="github"
+        >
+          Source
+        </InlineLink>
+      </div>
+    </div>
+    <!--
+      Can we ask you a favor 🙏
+      Please keep this backlink on your website if possible.
+      or Purchase a commercial license from https://web3templates.com
+    -->
+    <p class="text-xs text-slate-500 mt-1">
+      Based on <InlineLink href="https://astroship.web3templates.com/"
+        >Astroship template</InlineLink
+      > made by <InlineLink href="https://web3templates.com"
+        >Web3Templates</InlineLink
+      >
+    </p>
+  </footer>
+</Container>

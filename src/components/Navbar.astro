@@ -1,0 +1,24 @@
+---
+import Container from "@components/Container.astro";
+import type { NavigationItem } from "types";
+
+export interface Props {
+  navigationItems: NavigationItem[];
+}
+
+const { navigationItems } = Astro.props;
+---
+
+<Container>
+  <header class="navbar">
+    <ul class="">
+      {
+        navigationItems.map(item => (
+          <li class="btn btn-neutral hover:btn-accent mx-4">
+            <a href={item.path}>{item.title}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </header>
+</Container>

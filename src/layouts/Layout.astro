@@ -1,0 +1,39 @@
+---
+import BaseHead from "@components/BaseHead.astro";
+import Footer from "@components/Footer.astro";
+import Navbar from "@components/Navbar.astro";
+import type { NavigationOptions } from "types";
+import { createNavigation } from "@utils/navigation";
+import "@fontsource-variable/inter/index.css";
+
+export interface Props {
+  title: string;
+  navOptions: NavigationOptions;
+}
+
+const { navOptions, title } = Astro.props;
+const nav = createNavigation(navOptions);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={title} />
+  </head>
+  <body>
+    <div class="grid grid-rows-[80px_auto_80px] min-h-screen">
+      <Navbar navigationItems={nav} />
+      <!-- <Container class=""> -->
+      <slot />
+      <!-- </Container> -->
+      <Footer />
+    </div>
+    <style is:global>
+      /* Improve Page speed */
+      /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
+      img {
+        content-visibility: auto;
+      }
+    </style>
+  </body>
+</html>
