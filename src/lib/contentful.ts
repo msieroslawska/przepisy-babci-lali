@@ -39,10 +39,18 @@ const getAllRecipes = async () =>
 export const getPages = async () => {
   const recipes = await getAllRecipes();
 
-  return recipes.items.map(recipe => {
+  return recipes.items.map((recipe, idx, recipes) => {
     const {
       fields: { description, ingredients, slug, title },
     } = recipe;
+
+    const prevIdx = idx == 0 ? recipes.length - 1 : idx - 1;
+    const nextIdx = idx == recipes.length - 1 ? 0 : idx + 1;
+
+    const createNavigationTitle = (idx: number) =>
+      `${getStringValue(recipes[idx].fields.title["en"])} - ${getStringValue(
+        recipes[idx].fields.title["pl"]
+      )}`;
 
     return {
       params: { slug: getStringValue(slug["en"]) },
@@ -57,6 +65,16 @@ export const getPages = async () => {
         },
         image: getImageProps(recipe.fields.image, { height: 500, width: 1000 }),
         ingredients: ingredients["en"],
+        recipeNavigation: {
+          prev: {
+            slug: getStringValue(recipes[prevIdx].fields.slug["en"]),
+            title: createNavigationTitle(prevIdx),
+          },
+          next: {
+            slug: getStringValue(recipes[nextIdx].fields.slug["en"]),
+            title: createNavigationTitle(nextIdx),
+          },
+        },
       },
     };
   });

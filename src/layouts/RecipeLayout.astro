@@ -3,21 +3,29 @@ import type { InferGetStaticPropsType } from "astro";
 import { Image } from "astro:assets";
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/Container.astro";
-import type { getStaticPaths } from "@pages/recipes/[slug].astro";
-
-import { parseIngredients } from "@utils/getContentfulValues";
 import RecipeColumn from "@components/RecipeColumn.astro";
+import RecipesNav from "@components/RecipesNav.astro";
+import type { getStaticPaths } from "@pages/recipes/[slug].astro";
+import { parseIngredients } from "@utils/getContentfulValues";
 
 export type RecipeProps = InferGetStaticPropsType<typeof getStaticPaths>;
 export type ParsedIngredients = ReturnType<typeof parseIngredients>;
 
-const { description, title, image, ingredients } = Astro.props;
+const {
+  description,
+  image,
+  ingredients,
+  recipeNavigation,
+  title,
+}: RecipeProps = Astro.props;
 const translatedIngredients = parseIngredients(ingredients);
 ---
 
 <Layout title={title.en} navOptions={{ showHome: true, showRecipes: true }}>
   <Container class="">
     <article class="prose prose-headings:underline prose-img:rounded-xl">
+      <RecipesNav recipeNavigation={recipeNavigation} />
+
       <Image
         src={image.src}
         alt={image.alt}
@@ -39,6 +47,8 @@ const translatedIngredients = parseIngredients(ingredients);
           title={title.pl}
         />
       </div>
+
+      <RecipesNav recipeNavigation={recipeNavigation} />
     </article>
   </Container>
 </Layout>

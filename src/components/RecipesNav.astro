@@ -1,0 +1,26 @@
+---
+import type { RecipeProps } from "@layouts/RecipeLayout.astro";
+
+type Props = {
+  recipeNavigation: RecipeProps["recipeNavigation"];
+};
+
+const { recipeNavigation } = Astro.props;
+---
+
+<div class="mx-auto flex">
+  <a
+    role"button"
+    href=`/recipes/${recipeNavigation.prev.slug}`
+    class="btn btn-ghost flex-1"
+  >
+    ← {recipeNavigation.prev.title}
+  </a>
+  <a
+    role="button"
+    href=`/recipes/${recipeNavigation.next.slug}`
+    class="btn btn-ghost flex-1"
+  >
+    {recipeNavigation.next.title} →
+  </a>
+</div>
