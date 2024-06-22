@@ -9,14 +9,14 @@ const { image, slug, title } = Astro.props;
 
 <a class="link hover:link-accent" href={`/recipes/${slug.en}/`}>
   <div
-    class="card w-96 bg-base-100 shadow-xl my-2 hover:scale-105 transition-transform duration-300 ease-in-out"
+    class="card w-96 h-full bg-base-100 shadow-xl my-2 hover:scale-105 transition-transform duration-300 ease-in-out"
   >
     <Image
       src={image.src}
       alt={image.alt}
-      width={500}
-      height={200}
-      class="object-none object-center blur-xs hover:blur-inherit"
+      width={image.width}
+      height={image.height}
+      class="object-none object-center blur-xs h-48"
     />
 
     <div class="card-body">

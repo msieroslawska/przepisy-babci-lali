@@ -10,6 +10,8 @@ export type MappedRecipe = {
   id: string;
   image: {
     alt: string;
+    height: number;
     src: string;
+    width: number;
   };
 };

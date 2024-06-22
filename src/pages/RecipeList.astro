@@ -1,11 +1,11 @@
 ---
 import RecipeListLayout from "@layouts/RecipeListLayout.astro";
 import RecipeCard from "@components/RecipeCard.astro";
-import { getMappedRecipes } from "../lib/contentful";
+import { getRecipeList } from "../lib/contentful";
 
-const mappedRecipes = await getMappedRecipes();
+const recipes = await getRecipeList();
 ---
 
 <RecipeListLayout title="Recipes">
-  {mappedRecipes.map(recipe => <RecipeCard {...recipe} />)}
+  {recipes.map(recipe => <RecipeCard {...recipe} />)}
 </RecipeListLayout>
