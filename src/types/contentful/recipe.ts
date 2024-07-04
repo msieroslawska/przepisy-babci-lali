@@ -13,3 +13,5 @@ interface RecipeFields {
 
 export type RecipeSkeleton = EntrySkeletonType<RecipeFields, "recipe">;
 export type Recipe<Modifiers extends ChainModifiers, Locales extends LocaleCode> = Entry<RecipeSkeleton, Modifiers, Locales>;
+
+export type RecipeImage = Recipe<"WITHOUT_UNRESOLVABLE_LINKS" | "WITH_ALL_LOCALES", "en" | "pl">["fields"]["image"];

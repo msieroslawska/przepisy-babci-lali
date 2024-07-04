@@ -1,6 +1,11 @@
-import contentful, { type AssetFile } from "contentful";
+import contentful from "contentful";
 
-import type { HeroSkeleton, MappedRecipe, RecipeSkeleton } from "../types";
+import type {
+  HeroSkeleton,
+  MappedRecipe,
+  RecipeImage,
+  RecipeSkeleton,
+} from "../types";
 import { getRichTextValue, getStringValue } from "@utils/getContentfulValues";
 
 type ImageOptions = {
@@ -19,7 +24,7 @@ const contentfulClient = baseClient.withoutUnresolvableLinks.withAllLocales;
 const prefixImage = (url = "", { height, width }: ImageOptions) =>
   `https:${url}?w=${width}&h=${height}`;
 
-const getImageProps = (image: any, { height, width }: ImageOptions) => {
+const getImageProps = (image: RecipeImage, { height, width }: ImageOptions) => {
   return {
     height,
     width,
