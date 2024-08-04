@@ -1,10 +1,3 @@
 # Przepisy babci Lali
 
-## 🚀 TODO
-
-- [ ] Finish adding all recipes
-- [ ] Make the recipe layout more versatile to be able to display more blocks
-
-## 💡 Ideas
-
-- [ ] Random recipe preview on the main page
+This is a simple recipe book of my grandma's recipes. Originally written in Polish, I decided to translate it to English and share it with the world. I hope you enjoy it!
