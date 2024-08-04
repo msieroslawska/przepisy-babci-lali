@@ -5,10 +5,13 @@ import type {
   EntrySkeletonType,
   LocaleCode,
 } from "contentful";
-import type { FoodSkeleton } from "./food";
-import type { QuantitySkeleton } from "./quantity";
-import type { UnitSkeleton } from "./unit";
-
+import type {
+  FoodSkeleton,
+  Loc,
+  Mod,
+  QuantitySkeleton,
+  UnitSkeleton,
+} from "./";
 interface IngredientFields {
   id?: EntryFieldTypes.Symbol;
   quantity?: EntryFieldTypes.EntryLink<QuantitySkeleton>;
@@ -20,7 +23,9 @@ export type IngredientSkeleton = EntrySkeletonType<
   IngredientFields,
   "ingredient"
 >;
-type Ingredient<
+type I<
   Modifiers extends ChainModifiers,
-  Locales extends LocaleCode
+  Locales extends LocaleCode = LocaleCode
 > = Entry<IngredientSkeleton, Modifiers, Locales>;
+
+export type Ingredient = I<Mod, Loc>;

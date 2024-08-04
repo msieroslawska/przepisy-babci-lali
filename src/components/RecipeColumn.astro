@@ -21,7 +21,7 @@ const { description, iconVariant, ingredients, title } = Astro.props;
       {title}
     </h1>
     <ul>
-      {ingredients.map((ingredient: any) => <li>{ingredient}</li>)}
+      {ingredients.map(ingredient => <li>{ingredient}</li>)}
     </ul>
   </div>
   <div set:html={description} />

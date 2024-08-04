@@ -1,17 +1,30 @@
-import type { ChainModifiers, Entry, EntrySkeletonType, EntryFieldTypes, LocaleCode } from "contentful";
-import type { IngredientSkeleton } from "./ingredient"
+import type {
+  ChainModifiers,
+  Entry,
+  EntrySkeletonType,
+  EntryFieldTypes,
+  LocaleCode,
+} from "contentful";
+import type { IngredientSkeleton, Loc, Mod } from "./";
 
 interface RecipeFields {
-    title: EntryFieldTypes.Symbol;
-    slug: EntryFieldTypes.Symbol;
-    image: EntryFieldTypes.AssetLink;
-    source?: EntryFieldTypes.Symbol;
-    ingredients: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<IngredientSkeleton>>;
-    description: EntryFieldTypes.RichText;
-    tags?: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
+  title: EntryFieldTypes.Symbol;
+  slug: EntryFieldTypes.Symbol;
+  image: EntryFieldTypes.AssetLink;
+  source?: EntryFieldTypes.Symbol;
+  ingredients: EntryFieldTypes.Array<
+    EntryFieldTypes.EntryLink<IngredientSkeleton>
+  >;
+  description: EntryFieldTypes.RichText;
+  tags?: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
 }
 
 export type RecipeSkeleton = EntrySkeletonType<RecipeFields, "recipe">;
-export type Recipe<Modifiers extends ChainModifiers, Locales extends LocaleCode> = Entry<RecipeSkeleton, Modifiers, Locales>;
+type R<Modifiers extends ChainModifiers, Locales extends LocaleCode> = Entry<
+  RecipeSkeleton,
+  Modifiers,
+  Locales
+>;
+export type Recipe = R<Mod, Loc>;
 
-export type RecipeImage = Recipe<"WITHOUT_UNRESOLVABLE_LINKS" | "WITH_ALL_LOCALES", "en" | "pl">["fields"]["image"];
+export type RecipeImage = R<Mod, Loc>["fields"]["image"];

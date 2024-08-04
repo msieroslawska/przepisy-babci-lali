@@ -1,10 +1,23 @@
-import type { ChainModifiers, Entry, EntryFieldTypes, EntrySkeletonType, LocaleCode } from "contentful";
+import type {
+  ChainModifiers,
+  Entry,
+  EntryFieldTypes,
+  EntrySkeletonType,
+  LocaleCode,
+} from "contentful";
+import type { Loc, Mod } from "./";
 
 interface UnitFields {
-    id: EntryFieldTypes.Symbol;
-    modifier?: EntryFieldTypes.Symbol;
-    unitName: EntryFieldTypes.Symbol;
+  id: EntryFieldTypes.Symbol;
+  modifier?: EntryFieldTypes.Symbol;
+  unitName: EntryFieldTypes.Symbol;
 }
 
 export type UnitSkeleton = EntrySkeletonType<UnitFields, "unit">;
-export type Unit<Modifiers extends ChainModifiers, Locales extends LocaleCode> = Entry<UnitSkeleton, Modifiers, Locales>;
+type U<Modifiers extends ChainModifiers, Locales extends LocaleCode> = Entry<
+  UnitSkeleton,
+  Modifiers,
+  Locales
+>;
+
+export type Unit = U<Mod, Loc>;

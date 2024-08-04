@@ -1,5 +1,6 @@
 import type { Document } from "@contentful/rich-text-types";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import type { Ingredient } from "types/contentful/ingredient";
 
 const isDocument = (value: unknown): value is Document => {
   return (
@@ -23,9 +24,9 @@ export const getStringValue = (value: unknown) => {
 };
 
 // What an ugly ass code
-export const parseIngredients = (ingredients: any) => {
+export const parseIngredients = (ingredients: Ingredient[]) => {
   const translatedIngredients = ingredients.reduce(
-    (acc: any, cur: any) => {
+    (acc: { en: string[]; pl: string[] }, cur) => {
       const quantityName =
         cur.fields.quantity?.en?.fields.quantityName.en ?? "";
       const enUnitName = cur.fields.unit?.en?.fields.unitName.en ?? "";
