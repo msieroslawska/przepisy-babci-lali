@@ -1,11 +1,10 @@
 ---
 import { Icon } from "astro-icon/components";
-import type { ParsedIngredients } from "@layouts/RecipeLayout.astro";
 
 type Props = {
   description: string;
   iconVariant: "pl" | "en";
-  ingredients: ParsedIngredients;
+  ingredients: string[];
   title: string;
 };
 const { description, iconVariant, ingredients, title } = Astro.props;

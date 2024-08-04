@@ -9,7 +9,6 @@ import type { getStaticPaths } from "@pages/recipes/[slug].astro";
 import { parseIngredients } from "@utils/getContentfulValues";
 
 export type RecipeProps = InferGetStaticPropsType<typeof getStaticPaths>;
-export type ParsedIngredients = ReturnType<typeof parseIngredients>;
 
 const {
   description,

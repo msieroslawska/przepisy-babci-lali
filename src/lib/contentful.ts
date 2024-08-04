@@ -36,10 +36,12 @@ const getImageProps = (image: RecipeImage, { height, width }: ImageOptions) => {
 };
 
 const getAllRecipes = async () =>
-  contentfulClient.getEntries<RecipeSkeleton>({
+  contentfulClient.getEntries<RecipeSkeleton, "en" | "pl">({
     content_type: "recipe",
     include: 3,
   });
+
+const isDefined = <T>(value: T | undefined): value is T => value !== undefined;
 
 export const getPages = async () => {
   const recipes = await getAllRecipes();
@@ -48,6 +50,7 @@ export const getPages = async () => {
     const {
       fields: { description, ingredients, slug, title },
     } = recipe;
+    const filteredIngredientsEn = ingredients.en?.filter(isDefined) ?? [];
 
     const prevIdx = idx == 0 ? recipes.length - 1 : idx - 1;
     const nextIdx = idx == recipes.length - 1 ? 0 : idx + 1;
@@ -69,7 +72,7 @@ export const getPages = async () => {
           pl: getRichTextValue(description["pl"]),
         },
         image: getImageProps(recipe.fields.image, { height: 500, width: 1000 }),
-        ingredients: ingredients["en"],
+        ingredients: filteredIngredientsEn,
         recipeNavigation: {
           prev: {
             slug: getStringValue(recipes[prevIdx].fields.slug["en"]),

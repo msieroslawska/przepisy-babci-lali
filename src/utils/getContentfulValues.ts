@@ -23,10 +23,17 @@ export const getStringValue = (value: unknown) => {
   return isString(value) ? value : "";
 };
 
+type ParsedIngredients = {
+  en: string[];
+  pl: string[];
+};
+
 // What an ugly ass code
-export const parseIngredients = (ingredients: Ingredient[]) => {
-  const translatedIngredients = ingredients.reduce(
-    (acc: { en: string[]; pl: string[] }, cur) => {
+export const parseIngredients = (
+  ingredients: Ingredient[]
+): ParsedIngredients => {
+  return ingredients.reduce(
+    (acc: ParsedIngredients, cur) => {
       const quantityName =
         cur.fields.quantity?.en?.fields.quantityName.en ?? "";
       const enUnitName = cur.fields.unit?.en?.fields.unitName.en ?? "";
@@ -40,6 +47,4 @@ export const parseIngredients = (ingredients: Ingredient[]) => {
     },
     { en: [], pl: [] }
   );
-
-  return translatedIngredients;
 };
