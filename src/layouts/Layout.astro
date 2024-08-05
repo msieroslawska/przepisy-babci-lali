@@ -2,17 +2,16 @@
 import BaseHead from "@components/BaseHead.astro";
 import Footer from "@components/Footer.astro";
 import Navbar from "@components/Navbar.astro";
-import type { NavigationOptions } from "types";
 import { createNavigation } from "@utils/navigation";
 import "@fontsource-variable/inter/index.css";
 
 export interface Props {
   title: string;
-  navOptions: NavigationOptions;
 }
 
-const { navOptions, title } = Astro.props;
-const nav = createNavigation(navOptions);
+const { title } = Astro.props;
+const currentPath = Astro.url.pathname;
+const nav = createNavigation(currentPath);
 ---
 
 <!doctype html>
@@ -22,7 +21,7 @@ const nav = createNavigation(navOptions);
   </head>
   <body>
     <div class="grid grid-rows-[80px_auto_80px] min-h-screen">
-      <Navbar navigationItems={nav} />
+      <Navbar navigation={nav} />
       <!-- <Container class=""> -->
       <slot />
       <!-- </Container> -->

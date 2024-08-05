@@ -3,7 +3,7 @@ export type NavigationItem = {
   path: string;
 };
 
-export type NavigationOptions = {
-  showHome: boolean;
-  showRecipes: boolean;
+export type Navigation = {
+  currentPage: string;
+  navigationItems: NavigationItem[];
 };

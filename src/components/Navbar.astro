@@ -1,23 +1,29 @@
 ---
 import Container from "@components/Container.astro";
-import type { NavigationItem } from "types";
+import { isCurrentPage } from "@utils/navigation";
+import type { Navigation } from "types";
 
 export interface Props {
-  navigationItems: NavigationItem[];
+  navigation: Navigation;
 }
 
-const { navigationItems } = Astro.props;
+const { navigation } = Astro.props;
 ---
 
 <Container>
   <header class="navbar">
     <ul class="">
       {
-        navigationItems.map(item => (
-          <li class="btn btn-neutral hover:btn-accent mx-4">
-            <a href={item.path}>{item.title}</a>
-          </li>
-        ))
+        navigation.navigationItems.map(item => {
+          const isCurrent = isCurrentPage(navigation.currentPage, item.path);
+          return (
+            <li
+              class={`btn btn-neutral hover:btn-accent mx-4 ${isCurrent ? "btn-disabled" : ""}`}
+            >
+              <a href={item.path}>{item.title}</a>
+            </li>
+          );
+        })
       }
     </ul>
   </header>

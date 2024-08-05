@@ -10,7 +10,7 @@ export interface Props {
 const { title } = Astro.props;
 ---
 
-<Layout title={title} navOptions={{ showHome: true, showRecipes: false }}>
+<Layout title={title}>
   <Container class="grid grid-cols-1 gap-3 xl:grid-cols-3 xl:gap-6">
     <slot />
   </Container>

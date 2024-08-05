@@ -1,4 +1,4 @@
-import type { NavigationItem, NavigationOptions } from "../types";
+import type { NavigationItem, Navigation } from "../types";
 
 const HOME: NavigationItem = {
   title: "Strona główna | Home",
@@ -9,19 +9,12 @@ const RECIPE_LIST: NavigationItem = {
   path: "/RecipeList",
 };
 
-export const createNavigation = (
-  options: NavigationOptions
-): NavigationItem[] => {
-  const navigation: NavigationItem[] = [];
-
-  if (!options.showHome && !options.showRecipes) {
-    return navigation;
-  }
-  if (options.showHome) {
-    navigation.push(HOME);
-  }
-  if (options.showRecipes) {
-    navigation.push(RECIPE_LIST);
-  }
-  return navigation;
+export const createNavigation = (currentPath: string): Navigation => {
+  return {
+    currentPage: currentPath,
+    navigationItems: [HOME, RECIPE_LIST],
+  };
 };
+
+export const isCurrentPage = (path: string, navItemPath: string): boolean =>
+  path.toLowerCase() === navItemPath.toLowerCase();
