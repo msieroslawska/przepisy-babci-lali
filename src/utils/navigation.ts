@@ -17,4 +17,4 @@ export const createNavigation = (currentPath: string): Navigation => {
 };
 
 export const isCurrentPage = (path: string, navItemPath: string): boolean =>
-  path === navItemPath;
+  path.toLowerCase() === navItemPath.toLowerCase();
