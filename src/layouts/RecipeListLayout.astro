@@ -1,6 +1,6 @@
 ---
 import Container from "@components/Container.astro";
-import Layout from "@layouts/Layout.astro";
+import PageLayout from "@layouts/PageLayout.astro";
 import "@fontsource-variable/inter/index.css";
 
 export interface Props {
@@ -10,8 +10,8 @@ export interface Props {
 const { title } = Astro.props;
 ---
 
-<Layout title={title}>
+<PageLayout title={title}>
   <Container class="grid grid-cols-1 gap-3 xl:grid-cols-3 xl:gap-6">
     <slot />
   </Container>
-</Layout>
+</PageLayout>

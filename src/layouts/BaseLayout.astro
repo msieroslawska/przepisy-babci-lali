@@ -1,0 +1,25 @@
+---
+import BaseHead from "@components/BaseHead.astro";
+import "@fontsource-variable/inter/index.css";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <BaseHead title={title} />
+  <body>
+    <slot />
+    <style is:global>
+      /* Improve Page speed */
+      /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
+      img {
+        content-visibility: auto;
+      }
+    </style>
+  </body>
+</html>

@@ -1,5 +1,5 @@
 ---
-import Layout from "@layouts/Layout.astro";
+import PageLayout from "@layouts/PageLayout.astro";
 import "@fontsource-variable/inter/index.css";
 
 export interface Props {
@@ -8,6 +8,6 @@ export interface Props {
 const { title } = Astro.props;
 ---
 
-<Layout title={title}>
+<PageLayout title={title}>
   <slot />
-</Layout>
+</PageLayout>
