@@ -8,6 +8,6 @@ export interface Props {
 const { title } = Astro.props;
 ---
 
-<Layout title={title} navOptions={{ showHome: false, showRecipes: true }}>
+<Layout title={title}>
   <slot />
 </Layout>

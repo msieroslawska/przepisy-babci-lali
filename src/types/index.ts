@@ -4,5 +4,5 @@ export type { Ingredient, IngredientSkeleton } from "./contentful/ingredient";
 export type { Quantity, QuantitySkeleton } from "./contentful/quantity";
 export type { Recipe, RecipeImage, RecipeSkeleton } from "./contentful/recipe";
 export type { Unit, UnitSkeleton } from "./contentful/unit";
-export type { NavigationItem, NavigationOptions } from "./navigation";
+export type { NavigationItem, Navigation } from "./navigation";
 export type { MappedRecipe } from "./entities";
