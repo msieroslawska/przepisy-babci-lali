@@ -70,3 +70,7 @@ dist
 public/
 
 .astro/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
