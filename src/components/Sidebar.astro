@@ -1,0 +1,24 @@
+---
+import { getRecipeList } from "@lib/contentful";
+import { isCurrentPage } from "@utils/navigation";
+const recipes = await getRecipeList();
+const currentPath = Astro.url.pathname;
+---
+
+<div class="grid-in-side">
+  <ul class="menu bg-base-200 rounded-box">
+    {
+      recipes.map(({ slug, title }) => {
+        const recipePath = `/recipes/${slug.en}/`;
+        const isCurrent = isCurrentPage(currentPath, recipePath);
+        return (
+          <li class={isCurrent ? "font-bold" : ""}>
+            <a href={recipePath}>
+              {title.pl} | {title.en}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</div>

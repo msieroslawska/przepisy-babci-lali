@@ -17,7 +17,7 @@ module.exports = {
         recipeLayout: ["nav nav", "side main", "footer footer"],
       },
       gridTemplateColumns: {
-        recipeLayout: "200px auto",
+        recipeLayout: "350px auto",
       },
       gridTemplateRows: {
         pageLayout: "80px auto 80px",
