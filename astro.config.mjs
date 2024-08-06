@@ -6,4 +6,5 @@ export default defineConfig({
   integrations: [icon(), tailwind()],
   remotePatterns: [{ protocol: "https" }],
   domains: ["images.ctfassets.net"],
+  site: "https://przepisy-babci-lali.netlify.app",
 });

@@ -13,9 +13,17 @@ type ImageOptions = {
   width: number;
 };
 
+const isCI = process.env.CI === "true";
+const space = isCI
+  ? process.env.CONTENTFUL_SPACE_ID
+  : import.meta.env.CONTENTFUL_SPACE_ID;
+const accessToken = isCI
+  ? process.env.CONTENTFUL_DELIVERY_TOKEN
+  : import.meta.env.CONTENTFUL_DELIVERY_TOKEN;
+
 const baseClient = contentful.createClient({
-  space: import.meta.env.CONTENTFUL_SPACE_ID,
-  accessToken: import.meta.env.CONTENTFUL_DELIVERY_TOKEN,
+  space,
+  accessToken,
   host: "cdn.contentful.com",
 });
 

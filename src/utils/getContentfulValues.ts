@@ -28,21 +28,25 @@ type ParsedIngredients = {
   pl: string[];
 };
 
-// What an ugly ass code
+export const createIngredientString = (
+  ...parts: (string | number | undefined)[]
+): string => {
+  return parts.filter(Boolean).join(" ");
+};
+
 export const parseIngredients = (
   ingredients: Ingredient[]
 ): ParsedIngredients => {
   return ingredients.reduce(
     (acc: ParsedIngredients, cur) => {
-      const quantityName =
-        cur.fields.quantity?.en?.fields.quantityName.en ?? "";
-      const enUnitName = cur.fields.unit?.en?.fields.unitName.en ?? "";
-      const plUnitName = cur.fields.unit?.en?.fields.unitName.pl ?? "";
-      const enFoodName = cur.fields.food?.en?.fields.foodName.en ?? "";
-      const plFoodName = cur.fields.food?.en?.fields.foodName.pl ?? "";
+      const quantityName = cur.fields.quantity?.en?.fields.quantityName.en;
+      const enUnitName = cur.fields.unit?.en?.fields.unitName.en;
+      const plUnitName = cur.fields.unit?.en?.fields.unitName.pl;
+      const enFoodName = cur.fields.food?.en?.fields.foodName.en;
+      const plFoodName = cur.fields.food?.en?.fields.foodName.pl;
 
-      acc.en.push(`${quantityName} ${enUnitName} ${enFoodName}`);
-      acc.pl.push(`${quantityName} ${plUnitName} ${plFoodName}`);
+      acc.en.push(createIngredientString(quantityName, enUnitName, enFoodName));
+      acc.pl.push(createIngredientString(quantityName, plUnitName, plFoodName));
       return acc;
     },
     { en: [], pl: [] }
