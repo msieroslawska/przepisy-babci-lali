@@ -1,12 +1,16 @@
 ---
 import type { InferGetStaticPropsType } from "astro";
 import { Image } from "astro:assets";
-import Layout from "@layouts/Layout.astro";
 import Container from "@components/Container.astro";
+import Footer from "@components/Footer.astro";
 import RecipeColumn from "@components/RecipeColumn.astro";
 import RecipesNav from "@components/RecipesNav.astro";
+import Sidebar from "@components/Sidebar.astro";
+import Navbar from "@components/Navbar.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
 import type { getStaticPaths } from "@pages/recipes/[slug].astro";
 import { parseIngredients } from "@utils/getContentfulValues";
+import "@fontsource-variable/inter/index.css";
 
 export type RecipeProps = InferGetStaticPropsType<typeof getStaticPaths>;
 
@@ -20,34 +24,41 @@ const {
 const translatedIngredients = parseIngredients(ingredients);
 ---
 
-<Layout title={title.en}>
-  <Container class="">
-    <article class="prose prose-headings:underline prose-img:rounded-xl">
-      <RecipesNav recipeNavigation={recipeNavigation} />
+<BaseLayout title={title.en}>
+  <div
+    class="grid grid-areas-recipeLayout grid-rows-recipeLayout grid-cols-recipeLayout min-h-screen"
+  >
+    <Navbar />
+    <Sidebar />
+    <Container class="">
+      <article class="prose prose-headings:underline prose-img:rounded-xl">
+        <RecipesNav recipeNavigation={recipeNavigation} />
 
-      <Image
-        src={image.src}
-        alt={image.alt}
-        width={image.width}
-        height={image.height}
-        class="shadow-2xl border-2 border-primary p-2"
-      />
-      <div class="flex">
-        <RecipeColumn
-          description={description.en}
-          iconVariant="en"
-          ingredients={translatedIngredients.en}
-          title={title.en}
+        <Image
+          src={image.src}
+          alt={image.alt}
+          width={image.width}
+          height={image.height}
+          class="shadow-2xl border-2 border-primary p-2"
         />
-        <RecipeColumn
-          description={description.pl}
-          iconVariant="pl"
-          ingredients={translatedIngredients.pl}
-          title={title.pl}
-        />
-      </div>
+        <div class="flex">
+          <RecipeColumn
+            description={description.en}
+            iconVariant="en"
+            ingredients={translatedIngredients.en}
+            title={title.en}
+          />
+          <RecipeColumn
+            description={description.pl}
+            iconVariant="pl"
+            ingredients={translatedIngredients.pl}
+            title={title.pl}
+          />
+        </div>
 
-      <RecipesNav recipeNavigation={recipeNavigation} />
-    </article>
-  </Container>
-</Layout>
+        <RecipesNav recipeNavigation={recipeNavigation} />
+      </article>
+    </Container>
+    <Footer />
+  </div>
+</BaseLayout>

@@ -1,21 +1,17 @@
 ---
 import Container from "@components/Container.astro";
-import { isCurrentPage } from "@utils/navigation";
-import type { Navigation } from "types";
+import { createNavigation, isCurrentPage } from "@utils/navigation";
 
-export interface Props {
-  navigation: Navigation;
-}
-
-const { navigation } = Astro.props;
+const currentPath = Astro.url.pathname;
+const nav = createNavigation(currentPath);
 ---
 
-<Container>
+<Container class="grid-in-nav">
   <header class="navbar">
     <ul class="">
       {
-        navigation.navigationItems.map(item => {
-          const isCurrent = isCurrentPage(navigation.currentPage, item.path);
+        nav.navigationItems.map(item => {
+          const isCurrent = isCurrentPage(nav.currentPage, item.path);
           return (
             <li
               class={`btn btn-neutral hover:btn-accent mx-4 ${isCurrent ? "btn-disabled" : ""}`}

@@ -1,4 +1,4 @@
-import type { NavigationItem, Navigation } from "../types";
+import type { NavigationItem, Navigation } from "types";
 
 const HOME: NavigationItem = {
   title: "Strona główna | Home",

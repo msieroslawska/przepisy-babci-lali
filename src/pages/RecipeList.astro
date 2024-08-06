@@ -1,7 +1,7 @@
 ---
 import RecipeListLayout from "@layouts/RecipeListLayout.astro";
 import RecipeCard from "@components/RecipeCard.astro";
-import { getRecipeList } from "../lib/contentful";
+import { getRecipeList } from "@lib/contentful";
 
 const recipes = await getRecipeList();
 ---

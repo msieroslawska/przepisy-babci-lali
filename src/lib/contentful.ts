@@ -5,7 +5,7 @@ import type {
   MappedRecipe,
   RecipeImage,
   RecipeSkeleton,
-} from "../types";
+} from "types";
 import { getRichTextValue, getStringValue } from "@utils/getContentfulValues";
 
 type ImageOptions = {

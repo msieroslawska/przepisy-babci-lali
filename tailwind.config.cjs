@@ -12,9 +12,24 @@ module.exports = {
       blur: {
         xs: "1.5px",
       },
+      gridTemplateAreas: {
+        pageLayout: ["nav", "main", "footer"],
+        recipeLayout: ["nav nav", "side main", "footer footer"],
+      },
+      gridTemplateColumns: {
+        recipeLayout: "350px auto",
+      },
+      gridTemplateRows: {
+        pageLayout: "80px auto 80px",
+        recipeLayout: "80px auto 80px",
+      },
     },
   },
-  plugins: [require("@tailwindcss/typography"), require("daisyui")],
+  plugins: [
+    require("@tailwindcss/typography"),
+    require("daisyui"),
+    require("@savvywombat/tailwindcss-grid-areas"),
+  ],
   daisyui: {
     themes: ["nord"],
     styled: true,

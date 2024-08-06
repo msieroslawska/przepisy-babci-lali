@@ -22,6 +22,7 @@
     "@fontsource-variable/inter": "5.0.20",
     "@iconify-json/circle-flags": "^1.1.49",
     "@iconify-json/simple-icons": "1.1.112",
+    "@savvywombat/tailwindcss-grid-areas": "^4.0.0",
     "@tailwindcss/typography": "0.5.13",
     "astro": "4.13.1",
     "astro-icon": "1.1.0",
