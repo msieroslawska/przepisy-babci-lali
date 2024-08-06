@@ -13,7 +13,7 @@ const isDocument = (value: unknown): value is Document => {
 export const getRichTextValue = (document: unknown) => {
   return isDocument(document)
     ? documentToHtmlString(document)
-    : JSON.stringify(document);
+    : String(document);
 };
 
 const isString = (value: unknown): value is string => {
